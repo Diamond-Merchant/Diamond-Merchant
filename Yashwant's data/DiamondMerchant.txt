@@ -1,0 +1,8 @@
+GET - http://localhost:8090/bill/getBillData
+
+POST - http://localhost:8090/bill/storeBillData
+{"bid":105,"ename":"Mahesh","cname":"Ramesh","pname":"PS4","qty":1,"price":45000,"dop":"2021-02-18"}
+
+PUT - http://localhost:8090/bill/deleteBillData/105
+
+PUT - http://localhost:8090/bill/updateBillData
