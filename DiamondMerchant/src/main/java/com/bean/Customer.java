@@ -8,41 +8,49 @@ import javax.persistence.Table;
 @Entity
 @Table(name="customer")
 public class Customer {
+	
 	@Id
-	@Column(name="customerid")
-	private int customerId;
+	private int customerid;
 	private String name;
 	private String gender;
-	@Column(name="phonenumber")
-	private String phoneNumber;
-	public int getCustomerId() {
-		return customerId;
+	private String phonenumber;
+	
+	public int getCustomerid() {
+		return customerid;
 	}
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
+	
+	public void setCustomerid(int customerid) {
+		this.customerid = customerid;
 	}
+	
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public String getGender() {
 		return gender;
 	}
+	
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getPhoneNumber() {
-		return phoneNumber;
+	
+	public String getPhonenumber() {
+		return phonenumber;
 	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
 	}
+
 	@Override
 	public String toString() {
-		return "Customer [customerId=" + customerId + ", name=" + name + ", gender=" + gender + ", phoneNumber="
-				+ phoneNumber + "]";
+		return "Customer [customerid=" + customerid + ", name=" + name + ", gender=" + gender + ", phonenumber="
+				+ phonenumber + "]";
 	}
 
 

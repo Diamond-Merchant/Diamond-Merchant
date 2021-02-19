@@ -9,16 +9,20 @@ import org.springframework.stereotype.Service;
 import com.bean.Customer;
 
 import com.dao.*;
+
 @Service
 public class CustomerService {
+	
 	@Autowired
 	CustomerRepository customerRepo;
 	
 	public List<Customer> getAllCustomerFromSpringData() {
 		return customerRepo.findAll();
-}
+	}
+	
+	
 	public String storeCustomerSpringData(Customer cs) {
-		Optional<Customer> op = customerRepo.findById(cs.getCustomerId());
+		Optional<Customer> op = customerRepo.findById(cs.getCustomerid());
 		if(op.isPresent()) {
 			return "Record already present";
 		}else {
@@ -29,7 +33,9 @@ public class CustomerService {
 				return "Record didn't store";
 			}
 		}
-}
+	}
+	
+	
 	public String deleteCustomerSpringData(int cid) {
 		if(customerRepo.existsById(cid)) {
 			customerRepo.deleteById(cid);
@@ -39,11 +45,12 @@ public class CustomerService {
 		}
 	}
 	
+	
 	public String updateCustomerSpringData(Customer cs) {
-        Optional<Customer> obj = customerRepo.findById(cs.getCustomerId());
+        Optional<Customer> obj = customerRepo.findById(cs.getCustomerid());
         if(obj.isPresent()) {
         	Customer p = obj.get();
-            p.setPhoneNumber(cs.getPhoneNumber());
+            p.setPhonenumber(cs.getPhonenumber());
             customerRepo.saveAndFlush(p);   
             return "Record Updated Successfully";
     } else {

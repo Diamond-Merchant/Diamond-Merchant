@@ -19,23 +19,27 @@ import com.service.CustomerService;
 @RestController
 @RequestMapping(value="customer")
 public class CustomerController {
+	
 	@Autowired
 	CustomerService ps;
 	
-	@PostMapping(value = "storeCustomerData",consumes = MediaType.APPLICATION_JSON_VALUE)
-	public String storeCustomerSpringData(@RequestBody Customer pp) {
-		return ps.storeCustomerSpringData(pp);
-	}
-
 	@GetMapping(value = "allCustomerData",produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Customer> getAllCustomerDetailsFromSpringData(){
 			return ps.getAllCustomerFromSpringData();
 	}
 	
+	
+	@PostMapping(value = "storeCustomerData",consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String storeCustomerSpringData(@RequestBody Customer pp) {
+		return ps.storeCustomerSpringData(pp);
+	}
+	
+	
 	@PutMapping(value = "updateCustomerData",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String updateCustomerSpringData(@RequestBody Customer cs) {
 			return ps.updateCustomerSpringData(cs);
 	}
+	
 	
 	@DeleteMapping(value = "deleteCustomerData/{customerId}")
 	public String deleteProductSpringData(@PathVariable("customerId") int customerId) {

@@ -62,3 +62,17 @@ insert into Store values(101,1234567,'Pune');
 insert into Store values(102,9876543,'Goa');
 
 insert into Store values(103,8548653,'Mumbai');
+
+ 		CUSTOMER TABLE
+ ------------------------------
+
+create table customer (
+	customerid int NOT NULL,
+	name varchar(10) NOT NULL,
+	gender varchar(10),
+	phonenumber varchar(10)
+);
+
+insert into customer values(2000,'Ram','Male','9856324567');
+
+insert into customer values(2001,'Vidya','Female','8967534721');
