@@ -1,0 +1,48 @@
+				BILL TABLE
+---------------------------------------------
+
+GET - http://localhost:8090/bill/getBillData
+
+POST - http://localhost:8090/bill/storeBillData
+{"bid":105,"ename":"Mahesh","cname":"Ramesh","pname":"PS4","qty":1,"price":45000,"dop":"2021-02-18"}
+
+DELETE - http://localhost:8090/bill/deleteBillData/105
+
+PUT - http://localhost:8090/bill/updateBillData
+
+
+
+				ORDER TABLE
+---------------------------------------------
+
+GET - http://localhost:8090/orders/allOrdersData
+
+POST - http://localhost:8090/orders/storeOrdersData
+
+PUT - http://localhost:8090/orders/updateOrdersData
+
+DELETE - http://localhost:8090/orders/deleteOrdersData/103
+
+
+				STORE TABLE
+---------------------------------------------
+
+GET - http://localhost:8090/Store/allStoreData
+
+POST - http://localhost:8090/Store/storeStoreData
+
+PUT - http://localhost:8090/Store/updateStoreData
+
+DELETE - http://localhost:8090/Store/deleteStoreData/104
+
+	
+				CUSTOMER TABLE
+---------------------------------------------
+
+GET - http://localhost:8090/Store/allCustomerData
+
+POST - http://localhost:8090/Store/storeCustomerData
+
+PUT - http://localhost:8090/Store/updateCustomerData
+
+DELETE - http://localhost:8090/Store/deleteCustomerData/104
