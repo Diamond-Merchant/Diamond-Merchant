@@ -51,17 +51,13 @@ insert into Orders values(204,'BlackLabel',1,3000000,'2021-02-28','Pending');
 		STORE TABLE
 ------------------------------
 
-create table Store(
-	storeid int(20) primary key, 
-	contact int(30), 
-	address varchar(20)
-);
+create table Store(storeid int(20) primary key, contact int(20), address varchar(20), storename varchar(20), email varchar(20), status varchar(20), pname varchar(20), productprice float(20));
 
-insert into Store values(301,1234567,'Pune');
+insert into Store values(101,123456,'Pune','Tanishq','xyz@gmail.com','Delivered','Bracelate',15000);
 
-insert into Store values(302,9876543,'Goa');
+insert into Store values(102,987456,'Goa','Kalyan jewellers','abc@gmail.com','Pending','necklace',20000);
 
-insert into Store values(303,8548653,'Mumbai');
+insert into Store values(103,625415,'Mumbai','Gitanjali jewellers','lmn@gmail.com','Ready to Deliver','Rings',30000);
 
  		CUSTOMER TABLE
  ------------------------------
@@ -102,10 +98,23 @@ insert into product values(1002,'CircleOfTrust','Delhi','300000','4500000','Fore
 insert into product values(1003,'BlackLabel','Hyderabad','150000','3000000','Arabelle');
 
 insert into product values(1004,'Encorida','Bangalore','270000','5500000','Zanyah');
+                              
+				EMPLOYEE TABLE
+-----------------------------------------------------------------------------------------------------------------
+create table Employee(eid int(20) primary key, ename varchar(20), gender varchar(20), birthdate Date, joiningdate Date, designation varchar(20));
 
+insert into Employee values(501,'Rajat','Male','1997-12-05','2020-11-21','Trainee');
+
+insert into Employee values(502,'Priya','Female','1996-08-04','2021-12-10','Devloper');
+
+insert into Employee values(503,'Shekhar','Male','1997-10-05','2019-10-04','Tester');
+
+insert into Employee values(504,'Anu','Female','1995-01-02','2020-05-02','HR'); 		
  		
- 		RETAILER TABLE
- ------------------------------
+
+
+				RETAILER TABLE
+ -------------------------------------------------------------------------------------------------------
 
 create table retailer (
 	rid int NOT NULL PRIMARY KEY,

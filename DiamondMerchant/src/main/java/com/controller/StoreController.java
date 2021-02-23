@@ -46,9 +46,9 @@ StoreService SS;
 	}
 	
 	//http://localhost:8090/Store/deleteStoreData/104
-	@DeleteMapping(value = "deleteStoreData/{sid}")
-	public String deleteStorespringData(@PathVariable("sid") int sid) {
-			return SS.deleteStoreSpringData(sid);
+	@DeleteMapping(value = "deleteStoreData/{storeid}")
+	public String deleteStorespringData(@PathVariable("storeid") int storeid) {
+			return SS.deleteStoreSpringData(storeid);
 	}
 
 
