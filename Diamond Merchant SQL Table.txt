@@ -18,13 +18,13 @@ CREATE TABLE Bill (
 	DOP DATE NOT NULL
 );
 
-insert into Bill values(101,'Ram','Anil','TV',1,35000,'2021-02-11');
+insert into Bill values(101,'Ram','Anil','HalfCarat',1,7000000,'2021-02-11');
 
-insert into Bill values(102,'Suresh','Mahi','Mobile',1,25000,'2021-01-29');
+insert into Bill values(102,'Suresh','Mahi','BlackLabel',1,3000000,'2021-01-29');
 
-insert into Bill values(103,'Rekha','John','Laptop',1,55000,'2021-01-01');
+insert into Bill values(103,'Rekha','John','Encorida',1,5500000,'2021-01-01');
 
-insert into Bill values(104,'Spoorthy','Vidya','Cycle',1,15000,'2020-12-29');
+insert into Bill values(104,'Spoorthy','Vidya','CircleOfTrust',1,4500000,'2020-12-29');
 
 
 		ORDER TABLE
@@ -39,13 +39,13 @@ CREATE TABLE Orders (
 	ostatus VARCHAR(15)
 );
 
-insert into Orders values(100,'TV',2,80000,'2021-02-14','Pending');
+insert into Orders values(201,'Encorida',2,5500000,'2021-02-14','Pending');
 
-insert into Orders values(101,'Mobile',1,35000,'2021-01-18','Delivered');
+insert into Orders values(202,'HalfCarat',1,7000000,'2021-01-18','Delivered');
 
-insert into Orders values(102,'Laptop',1,50000,'2020-12-24','Delivered');
+insert into Orders values(203,'CircleOfTrust',1,4500000,'2020-12-24','Delivered');
 
-insert into Orders values(103,'Cycle',1,15000,'2021-02-28','Pending');
+insert into Orders values(204,'BlackLabel',1,3000000,'2021-02-28','Pending');
 
 
 		STORE TABLE
@@ -57,11 +57,11 @@ create table Store(
 	address varchar(20)
 );
 
-insert into Store values(101,1234567,'Pune');
+insert into Store values(301,1234567,'Pune');
 
-insert into Store values(102,9876543,'Goa');
+insert into Store values(302,9876543,'Goa');
 
-insert into Store values(103,8548653,'Mumbai');
+insert into Store values(303,8548653,'Mumbai');
 
  		CUSTOMER TABLE
  ------------------------------
@@ -73,6 +73,47 @@ create table customer (
 	phonenumber varchar(10)
 );
 
-insert into customer values(200,'Ram','Male','985632456');
+insert into customer values(401,'Ram','Male','985632456');
 
-insert into customer values(201,'Vidya','Female','896753472');
+insert into customer values(402,'Vidya','Female','896753472');
+
+ 	
+ 		
+ 		PRODUCT TABLE
+ ------------------------------
+
+create table product (
+	pid int NOT NULL PRIMARY KEY,
+	pname varchar(20) NOT NULL,
+	shelflocation varchar(10),
+	costprice float,
+	mrp float,
+	manufacturer varchar(20)
+);
+
+insert into product values(1001,'HalfCarat','Mumbai','500000','7000000','Forevermark');
+
+insert into product values(1002,'CircleOfTrust','Delhi','300000','4500000','Forevermark');
+
+insert into product values(1003,'BlackLabel','Hyderabad','150000','3000000','Arabelle');
+
+insert into product values(1004,'Encorida','Bangalore','270000','5500000','Zanyah');
+
+ 		
+ 		RETAILER TABLE
+ ------------------------------
+
+create table retailer (
+	rid int NOT NULL PRIMARY KEY,
+	rname varchar(15) NOT NULL,
+	remail varchar(20),
+	rphone int NOT NULL,
+	rpname varchar(15) NOT NULL,
+	rostatus varchar(10),
+	oid int NOT NULL,
+	storeid int NOT NULL,
+	pid int NOT NULL,
+	CONSTRAINT roid FOREIGN KEY(oid) REFERENCES Orders(oid),
+	CONSTRAINT rsid FOREIGN KEY(storeid) REFERENCES Store(storeid),
+	CONSTRAINT rpid FOREIGN KEY(pid) REFERENCES Product(pid)
+);
