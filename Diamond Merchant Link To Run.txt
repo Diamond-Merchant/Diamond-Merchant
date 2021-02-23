@@ -27,22 +27,35 @@ DELETE - http://localhost:8090/orders/deleteOrdersData/103
 				STORE TABLE
 ---------------------------------------------
 
-GET - http://localhost:8090/Store/allStoreData
+GET - http://localhost:8090/store/allStoreData
 
-POST - http://localhost:8090/Store/storeStoreData
+POST - http://localhost:8090/store/storeStoreData
 
-PUT - http://localhost:8090/Store/updateStoreData
+PUT - http://localhost:8090/store/updateStoreData
 
-DELETE - http://localhost:8090/Store/deleteStoreData/104
+DELETE - http://localhost:8090/store/deleteStoreData/104
 
 	
 				CUSTOMER TABLE
 ---------------------------------------------
 
-GET - http://localhost:8090/Store/allCustomerData
+GET - http://localhost:8090/customer/allCustomerData
 
-POST - http://localhost:8090/Store/storeCustomerData
+POST - http://localhost:8090/customer/storeCustomerData
 
-PUT - http://localhost:8090/Store/updateCustomerData
+PUT - http://localhost:8090/customer/updateCustomerData
 
-DELETE - http://localhost:8090/Store/deleteCustomerData/104
+DELETE - http://localhost:8090/customer/deleteCustomerData/104
+
+
+					PRODUCT TABLE
+---------------------------------------------
+
+GET - http://localhost:8090/product/getProductData
+
+POST - http://localhost:8090/product/storeProductData
+{"pid":1005,"pname":"Artemis","shelflocation":"Chennai","costprice":420050,"mrp":659090,"manufacturer":"Millemoi"}
+
+DELETE - http://localhost:8090/product/deleteProductData/1003
+
+PUT - http://localhost:8090/product/updateProductData
