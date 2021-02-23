@@ -18,31 +18,52 @@ PUT - http://localhost:8090/bill/updateBillData
 GET - http://localhost:8090/orders/allOrdersData
 
 POST - http://localhost:8090/orders/storeOrdersData
-
+{
+  "oid": 105,
+  "pname": "Bracelate",
+  "oqty": 2,
+  "oprice": 25000,
+  "odate": "2020-08-03",
+  "ostatus": "Pending"
+}
 PUT - http://localhost:8090/orders/updateOrdersData
-
+{"oid":104,
+ "oprice":4000
+}
 DELETE - http://localhost:8090/orders/deleteOrdersData/103
 
 
 				STORE TABLE
 ---------------------------------------------
 
-GET - http://localhost:8090/Store/allStoreData
+GET - http://localhost:8090/store/allStoreData
 
-POST - http://localhost:8090/Store/storeStoreData
+POST - http://localhost:8090/store/storeStoreData
+{"storeid":104,"contact":90909090,"address":"kolhapur"}
 
-PUT - http://localhost:8090/Store/updateStoreData
+PUT - http://localhost:8090/store/updateStoreData
+{"storeid":104,"contact":90909090,"address":"satara"}
 
-DELETE - http://localhost:8090/Store/deleteStoreData/104
+DELETE - http://localhost:8090/store/deleteStoreData/104
 
 	
 				CUSTOMER TABLE
 ---------------------------------------------
 
-GET - http://localhost:8090/Store/allCustomerData
+GET - http://localhost:8090/customer/allCustomerData
 
-POST - http://localhost:8090/Store/storeCustomerData
+POST - http://localhost:8090/customer/storeCustomerData
+{
+"customerid": 208,
+"name": "Ramesh",
+"gender": "Male",
+"phonenumber": "985638987"
+}
 
-PUT - http://localhost:8090/Store/updateCustomerData
+PUT - http://localhost:8090/customer/updateCustomerData
+{
+  "customerid": 200,
+  "phonenumber": "985638987"
+}
 
-DELETE - http://localhost:8090/Store/deleteCustomerData/104
+DELETE - http://localhost:8090/customer/deleteCustomerData/204

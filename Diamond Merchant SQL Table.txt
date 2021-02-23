@@ -77,6 +77,10 @@ insert into customer values(401,'Ram','Male','985632456');
 
 insert into customer values(402,'Vidya','Female','896753472');
 
+insert into customer values(403,'Darshan','Male','8895469562');
+
+insert into customer values(404,'Darshana','Female','8895469562');
+
  	
  		
  		PRODUCT TABLE
