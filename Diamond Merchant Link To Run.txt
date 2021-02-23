@@ -30,8 +30,23 @@ DELETE - http://localhost:8090/orders/deleteOrdersData/103
 GET - http://localhost:8090/store/allStoreData
 
 POST - http://localhost:8090/store/storeStoreData
+{
+ "storeid":104,
+ "contact":457895,
+ "address":"Dubai",
+ "storename":"PNG jewellers",
+ "email":"pqr@gmail.com",
+ "status":"Oreder Received",
+ "product":"Earrings",
+ "productprice":45000
+}
 
 PUT - http://localhost:8090/store/updateStoreData
+{
+ "storeid":104,
+ "address":"Benglore"
+
+}
 
 DELETE - http://localhost:8090/store/deleteStoreData/104
 
@@ -49,7 +64,7 @@ DELETE - http://localhost:8090/customer/deleteCustomerData/104
 
 
 					PRODUCT TABLE
----------------------------------------------
+------------------------------------------------------------------------------
 
 GET - http://localhost:8090/product/getProductData
 
@@ -60,6 +75,17 @@ DELETE - http://localhost:8090/product/deleteProductData/1003
 
 PUT - http://localhost:8090/product/updateProductData
 
+                                     EMPLOYEE
+---------------------------------------------------------------------------------
+
+Get - http://localhost:8090/employee/allEmployeeData
+
+POST - http://localhost:8090/employee/storeEmployeeData
+{"eid":505, "ename":"Sai", "gender":"Female", "birthadate":"1995-02-02","joiningdate":"2020-03-03","designation":"Senior Developer"}
+
+PUT - http://localhost:8090/employee/updateEmployeeData
+
+DELETE - http://localhost:8090/employee/deleteEmployeeData/505
 
 
                
