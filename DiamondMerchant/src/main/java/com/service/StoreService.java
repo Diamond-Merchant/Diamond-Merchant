@@ -58,17 +58,17 @@ public class StoreService
 		}
 		else 
 		{
-		    return "Record not present";
+		    return "Record not updated";
 		}
 	}
 
 	//To Delete the Records
-	public String deleteStoreSpringData(int sid) 
+	public String deleteStoreSpringData(int storeid) 
 	{
 				 {
-					if(storeRepository.existsById(sid)) 
+					if(storeRepository.existsById(storeid)) 
 					{
-						storeRepository.deleteById(sid);
+						storeRepository.deleteById(storeid);
 						return "Record deleted successfully";
 					}
 					else{
