@@ -112,6 +112,21 @@ create table retailer (
 	rostatus varchar(10),
 	oid int NOT NULL,
 	storeid int NOT NULL,
+	pid int NOT NULL
+	);
+
+insert into retailer values(101,"siri","siri@gmail.com",9898,"box","pending",108,123,102);
+ ------------------------------
+
+create table retailer (
+	rid int NOT NULL PRIMARY KEY,
+	rname varchar(15) NOT NULL,
+	remail varchar(20),
+	rphone int NOT NULL,
+	rpname varchar(15) NOT NULL,
+	rostatus varchar(10),
+	oid int NOT NULL,
+	storeid int NOT NULL,
 	pid int NOT NULL,
 	CONSTRAINT roid FOREIGN KEY(oid) REFERENCES Orders(oid),
 	CONSTRAINT rsid FOREIGN KEY(storeid) REFERENCES Store(storeid),

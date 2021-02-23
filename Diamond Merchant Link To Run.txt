@@ -59,3 +59,29 @@ POST - http://localhost:8090/product/storeProductData
 DELETE - http://localhost:8090/product/deleteProductData/1003
 
 PUT - http://localhost:8090/product/updateProductData
+
+
+
+               
+                                 Retailer Table
+----------------------------------------------------
+GET - http://localhost:8090/retailer/getRetailerData
+
+POST - http://localhost:8090/retailer/RetailerProductData
+{
+  "rid": 102,
+  "rname": "hari",
+  "remail": "hari@gmail.com",
+  "rphone": 989,
+  "rpname": "book",
+  "rostatus": "deliverd",
+  "oid": 109,
+  "storeid": 111,
+  "pid": 108
+}
+
+DELETE - http://localhost:8090/retailer/deleteRetailerData/101
+
+PUT - http://localhost:8090/retailer/updateRetailerData
+
+
