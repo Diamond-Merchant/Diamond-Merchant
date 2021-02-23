@@ -51,17 +51,14 @@ insert into Orders values(204,'BlackLabel',1,3000000,'2021-02-28','Pending');
 		STORE TABLE
 ------------------------------
 
-create table Store(
-	storeid int(20) primary key, 
-	contact int(30), 
-	address varchar(20)
-);
+create table Store(storeid int(20) primary key, contact int(20), address varchar(20), storename varchar(20), email varchar(20), status varchar(20), pname varchar(20), productprice float(20));
 
-insert into Store values(301,1234567,'Pune');
+insert into Store values(101,123456,'Pune','Tanishq','xyz@gmail.com','Delivered','Bracelate',15000);
 
-insert into Store values(302,9876543,'Goa');
+insert into Store values(102,987456,'Goa','Kalyan jewellers','abc@gmail.com','Pending','necklace',20000);
 
-insert into Store values(303,8548653,'Mumbai');
+insert into Store values(103,625415,'Mumbai','Gitanjali jewellers','lmn@gmail.com','Ready to Deliver','Rings',30000);
+
 
  		CUSTOMER TABLE
  ------------------------------
