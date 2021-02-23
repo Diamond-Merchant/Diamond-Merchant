@@ -28,7 +28,7 @@ public class StoreService
     //To Store the new Record
 	public String storeStoreSpringData(Store SS)
 	{
-		Optional<Store> op = storeRepository.findById(SS.getSid());
+		Optional<Store> op = storeRepository.findById(SS.getStoreid());
 		if(op.isPresent()) 
 		{
 			return "Record already present";
@@ -48,7 +48,7 @@ public class StoreService
 	//To Update the existing Record
 	public String updateStoreSpringData(Store ss)
 	{
-		Optional<Store> obj	 = storeRepository.findById(ss.getSid());
+		Optional<Store> obj	 = storeRepository.findById(ss.getStoreid());
 		if(obj.isPresent())
 		{
 			Store s	 = obj.get();

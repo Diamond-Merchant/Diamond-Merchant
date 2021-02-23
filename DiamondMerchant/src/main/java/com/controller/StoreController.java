@@ -18,7 +18,7 @@ import com.bean.Store;
 import com.service.StoreService;
 
 @RestController
-@RequestMapping(value="Store")
+@RequestMapping(value="store")
 public class StoreController {
 @Autowired
 StoreService SS;
