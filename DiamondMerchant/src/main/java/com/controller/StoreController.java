@@ -20,35 +20,35 @@ import com.service.StoreService;
 @RestController
 @RequestMapping(value="store")
 public class StoreController {
-@Autowired
-StoreService SS;
-	
 
+	@Autowired
+	StoreService ss;
+	
 
 	//http://localhost:8090/Store/allStoreData
 	@GetMapping(value = "allStoreData",produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Store> getAllOrdersDetailsFromSpringData()
 	{
-			return SS.getAllStoreFormSpringData();
+			return ss.getAllStoreFormSpringData();
 	}
 
 	//http://localhost:8090/Store/storeStoreData
 	@PostMapping(value = "storeStoreData",consumes = MediaType.APPLICATION_JSON_VALUE)
-	public String storeProductSpringData(@RequestBody Store ss) 
+	public String storeProductSpringData(@RequestBody Store s) 
 	{
-		return SS.storeStoreSpringData(ss);
+		return ss.storeStoreSpringData(s);
 	}
 	
 	//http://localhost:8090/Store/updateStoreData
 	@PutMapping(value = "updateStoreData",consumes = MediaType.APPLICATION_JSON_VALUE)
-	public String updateOrdersDataSpringData(@RequestBody Store ss) {
-			return SS.updateStoreSpringData(ss);
+	public String updateOrdersDataSpringData(@RequestBody Store s) {
+			return ss.updateStoreSpringData(s);
 	}
 	
 	//http://localhost:8090/Store/deleteStoreData/104
 	@DeleteMapping(value = "deleteStoreData/{storeid}")
 	public String deleteStorespringData(@PathVariable("storeid") int storeid) {
-			return SS.deleteStoreSpringData(storeid);
+			return ss.deleteStoreSpringData(storeid);
 	}
 
 

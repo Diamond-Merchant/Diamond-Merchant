@@ -25,16 +25,16 @@ public class StoreService
 
 
     //To Store the new Record
-	public String storeStoreSpringData(Store SS)
+	public String storeStoreSpringData(Store s)
 	{
-		Optional<Store> op = storeRepository.findById(SS.getStoreid());
+		Optional<Store> op = storeRepository.findById(s.getStoreid());
 		if(op.isPresent()) 
 		{
 			return "Record already present";
 		}
 		else{
-				Store s = storeRepository.save(SS);			// save the records 
-				if(s!=null)
+				Store store = storeRepository.save(s);			// save the records 
+				if(store!=null)
 				{
 					return "Record stored successfully";
 				}else {
@@ -45,13 +45,13 @@ public class StoreService
 		
 	
 	//To Update the existing Record
-	public String updateStoreSpringData(Store ss)
+	public String updateStoreSpringData(Store s)
 	{
-		Optional<Store> obj	 = storeRepository.findById(ss.getStoreid());
+		Optional<Store> obj	 = storeRepository.findById(s.getStoreid());
 		if(obj.isPresent())
 		{
-			Store s	 = obj.get();
-			s.setAddress(ss.getAddress());
+			Store store	 = obj.get();
+			store.setAddress(s.getAddress());
 			storeRepository.saveAndFlush(s);
 			return "Record updated successfully";
 		}

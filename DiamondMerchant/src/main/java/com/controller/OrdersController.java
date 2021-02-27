@@ -30,6 +30,20 @@ public class OrdersController {
 	public List<Orders> getAllOrdersDetailsFromSpringData(){
 		return os.getAllOrdersFormSpringData();
 	}
+	
+	@GetMapping(value="getOrdersDescByPrice",produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Orders> getOrdersDesc()
+	{
+		
+		return os.getAllOrdersDesc();
+	}
+	
+	@GetMapping(value="getOrdersAscByPrice",produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Orders> getOrdersAsc()
+	{
+		
+		return os.getAllOrdersAsc();
+	}
 
 
 	//http://localhost:8090/orders/storeOrdersData

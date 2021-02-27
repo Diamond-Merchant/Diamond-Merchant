@@ -21,25 +21,28 @@ import com.service.BillService;
 public class BillController {
 	
 	@Autowired
-	BillService billService;
+	BillService bs;
 	
 	@GetMapping(value = "getBillData", produces = MediaType.APPLICATION_JSON_VALUE)
     public List < Bill > getAllBillDetailsFromSpringData() {
-        return billService.getAllBillFromSpringData();
+        return bs.getAllBillFromSpringData();
     }
+	
 	
 	@PostMapping(value = "storeBillData", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String storeBillSpringData(@RequestBody Bill b) {
-		return billService.storeBillSpringData(b);
+		return bs.storeBillSpringData(b);
 	}
+	
 	
 	@DeleteMapping(value="deleteBillData/{Bid}",produces = MediaType.TEXT_PLAIN_VALUE)
 	public String deleteBillSpringData(@PathVariable("Bid") int bid) {
-		return billService.deleteBillSpringData(bid);
+		return bs.deleteBillSpringData(bid);
 	} 
+	
 	
 	@PutMapping(value="updateBillData", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
 	public String updateBillSpringData(@RequestBody Bill b) {
-		return billService.updateBillSpringData(b);
+		return bs.updateBillSpringData(b);
 	}
 }

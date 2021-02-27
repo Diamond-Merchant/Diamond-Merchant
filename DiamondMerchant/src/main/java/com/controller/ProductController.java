@@ -21,25 +21,44 @@ import com.service.ProductService;
 public class ProductController {
 	
 	@Autowired
-	ProductService productService;
+	ProductService ps;
+	
 	
 	@GetMapping(value = "getProductData", produces = MediaType.APPLICATION_JSON_VALUE)
     public List < Product > getAllProductDetailsFromSpringData() {
-        return productService.getAllProductFromSpringData();
+        return ps.getAllProductFromSpringData();
     }
+	
+	
+	@GetMapping(value="productdescbyprice", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Product> getProductsDesc() {
+		
+		return ps.getAllProductDesc();
+	}
+	
+	
+	@GetMapping(value="productascprice", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Product> getProductsAsc() {
+		
+		return ps.getAllProductAsc();
+	}
+	
 	
 	@PostMapping(value = "storeProductData", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String storeProductSpringData(@RequestBody Product p) {
-		return productService.storeProductSpringData(p);
+		return ps.storeProductSpringData(p);
 	}
+	
 	
 	@DeleteMapping(value="deleteProductData/{Pid}",produces = MediaType.TEXT_PLAIN_VALUE)
 	public String deleteProductSpringData(@PathVariable("Pid") int pid) {
-		return productService.deleteProductSpringData(pid);
+		return ps.deleteProductSpringData(pid);
 	} 
+	
 	
 	@PutMapping(value="updateProductData", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
 	public String updateProductSpringData(@RequestBody Product p) {
-		return productService.updateProductSpringData(p);
+		return ps.updateProductSpringData(p);
 	}
+	
 }
