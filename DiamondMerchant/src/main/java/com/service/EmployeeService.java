@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Employee;
-import com.dao.EmployeeRepository;
+import com.repository.EmployeeRepository;
 
 @Service
 public class EmployeeService {

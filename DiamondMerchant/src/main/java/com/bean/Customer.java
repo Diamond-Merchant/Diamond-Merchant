@@ -1,6 +1,5 @@
 package com.bean;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -13,7 +12,7 @@ public class Customer {
 	private int customerid;
 	private String name;
 	private String gender;
-	private String phonenumber;
+	private int phonenumber;
 	
 	public int getCustomerid() {
 		return customerid;
@@ -38,12 +37,12 @@ public class Customer {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
-	public String getPhonenumber() {
+
+	public int getPhonenumber() {
 		return phonenumber;
 	}
-	
-	public void setPhonenumber(String phonenumber) {
+
+	public void setPhonenumber(int phonenumber) {
 		this.phonenumber = phonenumber;
 	}
 

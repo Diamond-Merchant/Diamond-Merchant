@@ -7,8 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Customer;
-
-import com.dao.*;
+import com.repository.*;
 
 @Service
 public class CustomerService {

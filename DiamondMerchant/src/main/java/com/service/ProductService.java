@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Product;
-import com.dao.ProductRepository;
+import com.repository.ProductRepository;
 
 @Service
 public class ProductService {

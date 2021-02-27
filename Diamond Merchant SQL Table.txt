@@ -3,118 +3,113 @@
 |		USERNAME - root				|
 |		password - root				|
 |		PORT - 3306					|
- 
----------------------------------------------------------------------------------------
-		BILL TABLE
----------------------------------------------------------------------------------------
+ -----------------------------------
 
-CREATE TABLE Bill (
-	Bid int NOT NULL PRIMARY KEY,
-	Ename varchar(15) NOT NULL,
-	Cname varchar(15) NOT NULL,
-	Pname varchar(15) NOT NULL,
-	Qty Int NOT NULL,
-	Price float NOT NULL,
-	DOP DATE NOT NULL
+		BILL TABLE
+-----------------------------
+
+CREATE TABLE bill (
+	bid int NOT NULL PRIMARY KEY,
+	ename varchar(15) NOT NULL,
+	cname varchar(15) NOT NULL,
+	pname varchar(15) NOT NULL,
+	qty INT NOT NULL,
+	price float NOT NULL,
+	dop DATE NOT NULL
 );
 
-insert into Bill values(101,'Ram','Anil','HalfCarat',1,7000000,'2021-02-11');
+insert into bill values(101,'Ram','Anil','HalfCarat',1,7000000,'2021-02-11');
 
-insert into Bill values(102,'Suresh','Mahi','BlackLabel',1,3000000,'2021-01-29');
+insert into bill values(102,'Suresh','Mahi','BlackLabel',1,3000000,'2021-01-29');
 
-insert into Bill values(103,'Rekha','John','Encorida',1,5500000,'2021-01-01');
+insert into bill values(103,'Rekha','John','Encorida',1,5500000,'2021-01-01');
 
-insert into Bill values(104,'Spoorthy','Vidya','CircleOfTrust',1,4500000,'2020-12-29');
+insert into bill values(104,'Spoorthy','Vidya','CircleOfTrust',1,4500000,'2020-12-29');
 
-------------------------------------------------------------------------------------------
+
 		ORDER TABLE
-------------------------------------------------------------------------------------------
+-----------------------------
 
-CREATE TABLE Orders (
+CREATE TABLE orders (
 	oid int NOT NULL PRIMARY KEY,
 	pname varchar(15) NOT NULL,
-	oqty int,
-	oprice float,
+	oqty int NOT NULL,
+	oprice float NOT NULL,
 	odate DATE NOT NULL,
-	ostatus VARCHAR(15)
+	ostatus VARCHAR(15) NOT NULL
 );
 
-insert into Orders values(201,'Encorida',2,5500000,'2021-02-14','Pending');
+insert into orders values(201,'Encorida',2,5500000,'2021-02-14','Pending');
 
-insert into Orders values(202,'HalfCarat',1,7000000,'2021-01-18','Delivered');
+insert into orders values(202,'HalfCarat',1,7000000,'2021-01-18','Delivered');
 
-insert into Orders values(203,'CircleOfTrust',1,4500000,'2020-12-24','Delivered');
+insert into orders values(203,'CircleOfTrust',1,4500000,'2020-12-24','Delivered');
 
-insert into Orders values(204,'BlackLabel',1,3000000,'2021-02-28','Pending');
+insert into orders values(204,'BlackLabel',1,3000000,'2021-02-28','Pending');
 
----------------------------------------------------------------------------------------------
+
 		STORE TABLE
-----------------------------------------------------------------------------------------------
-create table Store(storeid int(20) primary key, contact int(20), address varchar(20), storename varchar(20), email varchar(20), status varchar(20), pname varchar(20), productprice float(20));
+------------------------------
 
-insert into Store values(101,123456,'Pune','Tanishq','xyz@gmail.com','Delivered','Bracelate',15000);
+create table store(
+	storeid int NOT NULL PRIMARY KEY, 
+	contact int NOT NULL, 
+	address varchar(20) NOT NULL,
+	storename varchar(20) NOT NULL,
+	email varchar(20) NOT NULL,
+	pname varchar(20) NOT NULL,
+	productprice float NOT NULL
+);
 
-insert into Store values(102,987456,'Goa','Kalypaian jewellers','abc@gmail.com','Pending','necklace',20000);
+insert into store values(301,1234567,'Pune','Abhi Diamonds','abhi@gmail.com','CircleOfTrust',4500000);
 
-insert into Store values(103,625415,'Mumbai','Gitanjali jewellers','lmn@gmail.com','Ready to Deliver','Rings',30000);
+insert into store values(302,9876543,'Goa','Surat Diamonds','surath@gmail.com','Encorida',5500000);
 
-----------------------------------------------------------------------------------------------------
+insert into store values(303,8548653,'Mumbai','Acharya Diamonds','acharya@gmail.com','HalfCarat',7000000);
+
  		CUSTOMER TABLE
- ---------------------------------------------------------------------------------------------------
+ ------------------------------
 
 create table customer (
 	customerid int NOT NULL,
 	name varchar(10) NOT NULL,
-	gender varchar(10),
-	phonenumber varchar(10)
+	gender varchar(10) NOT NULL,
+	phonenumber int NOT NULL
 );
 
 insert into customer values(401,'Ram','Male','985632456');
 
 insert into customer values(402,'Vidya','Female','896753472');
 
-insert into customer values(403,'Darshan','Male','8895469562');
+insert into customer values(403,'Darshan','Male','889469562');
 
-insert into customer values(404,'Darshana','Female','8895469562');
+insert into customer values(404,'Shivani','Female','896532786');
 
--------------------------------------------------------------------------------------------------------- 	
+ 	
  		
  		PRODUCT TABLE
- -------------------------------------------------------------------------------------------------------
+ ------------------------------
 
 create table product (
 	pid int NOT NULL PRIMARY KEY,
 	pname varchar(20) NOT NULL,
-	shelflocation varchar(10),
-	costprice float,
+	shelflocation varchar(10) NOT NULL,
+	costprice float NOT NULL,
 	mrp float,
-	manufacturer varchar(20)
+	manufacturer varchar(20) NOT NULL
 );
 
-insert into product values(1001,'HalfCarat','Mumbai','500000','7000000','Forevermark');
+insert into product values(1001,'HalfCarat','Mumbai',500000,7000000,'Forevermark');
 
-insert into product values(1002,'CircleOfTrust','Delhi','300000','4500000','Forevermark');
+insert into product values(1002,'CircleOfTrust','Delhi',300000,4500000,'Forevermark');
 
-insert into product values(1003,'BlackLabel','Hyderabad','150000','3000000','Arabelle');
+insert into product values(1003,'BlackLabel','Hyderabad',150000,3000000,'Arabelle');
 
-insert into product values(1004,'Encorida','Bangalore','270000','5500000','Zanyah');
+insert into product values(1004,'Encorida','Bangalore',270000,5500000,'Zanyah');
 
-------------------------------------------------------------------------------------------------------		
-					 EMPLOYEE TABLE
-------------------------------------------------------------------------------------------------------
-create table Employee(eid int(20) primary key, ename varchar(20), gender varchar(20), birthdate Date, joiningdate Date, designation varchar(20));
-
-insert into Employee values(501,'Rajat','Male','1997-12-05','2020-11-21','Trainee');
-
-insert into Employee values(502,'Priya','Female','1996-08-04','2021-12-10','Devloper');
-
-insert into Employee values(503,'Shekhar','Male','1997-10-05','2019-10-04','Tester');
-
-insert into Employee values(504,'Anu','Female','1995-01-02','2020-05-02','HR'); 		
  		
-------------------------------------------------------------------------------------------------------		
-				RETAILER TABLE
-------------------------------------------------------------------------------------------------------
+ 		RETAILER TABLE
+ ------------------------------
 
 create table retailer (
 	rid int NOT NULL PRIMARY KEY,
@@ -122,26 +117,34 @@ create table retailer (
 	remail varchar(20),
 	rphone int NOT NULL,
 	rpname varchar(15) NOT NULL,
-	rostatus varchar(10),
+	rostatus varchar(10) NOT NULL,
 	oid int NOT NULL,
 	storeid int NOT NULL,
 	pid int NOT NULL
 	);
 
-insert into retailer values(101,"siri","siri@gmail.com",9898,"box","pending",108,123,102);
- ------------------------------------------------------------------------------------------------
+insert into retailer values(501,'Siri','siri@gmail.com',987856432,'CircleOfTrust',"Delivered",202,302,1002);
 
-create table retailer (
-	rid int NOT NULL PRIMARY KEY,
-	rname varchar(15) NOT NULL,
-	remail varchar(20),
-	rphone int NOT NULL,
-	rpname varchar(15) NOT NULL,
-	rostatus varchar(10),
-	oid int NOT NULL,
-	storeid int NOT NULL,
-	pid int NOT NULL,
-	CONSTRAINT roid FOREIGN KEY(oid) REFERENCES Orders(oid),
-	CONSTRAINT rsid FOREIGN KEY(storeid) REFERENCES Store(storeid),
-	CONSTRAINT rpid FOREIGN KEY(pid) REFERENCES Product(pid)
+insert into retailer values(502,'Rahul','rahul@gmail.com',895423109,"BlackLabel","pending",202,302,1002);
+
+insert into retailer values(503,'Pratham','pratham@gmail.com',779065231,"HalfCarat","Delivered",202,302,1002);
+ 
+
+		EMPLOYEE TABLE
+ ------------------------------
+
+create table employee (
+	eid INT NOT NULL PRIMARY KEY,
+	ename VARCHAR(10) NOT NULL,
+	gender VARCHAR(10) NOT NULL,
+	ephonenumber INT,
+	birthdate DATE,
+	joiningdate DATE,
+	designation VARCHAR(15)
 );
+
+insert into employee values(601,'Suresh','Male',879065436,'1998-04-12','2017-12-20','Worker');
+
+insert into employee values(602,'Virat','Male',983256430,'1995-10-25','2015-05-29','Manager');
+
+insert into employee values(603,'Vidya','Female',890321457,'2000-07-06','2019-01-01','Worker');

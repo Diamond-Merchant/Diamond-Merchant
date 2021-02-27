@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Retailer;
-import com.dao.RetailerRepository;
+import com.repository.RetailerRepository;
 
 @Service
 public class RetailerService {
