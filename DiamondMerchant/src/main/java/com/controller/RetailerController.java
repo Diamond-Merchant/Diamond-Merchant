@@ -21,25 +21,29 @@ import com.service.RetailerService;
 public class RetailerController {
 	
 	@Autowired
-	RetailerService retailerService;
+	RetailerService rs;
 	
 	@GetMapping(value = "getRetailerData", produces = MediaType.APPLICATION_JSON_VALUE)
     public List < Retailer > getAllRetailerDetailsFromSpringData() {
-        return retailerService.getAllRetailerFromSpringData();
+        return rs.getAllRetailerFromSpringData();
     }
+	
 	
 	@PostMapping(value = "storeRetailerData", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String storeRetailerSpringData(@RequestBody Retailer r) {
-		return retailerService.storeRetailerSpringData(r);
+		return rs.storeRetailerSpringData(r);
 	}
+	
 	
 	@DeleteMapping(value="deleteRetailerData/{rid}",produces = MediaType.TEXT_PLAIN_VALUE)
 	public String deleteRetailerSpringData(@PathVariable("rid") int rid) {
-		return retailerService.deleteRetailerSpringData(rid);
+		return rs.deleteRetailerSpringData(rid);
 	} 
+	
 	
 	@PutMapping(value="updateRetailerData", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
 	public String updateRetailerSpringData(@RequestBody Retailer r) {
-		return retailerService.updateRetailerSpringData(r);
+		return rs.updateRetailerSpringData(r);
 	}
+	
 }

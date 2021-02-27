@@ -22,25 +22,29 @@ import com.service.EmployeeService;
 	public class EmployeeController {
 		
 		@Autowired
-		EmployeeService employeeService;
+		EmployeeService es;
 		
 		@GetMapping(value = "allEmployeeData", produces = MediaType.APPLICATION_JSON_VALUE)
 	    public List < Employee > getAllEmployeeDetailsFromSpringData() {
-	        return employeeService.getAllEmployeeFromSpringData();
+	        return es.getAllEmployeeFromSpringData();
 	    }
+		
 		
 		@PostMapping(value = "storeEmployeeData", consumes = MediaType.APPLICATION_JSON_VALUE)
 		public String storeEmployeeSpringData(@RequestBody Employee e) {
-			return employeeService.storeEmployeeSpringData(e);
+			return es.storeEmployeeSpringData(e);
 		}
+		
 		
 		@DeleteMapping(value="deleteEmployeeData/{eid}",produces = MediaType.TEXT_PLAIN_VALUE)
 		public String deleteEmployeeSpringData(@PathVariable("eid") int eid) {
-			return employeeService.deleteEmployeeSpringData(eid);
+			return es.deleteEmployeeSpringData(eid);
 		} 
+		
 		
 		@PutMapping(value="updateEmployeeData", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
 		public String updateEmployeeSpringData(@RequestBody Employee e) {
-			return employeeService.updateEmployeeSpringData(e);
+			return es.updateEmployeeSpringData(e);
 		}
+		
 }

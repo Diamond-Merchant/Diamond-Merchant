@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.bean.Orders;
 import com.repository.OrdersRepository;
+import com.repository.SortByPriceDao;
 
 @Service
 public class OrdersService {
@@ -15,11 +16,22 @@ public class OrdersService {
 	
 	@Autowired
 	OrdersRepository ordersRepository;
+	
+	@Autowired
+	SortByPriceDao sbp;
+	
 	public List<Orders> getAllOrdersFormSpringData() {
 		return ordersRepository.findAll();
 	}
 
-
+	public List<Orders> getAllOrdersDesc(){
+		return sbp.getAllOrdersDesc();
+	}
+	
+	public List<Orders> getAllOrdersAsc(){
+		return sbp.getAllOrdersAsc();
+	}
+	
 
 	public String storeOrdersSpringData(Orders oo) {
 		Optional<Orders> op = ordersRepository.findById(oo.getOid());
