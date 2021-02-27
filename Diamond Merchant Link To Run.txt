@@ -1,4 +1,12 @@
-				BILL TABLE
+        SWAGGER UI
+---------------------------------------------
+
+// TO Open Swagger-UI
+http://localhost:8090/swagger-ui.html
+
+
+
+        BILL TABLE
 ---------------------------------------------
 
 GET - http://localhost:8090/bill/getBillData
@@ -12,6 +20,7 @@ PUT - http://localhost:8090/bill/updateBillData
 
 
 
+
 				ORDER TABLE
 ---------------------------------------------
 
@@ -21,7 +30,8 @@ POST - http://localhost:8090/orders/storeOrdersData
 
 PUT - http://localhost:8090/orders/updateOrdersData
 
-DELETE - http://localhost:8090/orders/deleteOrdersData/103
+DELETE - http://localhost:8090/orders/deleteOrdersData/203
+
 
 
 				STORE TABLE
@@ -30,27 +40,13 @@ DELETE - http://localhost:8090/orders/deleteOrdersData/103
 GET - http://localhost:8090/store/allStoreData
 
 POST - http://localhost:8090/store/storeStoreData
-{
- "storeid":104,
- "contact":457895,
- "address":"Dubai",
- "storename":"PNG jewellers",
- "email":"pqr@gmail.com",
- "status":"Oreder Received",
- "product":"Earrings",
- "productprice":45000
-}
 
 PUT - http://localhost:8090/store/updateStoreData
-{
- "storeid":104,
- "address":"Benglore"
 
-}
-
-DELETE - http://localhost:8090/store/deleteStoreData/104
+DELETE - http://localhost:8090/store/deleteStoreData/302
 
 	
+
 				CUSTOMER TABLE
 ---------------------------------------------
 
@@ -60,54 +56,55 @@ POST - http://localhost:8090/customer/storeCustomerData
 
 PUT - http://localhost:8090/customer/updateCustomerData
 
-DELETE - http://localhost:8090/customer/deleteCustomerData/104
+DELETE - http://localhost:8090/customer/deleteCustomerData/404
+
 
 
 					PRODUCT TABLE
-------------------------------------------------------------------------------
+---------------------------------------------
 
 GET - http://localhost:8090/product/getProductData
 
 POST - http://localhost:8090/product/storeProductData
 {"pid":1005,"pname":"Artemis","shelflocation":"Chennai","costprice":420050,"mrp":659090,"manufacturer":"Millemoi"}
 
-DELETE - http://localhost:8090/product/deleteProductData/1003
-
 PUT - http://localhost:8090/product/updateProductData
 
-                                     EMPLOYEE
+DELETE - http://localhost:8090/product/deleteProductData/1003
+
+
+
+                    Retailer Table
+----------------------------------------------------
+GET - http://localhost:8090/retailer/getRetailerData
+
+POST - http://localhost:8090/retailer/storeRetailerData
+{
+  "rid": 504,
+  "rname": "Pavan",
+  "remail": "pavan@gmail.com",
+  "rphone": 900843256,
+  "rpname": "Encorida",
+  "rostatus": "Delivered",
+  "oid": 201,
+  "storeid": 302,
+  "pid": 1002
+}
+
+PUT - http://localhost:8090/retailer/updateRetailerData
+
+DELETE - http://localhost:8090/retailer/deleteRetailerData/501
+
+
+
+                     EMPLOYEE
 ---------------------------------------------------------------------------------
 
 Get - http://localhost:8090/employee/allEmployeeData
 
 POST - http://localhost:8090/employee/storeEmployeeData
-{"eid":505, "ename":"Sai", "gender":"Female", "birthadate":"1995-02-02","joiningdate":"2020-03-03","designation":"Senior Developer"}
+{"eid":505, "ename":"Sai", "gender":"Female", "birthdate":"1995-02-02","joiningdate":"2020-03-03","designation":"Manager"}
 
 PUT - http://localhost:8090/employee/updateEmployeeData
 
-DELETE - http://localhost:8090/employee/deleteEmployeeData/505
-
-
-               
-                                 Retailer Table
-----------------------------------------------------
-GET - http://localhost:8090/retailer/getRetailerData
-
-POST - http://localhost:8090/retailer/RetailerProductData
-{
-  "rid": 102,
-  "rname": "hari",
-  "remail": "hari@gmail.com",
-  "rphone": 989,
-  "rpname": "book",
-  "rostatus": "deliverd",
-  "oid": 109,
-  "storeid": 111,
-  "pid": 108
-}
-
-DELETE - http://localhost:8090/retailer/deleteRetailerData/101
-
-PUT - http://localhost:8090/retailer/updateRetailerData
-
-
+DELETE - http://localhost:8090/employee/deleteEmployeeData/604
