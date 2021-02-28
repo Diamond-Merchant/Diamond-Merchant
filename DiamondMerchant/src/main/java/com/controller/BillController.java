@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bean.Bill;
+import com.bean.Orders;
 import com.service.BillService;
 
 @RestController
@@ -21,28 +22,37 @@ import com.service.BillService;
 public class BillController {
 	
 	@Autowired
-	BillService bs;
+	BillService billservice;
 	
 	@GetMapping(value = "getBillData", produces = MediaType.APPLICATION_JSON_VALUE)
     public List < Bill > getAllBillDetailsFromSpringData() {
-        return bs.getAllBillFromSpringData();
+        return billservice.getAllBillFromSpringData();
     }
 	
+	@GetMapping(value="getOrdersAscByPrice",produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Bill> getAllBillAscByPrice() {
+		return billservice.getAllBillAscByPrice();
+	}
+	
+	@GetMapping(value="getBillDescByPrice",produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Bill> getOrdersDscByPrice() {
+		return billservice.getAllBillsDscByPrice();
+	}
 	
 	@PostMapping(value = "storeBillData", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String storeBillSpringData(@RequestBody Bill b) {
-		return bs.storeBillSpringData(b);
+		return billservice.storeBillSpringData(b);
 	}
 	
 	
 	@DeleteMapping(value="deleteBillData/{Bid}",produces = MediaType.TEXT_PLAIN_VALUE)
 	public String deleteBillSpringData(@PathVariable("Bid") int bid) {
-		return bs.deleteBillSpringData(bid);
+		return billservice.deleteBillSpringData(bid);
 	} 
 	
 	
 	@PutMapping(value="updateBillData", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
 	public String updateBillSpringData(@RequestBody Bill b) {
-		return bs.updateBillSpringData(b);
+		return billservice.updateBillSpringData(b);
 	}
 }

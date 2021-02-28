@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bean.Bill;
 import com.bean.Customer;
+import com.dao.GenericDao;
 import com.repository.*;
 
 @Service
@@ -15,9 +17,21 @@ public class CustomerService {
 	@Autowired
 	CustomerRepository customerRepo;
 	
+	@Autowired
+	GenericDao genericdao;
+	
 	public List<Customer> getAllCustomerFromSpringData() {
 		return customerRepo.findAll();
 	}
+	
+	public List<Customer> getCustomerNameAsc(){
+		return  genericdao.getCustomerNameAsc();
+	}
+
+	public List<Customer>getCustomerNameDsc(){
+		return  genericdao.getCustomerNameDsc();
+	}
+	
 	
 	
 	public String storeCustomerSpringData(Customer cs) {
