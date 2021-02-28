@@ -1,0 +1,47 @@
+Bill:
+
+
+select b.bid,b.ename,b.cname,b.pname,b.qty,b.price,b.dop from Bill b order by b.price;
+
+select b.bid,b.ename,b.cname,b.pname,b.qty,b.price,b.dop from Bill b order by b.price desc;
+
+
+Orders:
+
+
+select o.oid,o.pname,o.oqty,b.oprice,b.odate,ostatus from Orders o order by o.oprice;
+
+select o.oid,o.pname,o.oqty,b.oprice,b.odate,ostatus from Orders o order by o.oprice desc;
+
+
+Store:
+
+select s.storeid, s.contact,s.address,s.storename,s.email,s.pname,s.productprice from Store s order by s.storename;
+
+select s.storeid, s.contact,s.address,s.storename,s.email,s.pname,s.productprice from Store s order by s.storename desc;
+
+Customer:
+
+select c.customerid, c.name, c.gender, c.phonenumber from Customer c order by c.name;
+
+select c.customerid, c.name, c.gender, c.phonenumber from Customer c order by c.name desc;
+
+
+Employee:
+
+select e.eid, e.ename ,e.gender,e.birthdate, e.joiningdate,e.designation from Employee e order by e.ename;
+
+select e.eid, e.ename ,e.gender,e.birthdate, e.joiningdate,e.designation from Employee e order by e.ename desc;
+
+Retailer:
+
+select r.rid, r.rname, r.remail, r.rphone, r.rpname, r.rostatus, r.oid, r.storeid, r.pid from Retailer r order by r.rname;
+
+select r.rid, r.rname, r.remail, r.rphone, r.rpname, r.rostatus, r.oid, r.storeid, r.pid from Retailer r order by r.rname desc;
+
+
+Product:
+
+select p.pid,p.pname,p.mrp,p.manufacturer from Product p order by p.mrp;
+
+select p.pid,p.pname,p.mrp,p.manufacturer from Product p order by p.mrp desc;

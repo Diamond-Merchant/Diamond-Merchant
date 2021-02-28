@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bean.Customer;
 import com.bean.Retailer;
 import com.service.RetailerService;
 
@@ -21,25 +22,33 @@ import com.service.RetailerService;
 public class RetailerController {
 	
 	@Autowired
-	RetailerService retailerService;
+	RetailerService retailerservice;
 	
 	@GetMapping(value = "getRetailerData", produces = MediaType.APPLICATION_JSON_VALUE)
     public List < Retailer > getAllRetailerDetailsFromSpringData() {
-        return retailerService.getAllRetailerFromSpringData();
+        return retailerservice.getAllRetailerFromSpringData();
     }
+	@GetMapping(value="RetailerNameAsc", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Retailer> getRetailerNameAsc() {
+		return retailerservice.getRetailerNameAsc();
+	}
 	
+	@GetMapping(value="RetailerNameDesc", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Retailer> getCustomerNameDesc() {
+	     return retailerservice.getRetailerNameDesc();
+	}
 	@PostMapping(value = "storeRetailerData", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String storeRetailerSpringData(@RequestBody Retailer r) {
-		return retailerService.storeRetailerSpringData(r);
+		return retailerservice.storeRetailerSpringData(r);
 	}
 	
 	@DeleteMapping(value="deleteRetailerData/{rid}",produces = MediaType.TEXT_PLAIN_VALUE)
 	public String deleteRetailerSpringData(@PathVariable("rid") int rid) {
-		return retailerService.deleteRetailerSpringData(rid);
+		return retailerservice.deleteRetailerSpringData(rid);
 	} 
 	
 	@PutMapping(value="updateRetailerData", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
 	public String updateRetailerSpringData(@RequestBody Retailer r) {
-		return retailerService.updateRetailerSpringData(r);
+		return retailerservice.updateRetailerSpringData(r);
 	}
 }

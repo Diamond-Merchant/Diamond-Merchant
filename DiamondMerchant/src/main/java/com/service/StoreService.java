@@ -5,7 +5,10 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.bean.Bill;
 import com.bean.Store;
+import com.dao.SortByPriceDao;
 import com.repository.StoreRepository;
 
 
@@ -17,12 +20,30 @@ public class StoreService
 	@Autowired
 	StoreRepository storeRepository;
 	
+	@Autowired
+	SortByPriceDao ssp;
+	
 	//Display All Records
 	public List<Store> getAllStoreFormSpringData()
 	{
 		return storeRepository.findAll();
 	}
+	
 
+	
+	
+	public List<Store> getAllStoreNameAsc() {
+		return ssp.getAllStoreNameAsc();
+	}
+
+
+	public List<Store> getAllStoreNameDesc() {
+		return ssp.getAllStoreNameDesc();
+	}
+
+
+	
+	
 
     //To Store the new Record
 	public String storeStoreSpringData(Store SS)
@@ -75,6 +96,14 @@ public class StoreService
 					}
 			     }
 	}
+
+
+
+
+
+
+
+
 			
 }
 

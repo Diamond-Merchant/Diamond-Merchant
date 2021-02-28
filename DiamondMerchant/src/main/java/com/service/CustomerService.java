@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Customer;
+import com.dao.SortByPriceDao;
 import com.repository.*;
 
 @Service
@@ -15,9 +16,23 @@ public class CustomerService {
 	@Autowired
 	CustomerRepository customerRepo;
 	
+	@Autowired
+	SortByPriceDao sbp;
+	
+	
 	public List<Customer> getAllCustomerFromSpringData() {
 		return customerRepo.findAll();
 	}
+	
+	public List<Customer> getCustomerNameAsc() {
+		return sbp.getCustomerNameAsc();
+	}
+
+
+	public List<Customer> getCustomerNameDesc() {
+		return sbp.getCustomerNameDesc();
+	}
+	
 	
 	
 	public String storeCustomerSpringData(Customer cs) {
@@ -51,11 +66,13 @@ public class CustomerService {
         	Customer p = obj.get();
             p.setPhonenumber(cs.getPhonenumber());
             customerRepo.saveAndFlush(p);   
-            return "Record Updated Successfully";
-    } else {
-        return "Record Not Updated";
+	            return "Record Updated Successfully";
+	    } else {
+	        return "Record Not Updated";
+	    }
     }
-}
+
+
 	
 	
 	

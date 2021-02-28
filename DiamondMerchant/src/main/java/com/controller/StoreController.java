@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.bean.Bill;
 import com.bean.Store;
 import com.service.StoreService;
 
@@ -21,7 +21,7 @@ import com.service.StoreService;
 @RequestMapping(value="store")
 public class StoreController {
 @Autowired
-StoreService SS;
+StoreService storeservice;
 	
 
 
@@ -29,26 +29,36 @@ StoreService SS;
 	@GetMapping(value = "allStoreData",produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Store> getAllOrdersDetailsFromSpringData()
 	{
-			return SS.getAllStoreFormSpringData();
+			return storeservice.getAllStoreFormSpringData();
+	}
+	
+	@GetMapping(value="StoreAscStoreName", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Store> getAllStoreNameAsc() {
+		return storeservice.getAllStoreNameAsc();
+	}
+	
+	@GetMapping(value="StoreDescbyStoreName", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Store> getAllStoreNameDesc() {
+		return storeservice.getAllStoreNameDesc();
 	}
 
 	//http://localhost:8090/Store/storeStoreData
 	@PostMapping(value = "storeStoreData",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String storeProductSpringData(@RequestBody Store ss) 
 	{
-		return SS.storeStoreSpringData(ss);
+		return storeservice.storeStoreSpringData(ss);
 	}
 	
 	//http://localhost:8090/Store/updateStoreData
 	@PutMapping(value = "updateStoreData",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String updateOrdersDataSpringData(@RequestBody Store ss) {
-			return SS.updateStoreSpringData(ss);
+			return storeservice.updateStoreSpringData(ss);
 	}
 	
 	//http://localhost:8090/Store/deleteStoreData/104
 	@DeleteMapping(value = "deleteStoreData/{storeid}")
 	public String deleteStorespringData(@PathVariable("storeid") int storeid) {
-			return SS.deleteStoreSpringData(storeid);
+			return storeservice.deleteStoreSpringData(storeid);
 	}
 
 

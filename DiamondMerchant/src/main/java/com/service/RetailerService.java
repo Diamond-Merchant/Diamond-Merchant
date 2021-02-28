@@ -6,7 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bean.Customer;
+import com.bean.Orders;
 import com.bean.Retailer;
+import com.dao.SortByPriceDao;
 import com.repository.RetailerRepository;
 
 @Service
@@ -15,10 +18,21 @@ public class RetailerService {
 	@Autowired
 	RetailerRepository retailerRepository;
 	
+	@Autowired
+	SortByPriceDao sbp;
+	
 	public List<Retailer> getAllRetailerFromSpringData() {
 		 return retailerRepository.findAll();
 	 }
-	
+
+	public List<Retailer> getRetailerNameAsc() {
+		return sbp.getRetailerNameAsc();
+	}
+
+
+	public List<Retailer> getRetailerNameDesc() {
+		return sbp.getRetailerNameDesc();
+	}
 	
 	 public String storeRetailerSpringData(Retailer r) {
 			Optional<Retailer> op = retailerRepository.findById(r.getRid());
@@ -55,5 +69,7 @@ public class RetailerService {
 		 return "Retailer Record Not Updated";
 	 }
 	}
+
+
 	 
 }

@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bean.Employee;
 import com.bean.Orders;
+import com.dao.SortByPriceDao;
 import com.repository.OrdersRepository;
 
 @Service
@@ -15,10 +17,20 @@ public class OrdersService {
 	
 	@Autowired
 	OrdersRepository ordersRepository;
+	
+	@Autowired
+	SortByPriceDao sbp;
 	public List<Orders> getAllOrdersFormSpringData() {
 		return ordersRepository.findAll();
 	}
+    
+	public List<Orders> getOrdersPriceAsc() {
+		 return sbp.getOrdersPriceAsc();
+	}
 
+	public List<Orders> getOrdersPriceDesc() {
+		 return sbp.getOrdersPriceDesc();
+	}
 
 
 	public String storeOrdersSpringData(Orders oo) {
@@ -57,4 +69,8 @@ public class OrdersService {
 					return "Record not present";
 				}
 			}
+
+
+
+	
 	}

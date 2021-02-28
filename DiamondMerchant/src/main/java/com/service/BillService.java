@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.bean.Bill;
 import com.repository.BillRepository;
+import com.dao.SortByPriceDao;
 
 @Service
 public class BillService {
@@ -15,10 +16,21 @@ public class BillService {
 	@Autowired
 	BillRepository billRepository;
 	
+	@Autowired
+	SortByPriceDao sbp;
+	
 	public List<Bill> getAllBillFromSpringData() {
 		 return billRepository.findAll();
 	 }
-
+	
+	
+	public List<Bill> getAllBillAsc() {
+		return sbp.getAllBillAsc();
+	}
+	
+	public List<Bill> getAllBillDesc() {
+		return sbp.getAllBillDesc();
+	}
 	
 	 public String storeBillSpringData(Bill b) {
 			Optional<Bill> op = billRepository.findById(b.getBid());
@@ -55,4 +67,10 @@ public class BillService {
 		 return "Bill Record Not Updated";
 	 }
 	}
+	 
+	 public List<Bill> findAllOrderByPriceAsc() {
+		 return billRepository.findAll();
+	 }
+	 
+	
 }

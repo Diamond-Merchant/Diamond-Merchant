@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bean.Customer;
 import com.bean.Employee;
+import com.dao.SortByPriceDao;
 import com.repository.EmployeeRepository;
 
 @Service
@@ -15,9 +17,23 @@ public class EmployeeService {
 	@Autowired
 	EmployeeRepository employeeRepository;
 	
+	@Autowired
+	SortByPriceDao sbp;
+	
+	
 	public List<Employee> getAllEmployeeFromSpringData() {
 		 return employeeRepository.findAll();
 	 }
+	
+	
+	 public List<Employee> getEmployeeNameAsc() {
+		 return sbp.getEmployeeNameAsc();
+     }
+	 
+	 public List<Employee> getEmployeeNameDesc() {
+		 return sbp.getEmployeeNameAsc();
+	  }
+
 	
 	
 	 public String storeEmployeeSpringData(Employee e) {
@@ -55,4 +71,10 @@ public class EmployeeService {
 		 return "Employee Record Not Updated";
 	 }
 	}
+
+
+	
+	
+
+	
 }
