@@ -12,6 +12,7 @@ public class Retailer {
 	private int rid;
 	private String rname;
 	private String remail;
+	private String rpassword;
 	private int rphone;
 	private String rpname;
 	private String rostatus;
@@ -44,6 +45,14 @@ public class Retailer {
 		this.remail = remail;
 	}
 	
+	public String getRpassword() {
+		return rpassword;
+	}
+
+	public void setRpassword(String rpassword) {
+		this.rpassword = rpassword;
+	}
+
 	public int getRphone() {
 		return rphone;
 	}

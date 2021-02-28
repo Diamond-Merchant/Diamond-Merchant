@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.bean.Product;
 import com.repository.ProductRepository;
-import com.repository.SortByPriceDao;
+import com.repository.GenericDao;
 
 
 @Service
@@ -18,23 +18,44 @@ public class ProductService {
 	ProductRepository pr;
 	
 	@Autowired
-	SortByPriceDao sbp;
+	GenericDao gd;
+	
 	
 	public List<Product> getAllProductFromSpringData() {
 		 return pr.findAll();
 	 }
 	
 	
-	public List<Product> getAllProductDesc() {
-		return sbp.getAllProductDesc();
+	public List<Product> getAllProductDescByPrice() {
+		return gd.getAllProductDescByPrice();
 	}
 	
 	
-	public List<Product> getAllProductAsc() {
-		return sbp.getAllProductAsc();
+	public List<Product> getAllProductAscByPrice() {
+		return gd.getAllProductAscByPrice();
 	}
 	
-	 public String storeProductSpringData(Product p) {
+	
+	public List<Product> getAllProductDescByPName() {
+		return gd.getAllProductDescByPName();
+	}
+	
+	
+	public List<Product> getAllProductAscByPNmae() {
+		return gd.getAllProductAscByPName();
+	}
+	
+	public List<Product> getAllProductDescByPMFG() {
+		return gd.getAllProductDescByPMFG();
+	}
+	
+	
+	public List<Product> getAllProductAscByPMFG() {
+		return gd.getAllProductAscByPMFG();
+	}
+	
+	
+	public String storeProductSpringData(Product p) {
 			Optional<Product> op = pr.findById(p.getPid());
 			if(op.isPresent()) {
 				return "Product Record Already Present";
@@ -47,6 +68,7 @@ public class ProductService {
 				}
 			}
 		 }
+	 
 	 
 	 public String deleteProductSpringData(int pid) {
 		 if(pr.existsById(pid)) {
@@ -68,6 +90,15 @@ public class ProductService {
 	 } else {
 		 return "Product Record Not Updated";
 	 }
+	}
+	 
+	 
+	// Search By Product Name or Product Price.
+	public List<Product> listAllProduct(String keyword) {
+	        if (keyword != null) {
+	            return pr.search(keyword);
+	        }
+	        return pr.findAll();
 	}
 	 
 }

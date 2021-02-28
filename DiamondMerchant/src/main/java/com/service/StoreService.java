@@ -5,7 +5,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.bean.Store;
+import com.repository.GenericDao;
 import com.repository.StoreRepository;
 
 
@@ -13,14 +15,35 @@ import com.repository.StoreRepository;
 public class StoreService 
 {
 
-	
 	@Autowired
 	StoreRepository storeRepository;
+	
+	@Autowired
+	GenericDao gd;
 	
 	//Display All Records
 	public List<Store> getAllStoreFormSpringData()
 	{
 		return storeRepository.findAll();
+	}
+	
+	public List<Store> getAllStoresDescByPrice() {
+		return gd.getAllStoresDescByPrice();
+	}
+	
+	
+	public List<Store> getAllStoresAscByPrice() {
+		return gd.getAllStoresAscByPrice();
+	}
+	
+	
+	public List<Store> getAllStoresDescBySName() {
+		return gd.getAllStoresDescBySName();
+	}
+	
+	
+	public List<Store> getAllStoresAscBySName() {
+		return gd.getAllStoresAscBySName();
 	}
 
 
@@ -74,6 +97,14 @@ public class StoreService
 						return "Record not present";
 					}
 			     }
+	}
+	
+	// Search By Store Name or Store Address.
+	public List<Store> listAllStore(String keyword) {
+		        if (keyword != null) {
+		            return storeRepository.search(keyword);
+		        }
+		        return storeRepository.findAll();
 	}
 			
 }

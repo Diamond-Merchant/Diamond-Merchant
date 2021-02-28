@@ -11,8 +11,10 @@ public class Customer {
 	@Id
 	private int customerid;
 	private String name;
+	private String cemail;
 	private String gender;
 	private int phonenumber;
+	private String password;
 	
 	public int getCustomerid() {
 		return customerid;
@@ -30,6 +32,14 @@ public class Customer {
 		this.name = name;
 	}
 	
+	public String getCemail() {
+		return cemail;
+	}
+
+	public void setCemail(String cemail) {
+		this.cemail = cemail;
+	}
+
 	public String getGender() {
 		return gender;
 	}
@@ -44,6 +54,14 @@ public class Customer {
 
 	public void setPhonenumber(int phonenumber) {
 		this.phonenumber = phonenumber;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override

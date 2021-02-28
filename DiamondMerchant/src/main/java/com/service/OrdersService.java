@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.bean.Orders;
 import com.repository.OrdersRepository;
-import com.repository.SortByPriceDao;
+import com.repository.GenericDao;
 
 @Service
 public class OrdersService {
@@ -18,18 +18,34 @@ public class OrdersService {
 	OrdersRepository ordersRepository;
 	
 	@Autowired
-	SortByPriceDao sbp;
+	GenericDao sbp;
 	
 	public List<Orders> getAllOrdersFormSpringData() {
 		return ordersRepository.findAll();
 	}
 
-	public List<Orders> getAllOrdersDesc(){
-		return sbp.getAllOrdersDesc();
+	public List<Orders> getAllOrdersDescByPrice(){
+		return sbp.getAllOrdersDescByPrice();
 	}
 	
-	public List<Orders> getAllOrdersAsc(){
-		return sbp.getAllOrdersAsc();
+	public List<Orders> getAllOrdersAscByPrice(){
+		return sbp.getAllOrdersAscByPrice();
+	}
+	
+	public List<Orders> getAllOrdersDescByPName(){
+		return sbp.getAllOrdersDescByPName();
+	}
+	
+	public List<Orders> getAllOrdersAscByPName(){
+		return sbp.getAllOrdersAscByPName();
+	}
+	
+	public List<Orders> getAllOrdersDescByOStatus(){
+		return sbp.getAllOrdersDescByOStatus();
+	}
+	
+	public List<Orders> getAllOrdersAscByOStatus(){
+		return sbp.getAllOrdersAscByOStatus();
 	}
 	
 
@@ -68,5 +84,14 @@ public class OrdersService {
 			}else {
 					return "Record not present";
 				}
-			}
 	}
+	
+	// Search By Ordered Product Name or Product Order Price.
+	public List<Orders> listAllOrders(String keyword) {
+        if (keyword != null) {
+            return ordersRepository.search(keyword);
+        }
+        return ordersRepository.findAll();
+}
+	
+}
