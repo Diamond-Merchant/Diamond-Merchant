@@ -70,7 +70,12 @@ insert into store values(303,8548653,'Mumbai','Acharya Diamonds','acharya@gmail.
  		CUSTOMER TABLE
  ------------------------------
 drop table customer;
-create table customer (	customerid int NOT NULL PRIMARY KEY,name varchar(10) NOT NULL,gender varchar(10) NOT NULL,phonenumber int NOT NULL);
+create table customer (
+	customerid int NOT NULL PRIMARY KEY,
+	name varchar(10) NOT NULL,
+	gender varchar(10) NOT NULL,
+	phonenumber int NOT NULL
+);
 
 insert into customer values(401,'Ram','Male','985632456');
 
