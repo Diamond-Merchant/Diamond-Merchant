@@ -148,3 +148,15 @@ insert into employee values(601,'Suresh','Male',879065436,'1998-04-12','2017-12-
 insert into employee values(602,'Virat','Male',983256430,'1995-10-25','2015-05-29','Manager');
 
 insert into employee values(603,'Vidya','Female',890321457,'2000-07-06','2019-01-01','Worker');
+
+
+		ADMIN TABLE
+________________________________________
+
+
+create table admin(
+aname VARCHAR(15) NOT NULL ,
+apassword VARCHAR (15) NOT NULL 
+);
+
+insert into admin values('admin','admin'); 
