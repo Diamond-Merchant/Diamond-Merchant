@@ -27,22 +27,39 @@ public class OrdersController {
 
 	//http://localhost:8090/orders/allOrdersData
 	@GetMapping(value = "allOrdersData",produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Orders> getAllOrdersDetailsFromSpringData(){
+	public List<Orders> getAllOrdersDetailsFromSpringData() {
 		return os.getAllOrdersFormSpringData();
 	}
 	
 	@GetMapping(value="getOrdersDescByPrice",produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Orders> getOrdersDesc()
-	{
-		
-		return os.getAllOrdersDesc();
+	public List<Orders> getOrdersDescByPrice() {
+		return os.getAllOrdersDescByPrice();
 	}
 	
 	@GetMapping(value="getOrdersAscByPrice",produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Orders> getOrdersAsc()
-	{
-		
-		return os.getAllOrdersAsc();
+	public List<Orders> getOrdersAscByPrice() {
+		return os.getAllOrdersAscByPrice();
+	}
+	
+	
+	@GetMapping(value="getOrdersDescByPName",produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Orders> getOrdersDescByPName() {
+		return os.getAllOrdersDescByPName();
+	}
+	
+	@GetMapping(value="getOrdersAscByPName",produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Orders> getOrdersAscByPName() {
+		return os.getAllOrdersAscByPrice();
+	}
+	
+	@GetMapping(value="getOrdersDescByOStatus",produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Orders> getOrdersDescByOStatus() {
+		return os.getAllOrdersDescByOStatus();
+	}
+	
+	@GetMapping(value="getOrdersAscByOStatus",produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Orders> getOrdersAscByOStatus() {
+		return os.getAllOrdersAscByOStatus();
 	}
 
 
@@ -64,6 +81,12 @@ public class OrdersController {
 	@DeleteMapping(value = "deleteOrdersData/{oid}")
 	public String deleteOrderspringData(@PathVariable("oid") int oid) {
 		return os.deleteOrdersSpringData(oid);
+	}
+	
+	// Search By Ordered Product Name or Product Order Price.
+	@GetMapping(value="search/{keyword}")
+	public List<Orders> getSearchOrdersByPNameAndPrice(@PathVariable("keyword") String keyword) {
+		return os.listAllOrders(keyword);
 	}
 
 }
