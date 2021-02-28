@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Store;
-import com.repository.GenericDao;
+import com.dao.GenericDao;
 import com.repository.StoreRepository;
 
 

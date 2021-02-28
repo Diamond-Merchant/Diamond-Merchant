@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bean.Customer;
+import com.bean.Orders;
 import com.service.CustomerService;
 
 @RestController
@@ -21,28 +22,38 @@ import com.service.CustomerService;
 public class CustomerController {
 	
 	@Autowired
-	CustomerService ps;
+	CustomerService customerservice;
 	
 	@GetMapping(value = "allCustomerData",produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Customer> getAllCustomerDetailsFromSpringData(){
-			return ps.getAllCustomerFromSpringData();
+			return customerservice.getAllCustomerFromSpringData();
+	}
+	
+	@GetMapping(value="getCustomerNameAsc",produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Customer> getCustomerNameAsc() {
+		return customerservice.getCustomerNameAsc();
+	}
+	
+	@GetMapping(value="getCustomerNameDsc",produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Customer> getCustomerNameDsc() {
+		return customerservice.getCustomerNameDsc();
 	}
 	
 	
 	@PostMapping(value = "storeCustomerData",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String storeCustomerSpringData(@RequestBody Customer pp) {
-		return ps.storeCustomerSpringData(pp);
+		return customerservice.storeCustomerSpringData(pp);
 	}
 	
 	
 	@PutMapping(value = "updateCustomerData",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String updateCustomerSpringData(@RequestBody Customer cs) {
-			return ps.updateCustomerSpringData(cs);
+			return customerservice.updateCustomerSpringData(cs);
 	}
 	
 	
 	@DeleteMapping(value = "deleteCustomerData/{customerId}")
 	public String deleteProductSpringData(@PathVariable("customerId") int customerId) {
-			return ps.deleteCustomerSpringData(customerId);
+			return customerservice.deleteCustomerSpringData(customerId);
 	}
 }

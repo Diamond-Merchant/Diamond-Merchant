@@ -23,71 +23,70 @@ import com.service.ProductService;
 public class ProductController {
 	
 	@Autowired
-	ProductService ps;
+	ProductService productservice;
 	
 	
 	@GetMapping(value = "getProductData", produces = MediaType.APPLICATION_JSON_VALUE)
     public List < Product > getAllProductDetailsFromSpringData() {
-        return ps.getAllProductFromSpringData();
+        return productservice.getAllProductFromSpringData();
     }
 	
 	
 	@GetMapping(value="productDescByPrice", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Product> getProductsDescByPrice() {
-		
-		return ps.getAllProductDescByPrice();
+	public List<Product> getAllProductDsc() {
+		return productservice.getAllProductDsc();
 	}
 	
 	
 	@GetMapping(value="productAscByPrice", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Product> getProductsAscByPrice() {
+	public List<Product> getAllProductAsc() {
 		
-		return ps.getAllProductAscByPrice();
+		return productservice.getAllProductAsc();
 	}
 	
 	
 	@GetMapping(value="productDescByPName", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Product> getProductsDescByPName() {
 		
-		return ps.getAllProductDescByPName();
+		return productservice.getAllProductDescByPName();
 	}
 	
 	
 	@GetMapping(value="productAscByPName", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Product> getProductsAscByPName() {
 		
-		return ps.getAllProductAscByPNmae();
+		return productservice.getAllProductAscByPNmae();
 	}
 	
 	
 	@GetMapping(value="productDescByPMFG", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Product> getProductsDescByPMFG() {
 		
-		return ps.getAllProductDescByPMFG();
+		return productservice.getAllProductDescByPMFG();
 	}
 	
 	
 	@GetMapping(value="productAscByPMFG", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Product> getProductsAscByPMFG() {
 		
-		return ps.getAllProductAscByPMFG();
+		return productservice.getAllProductAscByPMFG();
 	}
 	
 	@PostMapping(value = "storeProductData", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String storeProductSpringData(@RequestBody Product p) {
-		return ps.storeProductSpringData(p);
+		return productservice.storeProductSpringData(p);
 	}
 	
 	
 	@DeleteMapping(value="deleteProductData/{Pid}",produces = MediaType.TEXT_PLAIN_VALUE)
 	public String deleteProductSpringData(@PathVariable("Pid") int pid) {
-		return ps.deleteProductSpringData(pid);
+		return productservice.deleteProductSpringData(pid);
 	} 
 	
 	
 	@PutMapping(value="updateProductData", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
 	public String updateProductSpringData(@RequestBody Product p) {
-		return ps.updateProductSpringData(p);
+		return productservice.updateProductSpringData(p);
 	}
 	
 	// Search By Product Name or Product Price.
@@ -95,7 +94,7 @@ public class ProductController {
 	public List<Product> getSearchProductByPnameAndPrice(@PathVariable("keyword") String keyword)
 	{
 		
-		return ps.listAllProduct(keyword);
+		return productservice.listAllProduct(keyword);
 	}
 	
 }

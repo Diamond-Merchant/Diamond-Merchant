@@ -7,8 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Orders;
+import com.dao.GenericDao;
+
 import com.repository.OrdersRepository;
-import com.repository.GenericDao;
 
 @Service
 public class OrdersService {
@@ -18,34 +19,34 @@ public class OrdersService {
 	OrdersRepository ordersRepository;
 	
 	@Autowired
-	GenericDao sbp;
+	GenericDao genericdao;
 	
 	public List<Orders> getAllOrdersFormSpringData() {
 		return ordersRepository.findAll();
 	}
 
 	public List<Orders> getAllOrdersDescByPrice(){
-		return sbp.getAllOrdersDescByPrice();
+		return genericdao.getAllOrdersDescByPrice();
 	}
 	
 	public List<Orders> getAllOrdersAscByPrice(){
-		return sbp.getAllOrdersAscByPrice();
+		return genericdao.getAllOrdersAscByPrice();
 	}
 	
 	public List<Orders> getAllOrdersDescByPName(){
-		return sbp.getAllOrdersDescByPName();
+		return genericdao.getAllOrdersDescByPName();
 	}
 	
 	public List<Orders> getAllOrdersAscByPName(){
-		return sbp.getAllOrdersAscByPName();
+		return genericdao.getAllOrdersAscByPName();
 	}
 	
 	public List<Orders> getAllOrdersDescByOStatus(){
-		return sbp.getAllOrdersDescByOStatus();
+		return  genericdao.getAllOrdersDescByOStatus();
 	}
 	
 	public List<Orders> getAllOrdersAscByOStatus(){
-		return sbp.getAllOrdersAscByOStatus();
+		return  genericdao.getAllOrdersAscByOStatus();
 	}
 	
 
