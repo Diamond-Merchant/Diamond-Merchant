@@ -23,14 +23,15 @@ public class CustomerService {
 		return customerRepo.findAll();
 	}
 	
-	public List<Customer> getCustomerNameAsc(){
-		return  genericdao.getCustomerNameAsc();
+	
+	public List<Customer> getCustomerNameByAsc(){
+		return  genericdao.getCustomerNameByAsc();
 	}
 
-	public List<Customer>getCustomerNameDsc(){
-		return  genericdao.getCustomerNameDsc();
-	}
 	
+	public List<Customer>getCustomerNameByDesc(){
+		return  genericdao.getCustomerNameByDesc();
+	}
 	
 	
 	public String storeCustomerSpringData(Customer cs) {
@@ -65,11 +66,9 @@ public class CustomerService {
             p.setPhonenumber(cs.getPhonenumber());
             customerRepo.saveAndFlush(p);   
             return "Record Updated Successfully";
-    } else {
-        return "Record Not Updated";
-    }
-}
-	
-	
-	
+        } else {
+        	return "Record Not Updated";
+        }
+	}
+		
 }

@@ -11,8 +11,8 @@ import com.bean.Orders;
 public interface OrdersRepository extends JpaRepository<Orders,Integer>{		// First parameter entity class and second parameter primary key
 	
 	// Search By Ordered Product Name or Product Order Price.
-		@Query("SELECT o FROM Orders o WHERE o.pname LIKE %?1%" + " OR CONCAT(o.oprice, '') LIKE %?1%")
+	@Query("SELECT o FROM Orders o WHERE o.pname LIKE %?1%" + " OR CONCAT(o.oprice, '') LIKE %?1%")
 	   
-		public List<Orders> search(String keyword);
+	public List<Orders> search(String keyword);
 	
 }

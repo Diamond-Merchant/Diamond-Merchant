@@ -23,38 +23,40 @@ import com.service.CustomerService;
 public class CustomerController {
 	
 	@Autowired
-	CustomerService customerservice;
+	CustomerService cs;
 	
 	@GetMapping(value = "allCustomerData",produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Customer> getAllCustomerDetailsFromSpringData(){
-			return customerservice.getAllCustomerFromSpringData();
+			return cs.getAllCustomerFromSpringData();
 	}
 	
-	@GetMapping(value="getCustomerNameAsc",produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Customer> getCustomerNameAsc() {
-		return customerservice.getCustomerNameAsc();
+	
+	@GetMapping(value="getCustomerNameByAsc",produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Customer> getCustomerNameByAsc() {
+		return cs.getCustomerNameByAsc();
 	}
 	
-	@GetMapping(value="getCustomerNameDsc",produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Customer> getCustomerNameDsc() {
-		return customerservice.getCustomerNameDsc();
+	
+	@GetMapping(value="getCustomerNameByDesc",produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Customer> getCustomerNameByDesc() {
+		return cs.getCustomerNameByDesc();
 	}
 	
 	
 	@PostMapping(value = "storeCustomerData",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String storeCustomerSpringData(@RequestBody Customer pp) {
-		return customerservice.storeCustomerSpringData(pp);
+		return cs.storeCustomerSpringData(pp);
 	}
 	
 	
 	@PutMapping(value = "updateCustomerData",consumes = MediaType.APPLICATION_JSON_VALUE)
-	public String updateCustomerSpringData(@RequestBody Customer cs) {
-			return customerservice.updateCustomerSpringData(cs);
+	public String updateCustomerSpringData(@RequestBody Customer c) {
+			return cs.updateCustomerSpringData(c);
 	}
 	
 	
 	@DeleteMapping(value = "deleteCustomerData/{customerId}")
 	public String deleteProductSpringData(@PathVariable("customerId") int customerId) {
-			return customerservice.deleteCustomerSpringData(customerId);
+			return cs.deleteCustomerSpringData(customerId);
 	}
 }

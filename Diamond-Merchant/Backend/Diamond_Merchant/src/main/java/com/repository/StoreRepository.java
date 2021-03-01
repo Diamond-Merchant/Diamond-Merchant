@@ -12,7 +12,7 @@ import com.bean.Store;
 @Repository
 public interface StoreRepository extends JpaRepository<Store,Integer> {		
 	
-	// Search By Ordered Product Name or Product Order Price.
+	// Search By Store Name or Store Address.
 	@Query("SELECT s FROM Store s WHERE s.storename LIKE %?1%" + " OR CONCAT(s.address, '') LIKE %?1%")
    
 	public List<Store> search(String keyword);

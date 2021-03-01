@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bean.Product;
 import com.bean.Retailer;
 import com.service.RetailerService;
 
@@ -24,42 +23,43 @@ import com.service.RetailerService;
 public class RetailerController {
 	
 	@Autowired
-	RetailerService retailerservice;
+	RetailerService rs;
 	
 	@GetMapping(value = "getRetailerData", produces = MediaType.APPLICATION_JSON_VALUE)
     public List < Retailer > getAllRetailerDetailsFromSpringData() {
-        return retailerservice.getAllRetailerFromSpringData();
+        return rs.getAllRetailerFromSpringData();
     }
 	
-	@GetMapping(value="getRetailerNameAsc", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Retailer> getRetailerNameAsc() {
+	
+	@GetMapping(value="getRetailerNameByAsc", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Retailer> getRetailerNameByAsc() {
 		
-		return retailerservice.getRetailerNameAsc();
+		return rs.getRetailerNameByAsc();
 	}
 	
 	
-	@GetMapping(value="getRetailerNameDsc", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Retailer> getRetailerNameDsc() {
+	@GetMapping(value="getRetailerNameByDesc", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Retailer> getRetailerNameByDesc() {
 		
-		return retailerservice.getRetailerNameDsc();
+		return rs.getRetailerNameByDesc();
 	}
 	
 	
 	@PostMapping(value = "storeRetailerData", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String storeRetailerSpringData(@RequestBody Retailer r) {
-		return retailerservice.storeRetailerSpringData(r);
+		return rs.storeRetailerSpringData(r);
 	}
 	
 	
 	@DeleteMapping(value="deleteRetailerData/{rid}",produces = MediaType.TEXT_PLAIN_VALUE)
 	public String deleteRetailerSpringData(@PathVariable("rid") int rid) {
-		return retailerservice.deleteRetailerSpringData(rid);
+		return rs.deleteRetailerSpringData(rid);
 	} 
 	
 	
 	@PutMapping(value="updateRetailerData", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
 	public String updateRetailerSpringData(@RequestBody Retailer r) {
-		return retailerservice.updateRetailerSpringData(r);
+		return rs.updateRetailerSpringData(r);
 	}
 	
 }

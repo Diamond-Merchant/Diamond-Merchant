@@ -51,8 +51,9 @@ public class AdminService {
 			 admin.setApassword(a.getApassword());
 			 adminRepository.saveAndFlush(admin);	
 			 return "Admin Password Updated Successfully";
-	 } else {
-		 return "Admin Password Not Updated";
-	 }
+		 } else {
+			 return "Admin Password Not Updated";
+		 }
 	}
+	 
 }

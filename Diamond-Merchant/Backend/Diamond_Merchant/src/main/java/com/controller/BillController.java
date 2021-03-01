@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bean.Bill;
-import com.bean.Orders;
 import com.service.BillService;
 
 @RestController
@@ -24,37 +23,40 @@ import com.service.BillService;
 public class BillController {
 	
 	@Autowired
-	BillService billservice;
+	BillService bs;
 	
 	@GetMapping(value = "getBillData", produces = MediaType.APPLICATION_JSON_VALUE)
     public List < Bill > getAllBillDetailsFromSpringData() {
-        return billservice.getAllBillFromSpringData();
+        return bs.getAllBillFromSpringData();
     }
 	
-	@GetMapping(value="getOrdersAscByPrice",produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Bill> getAllBillAscByPrice() {
-		return billservice.getAllBillAscByPrice();
+	
+	@GetMapping(value="getBillPriceByAsc",produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Bill> getAllBillPriceByAsc() {
+		return bs.getAllBillPriceByAsc();
 	}
 	
-	@GetMapping(value="getBillDescByPrice",produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Bill> getOrdersDscByPrice() {
-		return billservice.getAllBillsDscByPrice();
+	
+	@GetMapping(value="getBillPriceByDesc",produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Bill> getOrdersPriceByDesc() {
+		return bs.getAllBillPriceByDesc();
 	}
+	
 	
 	@PostMapping(value = "storeBillData", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String storeBillSpringData(@RequestBody Bill b) {
-		return billservice.storeBillSpringData(b);
+		return bs.storeBillSpringData(b);
 	}
 	
 	
 	@DeleteMapping(value="deleteBillData/{Bid}",produces = MediaType.TEXT_PLAIN_VALUE)
 	public String deleteBillSpringData(@PathVariable("Bid") int bid) {
-		return billservice.deleteBillSpringData(bid);
+		return bs.deleteBillSpringData(bid);
 	} 
 	
 	
 	@PutMapping(value="updateBillData", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
 	public String updateBillSpringData(@RequestBody Bill b) {
-		return billservice.updateBillSpringData(b);
+		return bs.updateBillSpringData(b);
 	}
 }

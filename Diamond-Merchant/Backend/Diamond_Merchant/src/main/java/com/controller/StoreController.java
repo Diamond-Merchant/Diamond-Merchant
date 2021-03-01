@@ -23,37 +23,37 @@ import com.service.StoreService;
 public class StoreController {
 
 	@Autowired
-	StoreService storeservice;
+	StoreService ss;
 	
 
 	//http://localhost:8090/Store/allStoreData
 	@GetMapping(value = "allStoreData",produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Store> getAllOrdersDetailsFromSpringData() {
-			return storeservice.getAllStoreFormSpringData();
+			return ss.getAllStoreFormSpringData();
 	}
 	
 	
 	@GetMapping(value="storeDescByPrice", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Store> getStoresDescByPrice() {
-		return storeservice.getAllStoresDescByPrice();
+		return ss.getAllStoresDescByPrice();
 	}
 	
 	
 	@GetMapping(value="storeAscByPrice", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Store> getStoresAscByPrice() {
-		return storeservice.getAllStoresAscByPrice();
+		return ss.getAllStoresAscByPrice();
 	}
 	
 	
 	@GetMapping(value="storeDescByStoreName", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Store> getStoresDescBySName() {
-		return storeservice.getAllStoresDescBySName();
+		return ss.getAllStoresDescBySName();
 	}
 	
 	
 	@GetMapping(value="storeAscByStoreName", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Store> getStoresAscBySName() {
-		return storeservice.getAllStoresAscBySName();
+		return ss.getAllStoresAscBySName();
 	}
 
 	
@@ -61,28 +61,28 @@ public class StoreController {
 	@PostMapping(value = "storeStoreData",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String storeProductSpringData(@RequestBody Store s) 
 	{
-		return storeservice.storeStoreSpringData(s);
+		return ss.storeStoreSpringData(s);
 	}
 	
 	
 	//http://localhost:8090/Store/updateStoreData
 	@PutMapping(value = "updateStoreData",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String updateOrdersDataSpringData(@RequestBody Store s) {
-			return storeservice.updateStoreSpringData(s);
+			return ss.updateStoreSpringData(s);
 	}
 	
 	
 	//http://localhost:8090/Store/deleteStoreData/104
 	@DeleteMapping(value = "deleteStoreData/{storeid}")
 	public String deleteStorespringData(@PathVariable("storeid") int storeid) {
-			return storeservice.deleteStoreSpringData(storeid);
+			return ss.deleteStoreSpringData(storeid);
 	}
 
 	
 	// Search By Store Name or Store Address.
 	@GetMapping(value="search/{keyword}")
 	public List<Store> getSearchStoreSNameAndAddress(@PathVariable("keyword") String keyword) {		
-			return storeservice.listAllStore(keyword);
+			return ss.listAllStore(keyword);
 	}
 
 }
