@@ -8,4 +8,5 @@ import com.bean.Employee;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
 
+	
 }

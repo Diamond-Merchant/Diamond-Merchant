@@ -7,60 +7,60 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Product;
+import com.dao.GenericDao;
 import com.repository.ProductRepository;
-import com.repository.GenericDao;
 
 
 @Service
 public class ProductService {
 	
 	@Autowired
-	ProductRepository pr;
+	ProductRepository productrepository;
 	
 	@Autowired
-	GenericDao gd;
+	GenericDao genericdao;
 	
 	
 	public List<Product> getAllProductFromSpringData() {
-		 return pr.findAll();
+		 return productrepository.findAll();
 	 }
 	
 	
-	public List<Product> getAllProductDescByPrice() {
-		return gd.getAllProductDescByPrice();
+	public List<Product> getAllProductAsc() {
+		return genericdao.getAllProductAsc();
 	}
 	
 	
-	public List<Product> getAllProductAscByPrice() {
-		return gd.getAllProductAscByPrice();
+	public List<Product> getAllProductDsc() {
+		return genericdao.getAllProductDsc();
 	}
 	
 	
 	public List<Product> getAllProductDescByPName() {
-		return gd.getAllProductDescByPName();
+		return genericdao.getAllProductDescByPName();
 	}
 	
 	
 	public List<Product> getAllProductAscByPNmae() {
-		return gd.getAllProductAscByPName();
+		return genericdao.getAllProductAscByPName();
 	}
 	
 	public List<Product> getAllProductDescByPMFG() {
-		return gd.getAllProductDescByPMFG();
+		return genericdao.getAllProductDescByPMFG();
 	}
 	
 	
 	public List<Product> getAllProductAscByPMFG() {
-		return gd.getAllProductAscByPMFG();
+		return genericdao.getAllProductAscByPMFG();
 	}
 	
 	
 	public String storeProductSpringData(Product p) {
-			Optional<Product> op = pr.findById(p.getPid());
+			Optional<Product> op = productrepository.findById(p.getPid());
 			if(op.isPresent()) {
 				return "Product Record Already Present";
 			} else {
-				Product pro = pr.save(p);
+				Product pro = productrepository.save(p);
 				if(pro!=null) {
 					return "Product Record Stored SuccessFully";
 				} else {
@@ -71,8 +71,8 @@ public class ProductService {
 	 
 	 
 	 public String deleteProductSpringData(int pid) {
-		 if(pr.existsById(pid)) {
-			 pr.deleteById(pid);
+		 if(productrepository.existsById(pid)) {
+			 productrepository.deleteById(pid);
 			 return "Product Record Deleted SuccessFully";
 		 } else {
 			 return "Product Record Not Present";
@@ -81,11 +81,11 @@ public class ProductService {
 	 
 	 
 	 public String updateProductSpringData(Product p) {
-		 Optional<Product> obj = pr.findById(p.getPid());
+		 Optional<Product> obj = productrepository.findById(p.getPid());
 		 if(obj.isPresent()) {
 			 Product pro = obj.get();
 			 pro.setCostprice(p.getCostprice());
-			 pr.saveAndFlush(pro);	
+			 productrepository.saveAndFlush(pro);	
 			 return "Product Record Updated Successfully";
 	 } else {
 		 return "Product Record Not Updated";
@@ -96,9 +96,9 @@ public class ProductService {
 	// Search By Product Name or Product Price.
 	public List<Product> listAllProduct(String keyword) {
 	        if (keyword != null) {
-	            return pr.search(keyword);
+	            return productrepository.search(keyword);
 	        }
-	        return pr.findAll();
+	        return productrepository.findAll();
 	}
 	 
 }

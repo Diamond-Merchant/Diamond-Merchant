@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Bill;
+import com.bean.Orders;
+import com.dao.GenericDao;
 import com.repository.BillRepository;
 
 @Service
@@ -15,10 +17,24 @@ public class BillService {
 	@Autowired
 	BillRepository billRepository;
 	
+	@Autowired
+	GenericDao  genericdao;
+	
 	public List<Bill> getAllBillFromSpringData() {
 		 return billRepository.findAll();
 	 }
+	
+	
+	public List<Bill> getAllBillAscByPrice(){
+		return  genericdao.getAllBillsAscByPrice();
+		
+	}
 
+	public List<Bill>getAllBillsDscByPrice(){
+		return  genericdao.getAllBillsDscByPrice();
+	}
+	
+	
 	
 	 public String storeBillSpringData(Bill b) {
 			Optional<Bill> op = billRepository.findById(b.getBid());

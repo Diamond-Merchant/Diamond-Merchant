@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bean.Product;
 import com.bean.Retailer;
+import com.dao.GenericDao;
 import com.repository.RetailerRepository;
 
 @Service
@@ -14,10 +16,21 @@ public class RetailerService {
 	
 	@Autowired
 	RetailerRepository retailerRepository;
+	@Autowired
+	GenericDao genericdao;
+	
 	
 	public List<Retailer> getAllRetailerFromSpringData() {
 		 return retailerRepository.findAll();
 	 }
+	
+	
+	public List<Retailer> getRetailerNameAsc() {
+		return genericdao.getRetailerNameAsc();
+	}
+	public List<Retailer> getRetailerNameDsc() {
+		return genericdao.getRetailerNameDsc();
+	}
 	
 	
 	 public String storeRetailerSpringData(Retailer r) {
