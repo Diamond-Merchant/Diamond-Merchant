@@ -78,7 +78,14 @@ insert into store values(303,8548653,'Mumbai','Acharya Diamonds','acharya@gmail.
 
 drop table customer;
 
-create table customer (customerid int NOT NULL PRIMARY KEY,name varchar(10) NOT NULL,cemail varchar(20) NOT NULL,gender varchar(10) NOT NULL,phonenumber int NOT NULL,password varchar(20) NOT NULL);
+create table customer (
+	customerid int NOT NULL PRIMARY KEY,
+	name varchar(10) NOT NULL,
+	cemail varchar(20) NOT NULL,
+	gender varchar(10) NOT NULL,
+	phonenumber int NOT NULL,
+	password varchar(20) NOT NULL
+);
 
 insert into customer values(401,'Ram','ramman@gmail.com','Male','985632456','ram@123');
 
@@ -118,7 +125,18 @@ insert into product values(1004,'Encorida','Bangalore',270000,5500000,'Zanyah');
 
 drop table retailer;
 
-create table retailer (rid int NOT NULL PRIMARY KEY,rname varchar(15) NOT NULL,remail varchar(20),rpassword varchar(20),rphone int NOT NULL,rpname varchar(15) NOT NULL,rostatus varchar(10) NOT NULL,oid int NOT NULL,storeid int NOT NULL,pid int NOT NULL);
+create table retailer (
+	rid int NOT NULL PRIMARY KEY,
+	rname varchar(15) NOT NULL,
+	remail varchar(20),
+	rpassword varchar(20),
+	rphone int NOT NULL,
+	rpname varchar(15) NOT NULL,
+	rostatus varchar(10) NOT NULL,
+	oid int NOT NULL,
+	storeid int NOT NULL,
+	pid int NOT NULL
+	);
 
 insert into retailer values(501,'Siri','siri@gmail.com','siri@123',987856432,'CircleOfTrust',"Delivered",202,302,1002);
 
