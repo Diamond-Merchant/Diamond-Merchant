@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bean.Customer;
 import com.bean.Employee;
 import com.dao.GenericDao;
 import com.repository.EmployeeRepository;
@@ -20,34 +19,34 @@ public class EmployeeService {
 	@Autowired
 	GenericDao genericdao;
 	
-	
 	public List<Employee> getAllEmployeeFromSpringData() {
 		 return employeeRepository.findAll();
-	 }
+	}
 	
 	
-	public List<Employee> getEmployeeNameAsc(){
-		return  genericdao.getEmployeeNameAsc();
+	public List<Employee> getEmployeeNameByAsc(){
+		return  genericdao.getEmployeeNameByAsc();
 	}
 
-	public List<Employee>getEmployeeNameDsc(){
-		return  genericdao.getEmployeeNameDsc();
+	
+	public List<Employee>getEmployeeNameByDesc(){
+		return  genericdao.getEmployeeNameByDesc();
 	}
 	
 	
-	 public String storeEmployeeSpringData(Employee e) {
-			Optional<Employee> op = employeeRepository.findById(e.getEid());
-			if(op.isPresent()) {
-				return "Employee Record Already Present";
+	public String storeEmployeeSpringData(Employee e) {
+		Optional<Employee> op = employeeRepository.findById(e.getEid());
+		if(op.isPresent()) {
+			return "Employee Record Already Present";
+		} else {
+			Employee employee = employeeRepository.save(e);
+			if(employee!=null) {
+				return "Employee Record Stored SuccessFully";
 			} else {
-				Employee employee = employeeRepository.save(e);
-				if(employee!=null) {
-					return "Employee Record Stored SuccessFully";
-				} else {
-					return "Employee Record Didn't Store";
-				}
+				return "Employee Record Didn't Store";
 			}
-		 }
+		}
+	}
 	 
 	 public String deleteEmployeeSpringData(int eid) {
 		 if(employeeRepository.existsById(eid)) {
@@ -66,8 +65,10 @@ public class EmployeeService {
 			 employee.setDesignation(e.getDesignation());
 			 employeeRepository.saveAndFlush(employee);	
 			 return "Employee Record Updated Successfully";
-	 } else {
-		 return "Employee Record Not Updated";
-	 }
+		 } else {
+			 return "Employee Record Not Updated";
+		 }
 	}
+	 
+
 }

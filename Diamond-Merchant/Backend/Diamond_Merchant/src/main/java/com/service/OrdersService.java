@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Orders;
+import com.bean.Product;
 import com.dao.GenericDao;
-
 import com.repository.OrdersRepository;
 
 @Service
@@ -19,34 +19,41 @@ public class OrdersService {
 	OrdersRepository ordersRepository;
 	
 	@Autowired
-	GenericDao genericdao;
+	GenericDao sbp;
+	
 	
 	public List<Orders> getAllOrdersFormSpringData() {
 		return ordersRepository.findAll();
 	}
 
+	
 	public List<Orders> getAllOrdersDescByPrice(){
-		return genericdao.getAllOrdersDescByPrice();
+		return sbp.getAllOrdersDescByPrice();
 	}
+	
 	
 	public List<Orders> getAllOrdersAscByPrice(){
-		return genericdao.getAllOrdersAscByPrice();
+		return sbp.getAllOrdersAscByPrice();
 	}
+	
 	
 	public List<Orders> getAllOrdersDescByPName(){
-		return genericdao.getAllOrdersDescByPName();
+		return sbp.getAllOrdersDescByPName();
 	}
+	
 	
 	public List<Orders> getAllOrdersAscByPName(){
-		return genericdao.getAllOrdersAscByPName();
+		return sbp.getAllOrdersAscByPName();
 	}
+	
 	
 	public List<Orders> getAllOrdersDescByOStatus(){
-		return  genericdao.getAllOrdersDescByOStatus();
+		return sbp.getAllOrdersDescByOStatus();
 	}
 	
+	
 	public List<Orders> getAllOrdersAscByOStatus(){
-		return  genericdao.getAllOrdersAscByOStatus();
+		return sbp.getAllOrdersAscByOStatus();
 	}
 	
 
@@ -74,18 +81,19 @@ public class OrdersService {
 			return "Record updated successfully";
 		}else {
 			return "Record not present";
-			}
+		}
 	}
 
 	
 	public String deleteOrdersSpringData(int oid) {
-			if(ordersRepository.existsById(oid)) {
-				ordersRepository.deleteById(oid);
-					return "Record deleted successfully";
-			}else {
-					return "Record not present";
-				}
+		if(ordersRepository.existsById(oid)) {
+			ordersRepository.deleteById(oid);
+				return "Record deleted successfully";
+		}else {
+				return "Record not present";
+		}
 	}
+	
 	
 	// Search By Ordered Product Name or Product Order Price.
 	public List<Orders> listAllOrders(String keyword) {
@@ -93,6 +101,16 @@ public class OrdersService {
             return ordersRepository.search(keyword);
         }
         return ordersRepository.findAll();
-}
+	}
+	
+	
+	public Orders findOrdersById(int oid) {
+		Optional<Orders> op = ordersRepository.findById(oid);
+		if(op.isPresent()) {
+			return op.get();
+		} else {
+			return null;
+		}
+	}
 	
 }

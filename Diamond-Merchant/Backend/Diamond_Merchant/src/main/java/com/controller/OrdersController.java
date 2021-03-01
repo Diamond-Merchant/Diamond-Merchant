@@ -24,71 +24,77 @@ import com.service.OrdersService;
 public class OrdersController {
 	
 	@Autowired
-	OrdersService orderservice;
+	OrdersService os;
 
 
 	//http://localhost:8090/orders/allOrdersData
 	@GetMapping(value = "allOrdersData",produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Orders> getAllOrdersDetailsFromSpringData() {
-		return orderservice.getAllOrdersFormSpringData();
+		return os.getAllOrdersFormSpringData();
 	}
 	
 	@GetMapping(value="getOrdersDescByPrice",produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Orders> getOrdersDescByPrice() {
-		return orderservice.getAllOrdersDescByPrice();
+		return os.getAllOrdersDescByPrice();
 	}
 	
 	@GetMapping(value="getOrdersAscByPrice",produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Orders> getOrdersAscByPrice() {
-		return orderservice.getAllOrdersAscByPrice();
+		return os.getAllOrdersAscByPrice();
 	}
 	
 	
 	@GetMapping(value="getOrdersDescByPName",produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Orders> getOrdersDescByPName() {
-		return orderservice.getAllOrdersDescByPName();
+		return os.getAllOrdersDescByPName();
 	}
 	
 	@GetMapping(value="getOrdersAscByPName",produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Orders> getOrdersAscByPName() {
-		return orderservice.getAllOrdersAscByPrice();
+		return os.getAllOrdersAscByPrice();
 	}
 	
 	@GetMapping(value="getOrdersDescByOStatus",produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Orders> getOrdersDescByOStatus() {
-		return orderservice.getAllOrdersDescByOStatus();
+		return os.getAllOrdersDescByOStatus();
 	}
 	
 	@GetMapping(value="getOrdersAscByOStatus",produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Orders> getOrdersAscByOStatus() {
-		return orderservice.getAllOrdersAscByOStatus();
+		return os.getAllOrdersAscByOStatus();
 	}
 
 
 	//http://localhost:8090/orders/storeOrdersData
 	@PostMapping(value = "storeOrdersData",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String storeProductSpringData(@RequestBody Orders oo) {
-		return orderservice.storeOrdersSpringData(oo);
+		return os.storeOrdersSpringData(oo);
 	}
 
 
 	//http://localhost:8090/orders/updateOrdersData
 	@PutMapping(value = "updateOrdersData",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String updateOrdersDataSpringData(@RequestBody Orders oo) {
-		return orderservice.updateOrdersSpringData(oo);
+		return os.updateOrdersSpringData(oo);
 	}	
 
 
 	//http://localhost:8090/orders/deleteOrdersData/6
 	@DeleteMapping(value = "deleteOrdersData/{oid}")
 	public String deleteOrderspringData(@PathVariable("oid") int oid) {
-		return orderservice.deleteOrdersSpringData(oid);
+		return os.deleteOrdersSpringData(oid);
 	}
 	
 	// Search By Ordered Product Name or Product Order Price.
 	@GetMapping(value="search/{keyword}")
 	public List<Orders> getSearchOrdersByPNameAndPrice(@PathVariable("keyword") String keyword) {
-		return orderservice.listAllOrders(keyword);
+		return os.listAllOrders(keyword);
+	}
+	
+	
+	@GetMapping(value = "findOrdersById/{oid}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Orders getOrdersById(@PathVariable("oid") int oid) {
+		return os.findOrdersById(oid);
 	}
 
 }

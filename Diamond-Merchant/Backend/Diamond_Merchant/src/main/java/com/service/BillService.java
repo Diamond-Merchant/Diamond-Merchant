@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Bill;
-import com.bean.Orders;
 import com.dao.GenericDao;
 import com.repository.BillRepository;
 
@@ -22,19 +21,18 @@ public class BillService {
 	
 	public List<Bill> getAllBillFromSpringData() {
 		 return billRepository.findAll();
-	 }
+	}
 	
 	
-	public List<Bill> getAllBillAscByPrice(){
-		return  genericdao.getAllBillsAscByPrice();
-		
+	public List<Bill> getAllBillPriceByAsc(){
+		return  genericdao.getAllBillPriceByAsc();
+	}
+	
+
+	public List<Bill>getAllBillPriceByDesc(){
+		return  genericdao.getAllBillPriceByDesc();
 	}
 
-	public List<Bill>getAllBillsDscByPrice(){
-		return  genericdao.getAllBillsDscByPrice();
-	}
-	
-	
 	
 	 public String storeBillSpringData(Bill b) {
 			Optional<Bill> op = billRepository.findById(b.getBid());
@@ -48,27 +46,30 @@ public class BillService {
 					return "Bill Record Didn't Store";
 				}
 			}
-		 }
+	}
 	 
-	 public String deleteBillSpringData(int bid) {
+	 
+	public String deleteBillSpringData(int bid) {
 		 if(billRepository.existsById(bid)) {
 			 billRepository.deleteById(bid);
 			 return "Bill Record Deleted SuccessFully";
 		 } else {
 			 return "Bill Record Not Present";
 		 }
-	 }
+	}
 	 
 	 
-	 public String updateBillSpringData(Bill b) {
+	public String updateBillSpringData(Bill b) {
 		 Optional<Bill> obj = billRepository.findById(b.getBid());
 		 if(obj.isPresent()) {
 			 Bill bill = obj.get();
 			 bill.setPrice(b.getPrice());
 			 billRepository.saveAndFlush(bill);	
 			 return "Bill Record Updated Successfully";
-	 } else {
-		 return "Bill Record Not Updated";
-	 }
+		 } else {
+			 return "Bill Record Not Updated";
+		 }
 	}
+	
+
 }
