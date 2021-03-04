@@ -1,17 +1,24 @@
  -----------------------------------
-|      DATABASENAME - diamond      |
-|      USERNAME - root		   |
-|      password - root		   |
-|      PORT - 3306		   |
+|      DATABASENAME - diamond      	|
+|      USERNAME - root		  		|
+|      password - root		   		|
+|      PORT - 3306		   			|
  -----------------------------------
+
 
 		BILL TABLE
 -----------------------------
 
 drop table bill;
 
+
 CREATE TABLE bill (
 	bid int NOT NULL PRIMARY KEY,
+	eid int NOT NULL,
+	cid int NOT NULL,
+	rid int NOT NULL,
+	pid int NOT NULL,
+	sid int NOT NULL,
 	ename varchar(15) NOT NULL,
 	cname varchar(15) NOT NULL,
 	pname varchar(15) NOT NULL,
@@ -20,13 +27,69 @@ CREATE TABLE bill (
 	dop DATE NOT NULL
 );
 
-insert into bill values(101,'Ram','Anil','HalfCarat',1,7000000,'2021-02-11');
 
-insert into bill values(102,'Suresh','Mahi','BlackLabel',1,3000000,'2021-01-29');
+insert into bill values(101,602,401,503,1001,303,'Anu','Yash','HalfCarat',1,7000000,'2021-03-10');
 
-insert into bill values(103,'Rekha','John','Encorida',1,5500000,'2021-01-01');
+insert into bill values(102,601,402,502,1003,302,'Suresh','Ram','BlackLabel',1,3000000,'2021-01-29');
 
-insert into bill values(104,'Spoorthy','Vidya','CircleOfTrust',1,4500000,'2020-12-29');
+insert into bill values(103,603,404,501,1004,301,'Virat','Shivani','Encorida',1,5500000,'2021-01-01');
+
+insert into bill values(104,601,403,502,1003,302,'Suresh','Darshan','BlackLabel',1,3000000,'2020-12-29');
+
+insert into bill values(105,603,402,501,1002,301,'Virat','Ram','CircleOfTrust',1,4500000,'2020-12-24');
+
+
+
+ALTER TABLE bill
+	DROP FOREIGN KEY FK_BP_PID;
+
+
+ALTER TABLE bill
+ADD CONSTRAINT FK_BP_PID
+FOREIGN KEY (pid) REFERENCES product(pid)
+ON DELETE CASCADE;
+
+
+ALTER TABLE bill
+	DROP FOREIGN KEY FK_BE_EID;
+
+
+ALTER TABLE bill
+ADD CONSTRAINT FK_BE_EID
+FOREIGN KEY (eid) REFERENCES employee(eid)
+ON DELETE CASCADE;
+
+
+ALTER TABLE bill
+	DROP FOREIGN KEY FK_BC_CID;
+
+
+ALTER TABLE bill
+ADD CONSTRAINT FK_BC_CID
+FOREIGN KEY (cid) REFERENCES customer(customerid)
+ON DELETE CASCADE;
+
+
+ALTER TABLE bill
+	DROP FOREIGN KEY FK_BR_RID;
+
+
+ALTER TABLE bill
+ADD CONSTRAINT FK_BR_RID
+FOREIGN KEY (rid) REFERENCES retailer(rid)
+ON DELETE CASCADE;
+
+
+ALTER TABLE bill
+	DROP FOREIGN KEY FK_BS_SID;
+
+
+ALTER TABLE bill
+ADD CONSTRAINT FK_BS_SID
+FOREIGN KEY (sid) REFERENCES store(storeid)
+ON DELETE CASCADE;
+
+
 
 
 		ORDER TABLE
@@ -34,8 +97,12 @@ insert into bill values(104,'Spoorthy','Vidya','CircleOfTrust',1,4500000,'2020-1
 
 drop table orders;
 
+
 CREATE TABLE orders (
 	oid int NOT NULL PRIMARY KEY,
+	cid int NOT NULL,
+	rid int NOT NULL,
+	pid int NOT NULL,
 	pname varchar(15) NOT NULL,
 	oqty int NOT NULL,
 	oprice float NOT NULL,
@@ -43,60 +110,169 @@ CREATE TABLE orders (
 	ostatus VARCHAR(15) NOT NULL
 );
 
-insert into orders values(201,'Encorida',2,5500000,'2021-02-14','Pending');
 
-insert into orders values(202,'HalfCarat',1,7000000,'2021-01-18','Delivered');
+ALTER TABLE orders
+	DROP FOREIGN KEY FK_OP_PID;
 
-insert into orders values(203,'CircleOfTrust',1,4500000,'2020-12-24','Delivered');
 
-insert into orders values(204,'BlackLabel',1,3000000,'2021-02-28','Pending');
+ALTER TABLE orders
+ADD CONSTRAINT FK_OP_PID
+FOREIGN KEY (pid) REFERENCES product(pid)
+ON DELETE CASCADE;
+
+
+ALTER TABLE orders
+	DROP FOREIGN KEY FK_OC_CID;
+
+
+ALTER TABLE orders
+ADD CONSTRAINT FK_OC_CID
+FOREIGN KEY (cid) REFERENCES customer(customerid)
+ON DELETE CASCADE;
+
+
+ALTER TABLE orders
+	DROP FOREIGN KEY FK_OR_RID;
+
+
+ALTER TABLE orders
+ADD CONSTRAINT FK_OR_RID
+FOREIGN KEY (rid) REFERENCES retailer(rid)
+ON DELETE CASCADE;
+
+
+insert into orders values(201,403,503,1004,'Encorida',1,5500000,'2021-02-14','Delivered');
+
+insert into orders values(202,401,501,1001,'HalfCarat',1,7000000,'2021-03-10','Delivered');
+
+insert into orders values(203,402,502,1002,'CircleOfTrust',1,4500000,'2020-12-24','Pending');
+
+insert into orders values(204,404,501,1003,'BlackLabel',1,3000000,'2021-02-28','Delivered');
+
+insert into orders values(205,403,503,1001,'HalfCarat',1,7000000,'2021-03-02','Pending');
+
+
 
 
 		STORE TABLE
 ------------------------------
 
+
 drop table store;
+
 
 create table store(
 	storeid int NOT NULL PRIMARY KEY, 
+	pid int NOT NULL,
+	oid int NOT NULL,
+	pname varchar(20) NOT NULL,
+	productprice float NOT NULL,
+	storename varchar(20) NOT NULL,
 	contact int NOT NULL, 
 	address varchar(20) NOT NULL,
-	storename varchar(20) NOT NULL,
-	email varchar(20) NOT NULL,
-	pname varchar(20) NOT NULL,
-	productprice float NOT NULL
+	email varchar(20) NOT NULL
 );
 
-insert into store values(301,1234567,'Pune','Abhi Diamonds','abhi@gmail.com','CircleOfTrust',4500000);
 
-insert into store values(302,9876543,'Goa','Surat Diamonds','surath@gmail.com','Encorida',5500000);
+ALTER TABLE store
+	DROP FOREIGN KEY FK_SP_PID;
 
-insert into store values(303,8548653,'Mumbai','Acharya Diamonds','acharya@gmail.com','HalfCarat',7000000);
+
+ALTER TABLE store
+ADD CONSTRAINT FK_SP_PID
+FOREIGN KEY (pid) REFERENCES product(pid)
+ON DELETE CASCADE;
+
+
+ALTER TABLE store
+	DROP FOREIGN KEY FK_SO_OID;
+
+
+ALTER TABLE store
+ADD CONSTRAINT FK_SO_OID
+FOREIGN KEY (oid) REFERENCES orders(oid)
+ON DELETE CASCADE;
+
+
+insert into store values(301,1002,203,'CircleOfTrust',4500000,'Abhi Diamonds',953278013,'Pune','abhi@gmail.com');
+
+insert into store values(302,1004,201,'Encorida',5500000,'Surat Diamonds',987654323,'Goa','surath@gmail.com');
+
+insert into store values(303,1001,202,'HalfCarat',7000000,'Acharya Diamonds',854865310,'Mumbai','acharya@gmail.com');
+
+
+
 
  		CUSTOMER TABLE
  ------------------------------
 
+
 drop table customer;
 
-create table customer (customerid int NOT NULL PRIMARY KEY,name varchar(10) NOT NULL,cemail varchar(20) NOT NULL,gender varchar(10) NOT NULL,phonenumber int NOT NULL,password varchar(20) NOT NULL);
 
-insert into customer values(401,'Ram','ramman@gmail.com','Male','985632456','ram@123');
+create table customer (
+	customerid int NOT NULL PRIMARY KEY,
+	pid int NOT NULL,
+	sid int NOT NULL,
+	oid int NOT NULL,
+	name varchar(10) NOT NULL,
+	gender varchar(10) NOT NULL,
+	phonenumber int NOT NULL,
+	cemail varchar(20) NOT NULL,
+	password varchar(20) NOT NULL
+);
 
-insert into customer values(402,'Vidya', 'vidyapatil@gmail.com','Female','896753472','vidya@123');
 
-insert into customer values(403,'Darshan','darshan@gmail.com''Male','889469562','darshan@123');
+ALTER TABLE customer
+	DROP FOREIGN KEY FK_CP_PID;
 
-insert into customer values(404,'Shivani','shivani@gmail.com','Female','896532786','shivani@123');
+
+ALTER TABLE customer
+ADD CONSTRAINT FK_CP_PID
+FOREIGN KEY (pid) REFERENCES product(pid)
+ON DELETE CASCADE;
+
+
+ALTER TABLE customer
+	DROP FOREIGN KEY FK_CS_SID;
+
+ALTER TABLE customer
+ADD CONSTRAINT FK_CS_SID
+FOREIGN KEY (sid) REFERENCES store(storeid)
+ON DELETE CASCADE;
+
+
+ALTER TABLE customer
+	DROP FOREIGN KEY FK_CO_OID;
+
+
+ALTER TABLE customer
+ADD CONSTRAINT FK_CO_OID
+FOREIGN KEY (oid) REFERENCES orders(oid)
+ON DELETE CASCADE;
+
+
+insert into customer values(401,1001,303,202,'Yash','Male','985632456','yash@gmail.com','yash@123');
+
+insert into customer values(402,1003,301,203,'Ram','Male','896753472','ram@gmail.com','ram@123');
+
+insert into customer values(403,1003,302,201,'Darshan','Male','889469562','darshan@gmail.com','darshan@123');
+
+insert into customer values(404,1004,302,204,'Shivani','Female','896532786','shivani@gmail.com','shivani@123');
 
  	
  		
+
  		PRODUCT TABLE
  ------------------------------
 
+
 drop table product;
+
 
 create table product (
 	pid int NOT NULL PRIMARY KEY,
+	sid int NOT NULL,
 	pname varchar(20) NOT NULL,
 	shelflocation varchar(10) NOT NULL,
 	costprice float NOT NULL,
@@ -104,49 +280,120 @@ create table product (
 	manufacturer varchar(20) NOT NULL
 );
 
-insert into product values(1001,'HalfCarat','Mumbai',500000,7000000,'Forevermark');
 
-insert into product values(1002,'CircleOfTrust','Delhi',300000,4500000,'Forevermark');
+ALTER TABLE product
+	DROP FOREIGN KEY FK_PS_SID;
 
-insert into product values(1003,'BlackLabel','Hyderabad',150000,3000000,'Arabelle');
 
-insert into product values(1004,'Encorida','Bangalore',270000,5500000,'Zanyah');
+ALTER TABLE product
+ADD CONSTRAINT FK_PS_SID
+FOREIGN KEY (sid) REFERENCES store(storeid)
+ON DELETE CASCADE;
+
+
+insert into product values(1001,303,'HalfCarat','Mumbai',500000,7000000,'Forevermark');
+
+insert into product values(1002,301,'CircleOfTrust','Delhi',300000,4500000,'Forevermark');
+
+insert into product values(1003,303,'BlackLabel','Hyderabad',150000,3000000,'Arabelle');
+
+insert into product values(1004,302,'Encorida','Bangalore',270000,5500000,'Zanyah');
 
  		
+
  		RETAILER TABLE
  ------------------------------
 
+
 drop table retailer;
 
-create table retailer (rid int NOT NULL PRIMARY KEY,rname varchar(15) NOT NULL,remail varchar(20),rpassword varchar(20),rphone int NOT NULL,rpname varchar(15) NOT NULL,rostatus varchar(10) NOT NULL,oid int NOT NULL,storeid int NOT NULL,pid int NOT NULL);
 
-insert into retailer values(501,'Siri','siri@gmail.com','siri@123',987856432,'CircleOfTrust',"Delivered",202,302,1002);
+create table retailer (
+	rid int NOT NULL PRIMARY KEY,
+	pid int NOT NULL,
+	sid int NOT NULL,
+	oid int NOT NULL,
+	rname varchar(15) NOT NULL,
+	remail varchar(20),
+	rpassword varchar(20),
+	rphone int NOT NULL,
+	rpname varchar(15) NOT NULL,
+	rostatus varchar(10) NOT NULL
+);
 
-insert into retailer values(502,'Rahul','rahul@gmail.com','rahul@123',895423109,"BlackLabel","pending",202,302,1002);
 
-insert into retailer values(503,'Pratham','pratham@gmail.com','pratham@123',779065231,"HalfCarat","Delivered",202,302,1002);
+ALTER TABLE retailer
+	DROP FOREIGN KEY FK_RS_PID;
+
+
+ALTER TABLE retailer
+ADD CONSTRAINT FK_RS_PID
+FOREIGN KEY (pid) REFERENCES product(pid)
+ON DELETE CASCADE;
+
+
+ALTER TABLE retailer
+	DROP FOREIGN KEY FK_RS_SID;
+
+
+ALTER TABLE retailer
+ADD CONSTRAINT FK_RS_SID
+FOREIGN KEY (sid) REFERENCES store(storeid)
+ON DELETE CASCADE;
+
+
+ALTER TABLE retailer
+	DROP FOREIGN KEY FK_RS_OID;
+
+ALTER TABLE retailer
+ADD CONSTRAINT FK_RS_OID
+FOREIGN KEY (oid) REFERENCES orders(oid)
+ON DELETE CASCADE;
+
+
+insert into retailer values(501,1002,301,202,'Siri','siri@gmail.com','siri@123',987856432,'CircleOfTrust',"Delivered");
+
+insert into retailer values(502,1003,302,203,'Rahul','rahul@gmail.com','rahul@123',895423109,"BlackLabel","pending");
+
+insert into retailer values(503,1001,303,201,'Pratham','pratham@gmail.com','pratham@123',779065231,"HalfCarat","Delivered");
  
+
 
 		EMPLOYEE TABLE
  ------------------------------
 
+
 drop table employee;
+
 
 create table employee (
 	eid INT NOT NULL PRIMARY KEY,
+	sid INT NOT NULL,
 	ename VARCHAR(10) NOT NULL,
 	gender VARCHAR(10) NOT NULL,
 	ephonenumber INT,
 	birthdate DATE,
 	joiningdate DATE,
-	designation VARCHAR(15)
+	designation VARCHAR(15),
+	remail varchar(20)
 );
 
-insert into employee values(601,'Suresh','Male',879065436,'1998-04-12','2017-12-20','Worker');
 
-insert into employee values(602,'Virat','Male',983256430,'1995-10-25','2015-05-29','Manager');
+ALTER TABLE employee
+	DROP FOREIGN KEY FK_ES_SID;
 
-insert into employee values(603,'Vidya','Female',890321457,'2000-07-06','2019-01-01','Worker');
+
+ALTER TABLE employee
+ADD CONSTRAINT FK_ES_SID
+FOREIGN KEY (sid) REFERENCES store(storeid)
+ON DELETE CASCADE;
+
+
+insert into employee values(601,302,'Suresh','Male',879065436,'1998-04-12','2017-12-20','Worker','suresh@gmail.com');
+
+insert into employee values(602,303,'Anu','Female',983256430,'1995-10-25','2015-05-29','Manager','anu@gmail.com');
+
+insert into employee values(603,301,'Virat','Male',890321457,'2000-07-06','2019-01-01','Worker','virat@gmail.com');
 
 
 		ADMIN TABLE
