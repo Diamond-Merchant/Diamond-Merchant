@@ -71,5 +71,10 @@ public class RetailerService {
 			 return "Retailer Record Not Updated";
 		 }
 	}
+	
+	
+	public List<Object[]> retailerOrdersDetails(String id) {
+		return genericdao.getRetailerOrders(id);
+	}
 	 
 }

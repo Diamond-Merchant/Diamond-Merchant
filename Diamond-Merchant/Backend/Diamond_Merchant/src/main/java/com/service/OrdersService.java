@@ -18,7 +18,7 @@ public class OrdersService {
 	OrdersRepository ordersRepository;
 	
 	@Autowired
-	GenericDao sbp;
+	GenericDao gd;
 	
 	
 	public List<Orders> getAllOrdersFormSpringData() {
@@ -27,32 +27,32 @@ public class OrdersService {
 
 	
 	public List<Orders> getAllOrdersDescByPrice(){
-		return sbp.getAllOrdersDescByPrice();
+		return gd.getAllOrdersDescByPrice();
 	}
 	
 	
 	public List<Orders> getAllOrdersAscByPrice(){
-		return sbp.getAllOrdersAscByPrice();
+		return gd.getAllOrdersAscByPrice();
 	}
 	
 	
 	public List<Orders> getAllOrdersDescByPName(){
-		return sbp.getAllOrdersDescByPName();
+		return gd.getAllOrdersDescByPName();
 	}
 	
 	
 	public List<Orders> getAllOrdersAscByPName(){
-		return sbp.getAllOrdersAscByPName();
+		return gd.getAllOrdersAscByPName();
 	}
 	
 	
 	public List<Orders> getAllOrdersDescByOStatus(){
-		return sbp.getAllOrdersDescByOStatus();
+		return gd.getAllOrdersDescByOStatus();
 	}
 	
 	
 	public List<Orders> getAllOrdersAscByOStatus(){
-		return sbp.getAllOrdersAscByOStatus();
+		return gd.getAllOrdersAscByOStatus();
 	}
 	
 
@@ -110,6 +110,16 @@ public class OrdersService {
 		} else {
 			return null;
 		}
+	}
+	
+	
+	public List<Object[]> getOrderFromCustomerDetails(String id) {
+		return gd.getOrdersFromCustomer(id);
+	}
+	
+	
+	public List<Object[]> getOrderFromRetailerDetails(String id) {
+		return gd.getOrdersFromRetailer(id);
 	}
 	
 }

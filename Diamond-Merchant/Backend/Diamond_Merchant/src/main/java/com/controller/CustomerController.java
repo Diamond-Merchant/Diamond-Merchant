@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -58,5 +59,12 @@ public class CustomerController {
 	@DeleteMapping(value = "deleteCustomerData/{customerId}")
 	public String deleteProductSpringData(@PathVariable("customerId") int customerId) {
 			return cs.deleteCustomerSpringData(customerId);
+	}
+	
+	
+	@GetMapping(value = "customerOrderData/{customerid}")
+	public ResponseEntity<List<Object[]>> getCustomerOrdersDetails(@PathVariable("customerid") String cid){
+					List<Object[]> details = cs.customerOrdersDetails(cid);
+					return ResponseEntity.status(200).body(details);
 	}
 }

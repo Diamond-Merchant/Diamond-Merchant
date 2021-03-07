@@ -26,7 +26,7 @@ public class GenericDao {
 	// Sort By Bill Price ASC
 	public List<Bill> getAllBillPriceByAsc() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery("select b.bid,b.ename,b.cname,b.pname,b.qty,b.price,b.dop from Bill b order by b.price ");
+		Query qry = manager.createQuery("select bid,ename,cname,pname,qty,price,dop from Bill order by price ");
 		List<Bill> listOfBillByPrice = qry.getResultList();
 		return listOfBillByPrice;
 	}
@@ -35,7 +35,7 @@ public class GenericDao {
 	// Sort By Bill Price DESC
 	public List<Bill> getAllBillPriceByDesc() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery("select b.bid,b.ename,b.cname,b.pname,b.qty,b.price,b.dop from Bill b order by b.price desc ");
+		Query qry = manager.createQuery("select bid,ename,cname,pname,qty,price,dop from Bill order by price desc ");
 		List<Bill> listOfBillByPrice = qry.getResultList();
 		return listOfBillByPrice;
 	}
@@ -45,7 +45,7 @@ public class GenericDao {
 	// Sort By Product MRP ASC
 	public List<Product> getAllProductAscByPrice() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery(" select p.pid,p.pname,p.mrp,p.manufacturer from Product p order by p.mrp");
+		Query qry = manager.createQuery(" select pid,pname,mrp,manufacturer from Product order by mrp");
 		List<Product> listOfProductByPrice = qry.getResultList();
 		return listOfProductByPrice;
 	}
@@ -54,7 +54,7 @@ public class GenericDao {
 	// Sort By Product MRP DESC
 	public List<Product> getAllProductDescByPrice() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery(" select p.pid,p.pname,p.mrp,p.manufacturer from Product p order by p.mrp desc");
+		Query qry = manager.createQuery(" select pid,pname,mrp,manufacturer from Product order by mrp desc");
 		List<Product> listOfProductByPrice = qry.getResultList();
 		return listOfProductByPrice;
 	}
@@ -63,7 +63,7 @@ public class GenericDao {
 	// Sort By Product Name ASC
 	public List<Product> getAllProductAscByPName() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery(" select p.pid,p.pname,p.mrp,p.manufacturer from Product p order by p.pname");
+		Query qry = manager.createQuery(" select pid,pname,mrp,manufacturer from Product order by pname");
 		List<Product> listOfProductByPName = qry.getResultList();
 		return listOfProductByPName;
 	}
@@ -72,7 +72,7 @@ public class GenericDao {
 	// Sort By Product Name DESC
 	public List<Product> getAllProductDescByPName() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery(" select p.pid,p.pname,p.mrp,p.manufacturer from Product p order by p.pname desc");
+		Query qry = manager.createQuery(" select pid,pname,mrp,manufacturer from Product order by pname desc");
 		List<Product> listOfProductByPName = qry.getResultList();
 		return listOfProductByPName;
 	}
@@ -81,7 +81,7 @@ public class GenericDao {
 	// Sort By Product Manufacturer ASC
 	public List<Product> getAllProductAscByPMFG() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery(" select p.pid,p.pname,p.mrp,p.manufacturer from Product p order by p.manufacturer");
+		Query qry = manager.createQuery(" select pid,pname,mrp,manufacturer from Product order by manufacturer");
 		List<Product> listOfProductByPMFG = qry.getResultList();
 		return listOfProductByPMFG;
 	}
@@ -90,7 +90,7 @@ public class GenericDao {
 	// Sort By Product Manufacturer DESC
 	public List<Product> getAllProductDescByPMFG() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery(" select p.pid,p.pname,p.mrp,p.manufacturer from Product p order by p.manufacturer desc");
+		Query qry = manager.createQuery(" select pid,pname,mrp,manufacturer from Product order by manufacturer desc");
 		List<Product> listOfProductByPName = qry.getResultList();
 		return listOfProductByPName;
 	}
@@ -99,7 +99,7 @@ public class GenericDao {
 	// Sort By Orders Price ASC
 	public List<Orders> getAllOrdersAscByPrice() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery(" select o.oid,o.pname,o.ostatus,o.oqty,o.odate,o.oprice from Orders o order by o.oprice");
+		Query qry = manager.createQuery(" select oid,pname,ostatus,oqty,odate,oprice from Orders order by oprice");
 		List<Orders> listOfOrdersByPrice = qry.getResultList();
 		return listOfOrdersByPrice;
 	}
@@ -108,7 +108,7 @@ public class GenericDao {
 	// Sort By Orders Price DESC
 	public List<Orders> getAllOrdersDescByPrice() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery(" select o.oid,o.pname,o.ostatus,o.oqty,o.odate,o.oprice from Orders o order by o.oprice desc");
+		Query qry = manager.createQuery(" select oid,pname,ostatus,oqty,odate,oprice from Orders order by oprice desc");
 		List<Orders> listOfOrdersByPrice = qry.getResultList();
 		return listOfOrdersByPrice;
 	}
@@ -117,7 +117,7 @@ public class GenericDao {
 	// Sort By Orders Product Name ASC
 	public List<Orders> getAllOrdersAscByPName() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery(" select o.oid,o.pname,o.ostatus,o.oqty,o.odate,o.oprice from Orders o order by o.pname");
+		Query qry = manager.createQuery(" select oid,pname,ostatus,oqty,odate,oprice from Orders order by pname");
 		List<Orders> listOfOrdersByPName = qry.getResultList();
 		return listOfOrdersByPName;
 	}
@@ -126,7 +126,7 @@ public class GenericDao {
 	// Sort By Orders Product Name DESC
 	public List<Orders> getAllOrdersDescByPName() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery(" select o.oid,o.pname,o.ostatus,o.oqty,o.odate,o.oprice from Orders o order by o.pname desc");
+		Query qry = manager.createQuery(" select oid,pname,ostatus,oqty,odate,oprice from Orders order by pname desc");
 		List<Orders> listOfOrdersByPName = qry.getResultList();
 		return listOfOrdersByPName;
 	}
@@ -135,7 +135,7 @@ public class GenericDao {
 	// Sort By Orders Status ASC
 	public List<Orders> getAllOrdersAscByOStatus() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery(" select o.oid,o.pname,o.ostatus,o.oqty,o.odate,o.oprice from Orders o order by o.ostatus");
+		Query qry = manager.createQuery(" select oid,pname,ostatus,oqty,odate,oprice from Orders order by ostatus");
 		List<Orders> listOfOrdersByOStatus = qry.getResultList();
 		return listOfOrdersByOStatus;
 	}
@@ -144,7 +144,7 @@ public class GenericDao {
 	// Sort By Orders Status DESC
 	public List<Orders> getAllOrdersDescByOStatus() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery(" select o.oid,o.pname,o.ostatus,o.oqty,o.odate,o.oprice from Orders o order by o.ostatus desc");
+		Query qry = manager.createQuery(" select oid,pname,ostatus,oqty,odate,oprice from Orders order by ostatus desc");
 		List<Orders> listOfOrdersByOStatus = qry.getResultList();
 		return listOfOrdersByOStatus;
 	}
@@ -153,7 +153,7 @@ public class GenericDao {
 	// Sort By Store Price ASC
 	public List<Store> getAllStoresAscByPrice() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery(" select s.storeid,s.storename,s.address,s.contact,s.email,s.pname,s.productprice from Store s order by s.productprice");
+		Query qry = manager.createQuery(" select storeid,storename,address,contact,email,pname,productprice from Store order by productprice");
 		List<Store> listOfStoresByPrice = qry.getResultList();
 		return listOfStoresByPrice;
 	}
@@ -162,7 +162,7 @@ public class GenericDao {
 	// Sort By Store Price DESC
 	public List<Store> getAllStoresDescByPrice() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery(" select s.storeid,s.storename,s.address,s.contact,s.email,s.pname,s.productprice from Store s order by s.productprice desc");
+		Query qry = manager.createQuery(" select storeid,storename,address,contact,email,pname,productprice from Store order by productprice desc");
 		List<Store> listOfStoresByPrice = qry.getResultList();
 		return listOfStoresByPrice;
 	}
@@ -171,7 +171,7 @@ public class GenericDao {
 	// Sort By Store Name ASC
 	public List<Store> getAllStoresAscBySName() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery(" select s.storeid,s.storename,s.address,s.contact,s.email,s.pname,s.productprice from Store s order by s.storename");
+		Query qry = manager.createQuery(" select storeid,storename,address,contact,email,pname,productprice from Store order by storename");
 		List<Store> listOfStoresBySName = qry.getResultList();
 		return listOfStoresBySName;
 	}
@@ -180,7 +180,7 @@ public class GenericDao {
 	// Sort By Store Name DESC
 	public List<Store> getAllStoresDescBySName() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery(" select s.storeid,s.storename,s.address,s.contact,s.email,s.pname,s.productprice from Store s order by s.storename desc");
+		Query qry = manager.createQuery(" select storeid,storename,address,contact,email,pname,productprice from Store order by storename desc");
 		List<Store> listOfStoresBySName = qry.getResultList();
 		return listOfStoresBySName;
 	}
@@ -189,7 +189,7 @@ public class GenericDao {
 	// Sort By Customer Names ASC
 	public List<Customer> getCustomerNameByAsc() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery("select c.customerid, c.name, c.gender, c.phonenumber from Customer c order by c.name");
+		Query qry = manager.createQuery("select customerid, name, gender, phonenumber from Customer order by name");
 		List<Customer> listOfCustomerByNames = qry.getResultList();
 		return listOfCustomerByNames;
 	}
@@ -198,7 +198,7 @@ public class GenericDao {
 	// Sort By Customer Name DESC
 	public List<Customer> getCustomerNameByDesc() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery(" select c.customerid, c.name, c.gender, c.phonenumber from Customer c order by c.name desc");
+		Query qry = manager.createQuery(" select customerid, name, gender, phonenumber from Customer order by name desc");
 		List<Customer> listOfCustomerByNames = qry.getResultList();
 		return listOfCustomerByNames;
 	}
@@ -207,7 +207,7 @@ public class GenericDao {
 	// Sort By Employee Names ASC
 	public List<Employee> getEmployeeNameByAsc() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery( "select e.eid, e.ename ,e.gender,e.birthdate, e.joiningdate,e.designation from Employee e order by e.ename");
+		Query qry = manager.createQuery( "select eid, ename , gender, birthdate, joiningdate, designation from Employee order by ename");
 		List<Employee> listOfEmployeeByNames = qry.getResultList();
 		return listOfEmployeeByNames;	
 	}
@@ -216,7 +216,7 @@ public class GenericDao {
 	// Sort By Employee Names DESC
 	public List<Employee> getEmployeeNameByDesc() {
 	EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery( "select e.eid, e.ename ,e.gender,e.birthdate, e.joiningdate,e.designation from Employee e order by e.ename desc");
+		Query qry = manager.createQuery( "select eid, ename , gender, birthdate, joiningdate, designation from Employee order by ename desc");
 		List<Employee> listOfEmployeeByNames = qry.getResultList();
 		return listOfEmployeeByNames;
 	}
@@ -225,7 +225,7 @@ public class GenericDao {
 	// Sort By Retailer Names ASC
 	public List<Retailer> getRetailerNameByAsc() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery( "select r.rid, r.rname, r.remail, r.rphone, r.rpname, r.rostatus, r.oid, r.storeid, r.pid from Retailer r order by r.rname");
+		Query qry = manager.createQuery( "select rid, rname, remail, rphone, rpname, rostatus, oid, storeid, pid from Retailer order by rname");
 		List<Retailer> listOfRetailerByName = qry.getResultList();
 		return listOfRetailerByName;
 	}
@@ -234,9 +234,101 @@ public class GenericDao {
 	// Sort By Retailer Names DESC
 	public List<Retailer> getRetailerNameByDesc() {
 		EntityManager manager = emf.createEntityManager();
-		Query qry = manager.createQuery("select r.rid, r.rname, r.remail, r.rphone, r.rpname, r.rostatus, r.oid, r.storeid, r.pid from Retailer r order by r.rname desc");
+		Query qry = manager.createQuery("select rid, rname, remail, rphone, rpname, rostatus, oid, storeid, pid from Retailer order by rname desc");
 		List<Retailer> listOfRetailerByName = qry.getResultList();
 		return listOfRetailerByName;
 	}
+	
+	
+	// Join Customer with Orders, Store and Product
+	public List<Object[]> getCustomerOrders(String id) {
+		EntityManager manager = emf.createEntityManager();
+		Query qry =manager.createNativeQuery("select c.customerid,c.name,c.phonenumber,c.address,c.cemail,o.oid,p.pname,o.oprice,o.oqty,o.odate,o.ostatus,s.storename,s.contact from customer c, orders o, store s, product p where c.customerid=o.cid and p.pid=o.pid and o.oid=s.oid and o.cid=:custid");
+		qry.setParameter("custid", id);
+		List<Object[]> list = qry.getResultList();
+		return list;
+	}
+	
+	
+	// Join Get Product Order Details from Order and Store
+	public List<Object[]> getProductsOrders(String id) {
+		EntityManager manager  = emf.createEntityManager();
+		Query qry =manager.createNativeQuery("select p.pid,p.pname,p.manufacturer,s.storename,s.contact,o.oid,o.ostatus,o.oqty,o.odate,o.oprice from product p,store s,orders o where p.pid=o.pid and p.sid=s.storeid and o.oid =:odrid");
+		qry.setParameter("odrid", id);
+		List<Object[]> list = qry.getResultList();
+		return list;
+	}
+	
+	
+	// Join Retailer with Orders, Store and Product
+	public List<Object[]> getRetailerOrders(String id) {
+		EntityManager manager = emf.createEntityManager();
+		Query qry =manager.createNativeQuery("select r.rid,r.rname,r.rphone,r.raddress,r.remail,o.oid,p.pname,o.oprice,o.oqty,o.odate,o.ostatus,s.storename,s.contact from retailer r, orders o, store s, product p where r.rid=o.rid and p.pid=o.pid and o.oid=s.oid and o.rid=:retid");
+		qry.setParameter("retid", id);
+		List<Object[]> list = qry.getResultList();
+		return list;
+	}
+	
+	
+	// Join Product with Store
+	public List<Object[]> getProductStores(String id) {
+		EntityManager manager = emf.createEntityManager();
+		Query qry =manager.createNativeQuery("select p.pid,p.pname,p.shelflocation,p.manufacturer,p.mrp,s.storename,s.contact,s.address,s.email from product p,store s where p.pid=s.pid and p.pid=:proid");
+		qry.setParameter("proid", id);
+		List<Object[]> list = qry.getResultList();
+		return list;
+	}
+	
+	
+	// Join Employee with Store
+	public List<Object[]> getEmployeeStores(String id) {
+		EntityManager manager = emf.createEntityManager();
+		Query qry =manager.createNativeQuery("select e.eid,e.ename,e.gender,e.ephonenumber,e.birthdate,e.joiningdate,e.designation,e.email,s.storename,s.contact,s.address from employee e,store s where e.eid=s.eid and s.eid=:eid");
+		qry.setParameter("eid", id);
+		List<Object[]> list = qry.getResultList();
+		return list;
+	}
+	
+	
+	// Join Orders with Customer and Product
+	public List<Object[]> getOrdersFromCustomer(String id) {
+		EntityManager manager = emf.createEntityManager();
+		Query qry =manager.createNativeQuery("select o.oid,c.customerid,c.name,c.gender,c.phonenumber,c.address,c.cemail,p.pid,p.pname,p.manufacturer,o.oqty,p.mrp,o.odate,o.ostatus from orders o,customer c,product p where o.oid=c.oid and o.pid=p.pid and o.oid=:oid");
+		qry.setParameter("oid", id);
+		List<Object[]> list = qry.getResultList();
+		return list;
+	}
+	
+	
+	// Join Orders with Retailer and Product
+	public List<Object[]> getOrdersFromRetailer(String id) {
+		EntityManager manager = emf.createEntityManager();
+		Query qry =manager.createNativeQuery("select o.oid,r.rid,r.rname,r.rphone,r.raddress,r.remail,p.pid,p.pname,p.manufacturer,o.oqty,p.mrp,o.odate,o.ostatus from orders o,retailer r,product p where o.oid=r.oid and o.pid=p.pid and o.oid=:oid");
+		qry.setParameter("oid", id);
+		List<Object[]> list = qry.getResultList();
+		return list;
+	}
+	
+	
+	// Join Bill with Customer, Employee, Store, Order and Product
+	public List<Object[]> getBillCustomerDetails(String id) {
+		EntityManager manager = emf.createEntityManager();
+		Query qry =manager.createNativeQuery("select b.bid,e.eid,e.ename,e.ephonenumber,e.designation,c.customerid,c.name,c.phonenumber,c.address,c.cemail,s.storeid,s.storename,s.contact,o.oid,p.pname,p.manufacturer,p.mrp,o.oqty,o.odate,o.ostatus from bill b,customer c, employee e, store s, orders o,product p where b.cid=c.customerid and b.eid=e.eid and b.sid=s.storeid and b.oid=o.oid and b.pid=p.pid and b.bid=:bid");
+		qry.setParameter("bid", id);
+		List<Object[]> list = qry.getResultList();
+		return list;
+	}
+	
+	
+	
+	// Join Bill with Retailer, Employee, Store, Order and Product
+	public List<Object[]> getBillRetailerDetails(String id) {
+		EntityManager manager = emf.createEntityManager();
+		Query qry =manager.createNativeQuery("select b.bid,e.eid,e.ename,e.ephonenumber,e.designation,r.rid,r.rname,r.rphone,r.raddress,r.remail,s.storeid,s.storename,s.contact,o.oid,p.pname,p.manufacturer,p.mrp,o.oqty,o.odate,o.ostatus from bill b,retailer r, employee e, store s, orders o,product p where b.rid=r.rid and b.eid=e.eid and b.sid=s.storeid and b.oid=o.oid and b.pid=p.pid and b.bid=:bid");
+		qry.setParameter("bid", id);
+		List<Object[]> list = qry.getResultList();
+		return list;
+	}
+		
 		
 }

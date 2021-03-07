@@ -19,6 +19,7 @@ CREATE TABLE bill (
 	rid int NOT NULL,
 	pid int NOT NULL,
 	sid int NOT NULL,
+	oid int NOT NULL,
 	ename varchar(15) NOT NULL,
 	cname varchar(15) NOT NULL,
 	pname varchar(15) NOT NULL,
@@ -28,15 +29,15 @@ CREATE TABLE bill (
 );
 
 
-insert into bill values(101,602,401,503,1001,303,'Anu','Yash','HalfCarat',1,7000000,'2021-03-10');
+insert into bill values(101,602,401,503,1001,303,202,'Anu','Yash','HalfCarat',1,7000000,'2021-03-10');
 
-insert into bill values(102,601,402,502,1003,302,'Suresh','Ram','BlackLabel',1,3000000,'2021-01-29');
+insert into bill values(102,601,402,502,1003,302,203,'Suresh','Ram','BlackLabel',1,3000000,'2021-01-29');
 
-insert into bill values(103,603,404,501,1004,301,'Virat','Shivani','Encorida',1,5500000,'2021-01-01');
+insert into bill values(103,603,404,501,1004,301,204,'Virat','Shivani','Encorida',1,5500000,'2021-01-01');
 
-insert into bill values(104,601,403,502,1003,302,'Suresh','Darshan','BlackLabel',1,3000000,'2020-12-29');
+insert into bill values(104,601,403,502,1003,302,201,'Suresh','Darshan','BlackLabel',1,3000000,'2020-12-29');
 
-insert into bill values(105,603,402,501,1002,301,'Virat','Ram','CircleOfTrust',1,4500000,'2020-12-24');
+insert into bill values(105,603,402,501,1002,301,203,'Virat','Ram','CircleOfTrust',1,4500000,'2020-12-24');
 
 
 
@@ -90,6 +91,16 @@ FOREIGN KEY (sid) REFERENCES store(storeid)
 ON DELETE CASCADE;
 
 
+ALTER TABLE bill
+	DROP FOREIGN KEY FK_BO_OID;
+
+
+ALTER TABLE bill
+ADD CONSTRAINT FK_BO_OID
+FOREIGN KEY (oid) REFERENCES orders(oid)
+ON DELETE CASCADE;
+
+
 
 
 		ORDER TABLE
@@ -109,6 +120,20 @@ CREATE TABLE orders (
 	odate DATE NOT NULL,
 	ostatus VARCHAR(15) NOT NULL
 );
+
+
+
+insert into orders values(201,403,503,1004,'Encorida',1,5500000,'2021-02-14','Delivered');
+
+insert into orders values(202,401,501,1001,'HalfCarat',1,7000000,'2021-03-10','Delivered');
+
+insert into orders values(203,402,502,1002,'CircleOfTrust',1,4500000,'2020-12-24','Pending');
+
+insert into orders values(204,404,501,1003,'BlackLabel',1,3000000,'2021-02-28','Delivered');
+
+insert into orders values(205,403,503,1001,'HalfCarat',1,7000000,'2021-03-02','Pending');
+
+
 
 
 ALTER TABLE orders
@@ -141,16 +166,6 @@ FOREIGN KEY (rid) REFERENCES retailer(rid)
 ON DELETE CASCADE;
 
 
-insert into orders values(201,403,503,1004,'Encorida',1,5500000,'2021-02-14','Delivered');
-
-insert into orders values(202,401,501,1001,'HalfCarat',1,7000000,'2021-03-10','Delivered');
-
-insert into orders values(203,402,502,1002,'CircleOfTrust',1,4500000,'2020-12-24','Pending');
-
-insert into orders values(204,404,501,1003,'BlackLabel',1,3000000,'2021-02-28','Delivered');
-
-insert into orders values(205,403,503,1001,'HalfCarat',1,7000000,'2021-03-02','Pending');
-
 
 
 
@@ -165,6 +180,7 @@ create table store(
 	storeid int NOT NULL PRIMARY KEY, 
 	pid int NOT NULL,
 	oid int NOT NULL,
+	eid int NOT NULL,
 	pname varchar(20) NOT NULL,
 	productprice float NOT NULL,
 	storename varchar(20) NOT NULL,
@@ -172,6 +188,15 @@ create table store(
 	address varchar(20) NOT NULL,
 	email varchar(20) NOT NULL
 );
+
+
+
+insert into store values(301,1002,203,603,'CircleOfTrust',4500000,'Abhi Diamonds',953278013,'Pune','abhi@gmail.com');
+
+insert into store values(302,1004,201,601,'Encorida',5500000,'Surat Diamonds',987654323,'Goa','surath@gmail.com');
+
+insert into store values(303,1001,202,602,'HalfCarat',7000000,'Acharya Diamonds',854865310,'Mumbai','acharya@gmail.com');
+
 
 
 ALTER TABLE store
@@ -194,12 +219,14 @@ FOREIGN KEY (oid) REFERENCES orders(oid)
 ON DELETE CASCADE;
 
 
-insert into store values(301,1002,203,'CircleOfTrust',4500000,'Abhi Diamonds',953278013,'Pune','abhi@gmail.com');
+ALTER TABLE store
+	DROP FOREIGN KEY FK_SE_EID;
 
-insert into store values(302,1004,201,'Encorida',5500000,'Surat Diamonds',987654323,'Goa','surath@gmail.com');
 
-insert into store values(303,1001,202,'HalfCarat',7000000,'Acharya Diamonds',854865310,'Mumbai','acharya@gmail.com');
-
+ALTER TABLE store
+ADD CONSTRAINT FK_SE_EID
+FOREIGN KEY (eid) REFERENCES employee(eid)
+ON DELETE CASCADE;
 
 
 
@@ -218,9 +245,21 @@ create table customer (
 	name varchar(10) NOT NULL,
 	gender varchar(10) NOT NULL,
 	phonenumber int NOT NULL,
+	address varchar(20) NOT NULL,
 	cemail varchar(20) NOT NULL,
 	password varchar(20) NOT NULL
 );
+
+
+
+insert into customer values(401,1001,303,202,'Yash','Male','985632456','Bangalore','yash@gmail.com','yash@123');
+
+insert into customer values(402,1003,301,203,'Ram','Male','896753472','Hubli','ram@gmail.com','ram@123');
+
+insert into customer values(403,1003,302,201,'Darshan','Male','889469562','Pune','darshan@gmail.com','darshan@123');
+
+insert into customer values(404,1004,302,204,'Shivani','Female','896532786','Hyderabad','shivani@gmail.com','shivani@123');
+
 
 
 ALTER TABLE customer
@@ -251,15 +290,6 @@ ADD CONSTRAINT FK_CO_OID
 FOREIGN KEY (oid) REFERENCES orders(oid)
 ON DELETE CASCADE;
 
-
-insert into customer values(401,1001,303,202,'Yash','Male','985632456','yash@gmail.com','yash@123');
-
-insert into customer values(402,1003,301,203,'Ram','Male','896753472','ram@gmail.com','ram@123');
-
-insert into customer values(403,1003,302,201,'Darshan','Male','889469562','darshan@gmail.com','darshan@123');
-
-insert into customer values(404,1004,302,204,'Shivani','Female','896532786','shivani@gmail.com','shivani@123');
-
  	
  		
 
@@ -281,6 +311,16 @@ create table product (
 );
 
 
+insert into product values(1001,303,'HalfCarat','Mumbai',500000,7000000,'Forevermark');
+
+insert into product values(1002,301,'CircleOfTrust','Delhi',300000,4500000,'Forevermark');
+
+insert into product values(1003,303,'BlackLabel','Hyderabad',150000,3000000,'Arabelle');
+
+insert into product values(1004,302,'Encorida','Bangalore',270000,5500000,'Zanyah');
+
+
+
 ALTER TABLE product
 	DROP FOREIGN KEY FK_PS_SID;
 
@@ -290,14 +330,6 @@ ADD CONSTRAINT FK_PS_SID
 FOREIGN KEY (sid) REFERENCES store(storeid)
 ON DELETE CASCADE;
 
-
-insert into product values(1001,303,'HalfCarat','Mumbai',500000,7000000,'Forevermark');
-
-insert into product values(1002,301,'CircleOfTrust','Delhi',300000,4500000,'Forevermark');
-
-insert into product values(1003,303,'BlackLabel','Hyderabad',150000,3000000,'Arabelle');
-
-insert into product values(1004,302,'Encorida','Bangalore',270000,5500000,'Zanyah');
 
  		
 
@@ -317,9 +349,16 @@ create table retailer (
 	remail varchar(20),
 	rpassword varchar(20),
 	rphone int NOT NULL,
-	rpname varchar(15) NOT NULL,
-	rostatus varchar(10) NOT NULL
+	raddress varchar(20) NOT NULL
 );
+
+
+insert into retailer values(501,1002,301,202,'Siri','siri@gmail.com','siri@123',987856432,'Delhi');
+
+insert into retailer values(502,1003,302,203,'Rahul','rahul@gmail.com','rahul@123',895423109,'Bombay');
+
+insert into retailer values(503,1001,303,201,'Pratham','pratham@gmail.com','pratham@123',779065231,'Surat');
+
 
 
 ALTER TABLE retailer
@@ -349,13 +388,6 @@ ALTER TABLE retailer
 ADD CONSTRAINT FK_RS_OID
 FOREIGN KEY (oid) REFERENCES orders(oid)
 ON DELETE CASCADE;
-
-
-insert into retailer values(501,1002,301,202,'Siri','siri@gmail.com','siri@123',987856432,'CircleOfTrust',"Delivered");
-
-insert into retailer values(502,1003,302,203,'Rahul','rahul@gmail.com','rahul@123',895423109,"BlackLabel","pending");
-
-insert into retailer values(503,1001,303,201,'Pratham','pratham@gmail.com','pratham@123',779065231,"HalfCarat","Delivered");
  
 
 
@@ -375,8 +407,16 @@ create table employee (
 	birthdate DATE,
 	joiningdate DATE,
 	designation VARCHAR(15),
-	remail varchar(20)
+	email varchar(20)
 );
+
+
+insert into employee values(601,302,'Suresh','Male',879065436,'1998-04-12','2017-12-20','Worker','suresh@gmail.com');
+
+insert into employee values(602,303,'Anu','Female',983256430,'1995-10-25','2015-05-29','Manager','anu@gmail.com');
+
+insert into employee values(603,301,'Virat','Male',890321457,'2000-07-06','2019-01-01','Worker','virat@gmail.com');
+
 
 
 ALTER TABLE employee
@@ -388,12 +428,6 @@ ADD CONSTRAINT FK_ES_SID
 FOREIGN KEY (sid) REFERENCES store(storeid)
 ON DELETE CASCADE;
 
-
-insert into employee values(601,302,'Suresh','Male',879065436,'1998-04-12','2017-12-20','Worker','suresh@gmail.com');
-
-insert into employee values(602,303,'Anu','Female',983256430,'1995-10-25','2015-05-29','Manager','anu@gmail.com');
-
-insert into employee values(603,301,'Virat','Male',890321457,'2000-07-06','2019-01-01','Worker','virat@gmail.com');
 
 
 		ADMIN TABLE

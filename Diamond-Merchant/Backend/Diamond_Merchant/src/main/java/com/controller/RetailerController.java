@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -60,6 +61,13 @@ public class RetailerController {
 	@PutMapping(value="updateRetailerData", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
 	public String updateRetailerSpringData(@RequestBody Retailer r) {
 		return rs.updateRetailerSpringData(r);
+	}
+	
+	
+	@GetMapping(value = "retailerOrderData/{rid}")
+	public ResponseEntity<List<Object[]>> getRetailerOrdersDetails(@PathVariable("rid") String id){
+					List<Object[]> details = rs.retailerOrdersDetails(id);
+					return ResponseEntity.status(200).body(details);
 	}
 	
 }

@@ -17,8 +17,7 @@ public class Retailer {
 	private String remail;
 	private String rpassword;
 	private int rphone;
-	private String rpname;
-	private String rostatus;
+	private String raddress;
 	
 	
 	public int getRid() {
@@ -99,33 +98,24 @@ public class Retailer {
 	public void setRphone(int rphone) {
 		this.rphone = rphone;
 	}
-	
-	
-	public String getRpname() {
-		return rpname;
+
+
+	public String getRaddress() {
+		return raddress;
 	}
-	
-	
-	public void setRpname(String rpname) {
-		this.rpname = rpname;
-	}
-	
-	
-	public String getRostatus() {
-		return rostatus;
-	}
-	
-	
-	public void setRostatus(String rostatus) {
-		this.rostatus = rostatus;
+
+
+	public void setRaddress(String raddress) {
+		this.raddress = raddress;
 	}
 
 
 	@Override
 	public String toString() {
 		return "Retailer [rid=" + rid + ", pid=" + pid + ", sid=" + sid + ", oid=" + oid + ", rname=" + rname
-				+ ", remail=" + remail + ", rpassword=" + rpassword + ", rphone=" + rphone + ", rpname=" + rpname
-				+ ", rostatus=" + rostatus + "]";
+				+ ", remail=" + remail + ", rpassword=" + rpassword + ", rphone=" + rphone + ", raddress=" + raddress
+				+ "]";
 	}
+
 
 }

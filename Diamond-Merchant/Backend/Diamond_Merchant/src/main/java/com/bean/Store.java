@@ -12,6 +12,7 @@ public class Store {
 	private int storeid;
 	private int pid;
 	private int oid;
+	private int eid;
 	private String pname;
 	private float productprice;
 	private String storename;
@@ -50,6 +51,16 @@ public class Store {
 	}
 	
 	
+	public int getEid() {
+		return eid;
+	}
+
+
+	public void setEid(int eid) {
+		this.eid = eid;
+	}
+
+
 	public String getPname() {
 		return pname;
 	}
@@ -108,14 +119,17 @@ public class Store {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
+
+
 	@Override
 	public String toString() {
-		return "Store [storeid=" + storeid + ", pid=" + pid + ", oid=" + oid + ", pname=" + pname + ", productprice="
-				+ productprice + ", storename=" + storename + ", contact=" + contact + ", address=" + address
-				+ ", email=" + email + "]";
+		return "Store [storeid=" + storeid + ", pid=" + pid + ", oid=" + oid + ", eid=" + eid + ", pname=" + pname
+				+ ", productprice=" + productprice + ", storename=" + storename + ", contact=" + contact + ", address="
+				+ address + ", email=" + email + "]";
 	}
+	
+	
+	
 	
 
 }
