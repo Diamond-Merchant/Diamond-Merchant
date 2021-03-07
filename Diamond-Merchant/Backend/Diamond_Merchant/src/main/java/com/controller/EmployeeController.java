@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -58,6 +59,13 @@ public class EmployeeController {
 	@PutMapping(value="updateEmployeeData", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
 	public String updateEmployeeSpringData(@RequestBody Employee e) {
 		return es.updateEmployeeSpringData(e);
+	}
+	
+	
+	@GetMapping(value = "employeeFromStoreData/{eid}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Object[]>> getemployeeStoreDetails(@PathVariable("eid") String id){
+					List<Object[]> details = es.employeeStoreDetails(id);
+					return ResponseEntity.status(200).body(details);
 	}
 		
 }

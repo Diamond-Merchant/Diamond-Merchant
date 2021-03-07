@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -59,4 +60,19 @@ public class BillController {
 	public String updateBillSpringData(@RequestBody Bill b) {
 		return bs.updateBillSpringData(b);
 	}
+	
+	
+	@GetMapping(value = "getBillCustomerData/{bid}")
+	public ResponseEntity<List<Object[]>> getBillCustomerDetails(@PathVariable("bid") String id){
+					List<Object[]> details = bs.getBillCustomerDetails(id);
+					return ResponseEntity.status(200).body(details);
+	}
+	
+	
+	@GetMapping(value = "getBillRetailerData/{bid}")
+	public ResponseEntity<List<Object[]>> getBillRetailerDetails(@PathVariable("bid") String id){
+					List<Object[]> details = bs.getBillRetailerDetails(id);
+					return ResponseEntity.status(200).body(details);
+	}
+	
 }

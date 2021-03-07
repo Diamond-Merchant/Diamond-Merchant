@@ -70,5 +70,10 @@ public class CustomerService {
         	return "Record Not Updated";
         }
 	}
+	
+	
+	public List<Object[]> customerOrdersDetails(String id) {
+		return genericdao.getCustomerOrders(id);
+	}
 		
 }

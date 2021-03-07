@@ -71,5 +71,14 @@ public class BillService {
 		 }
 	}
 	
-
+	
+	public List<Object[]> getBillCustomerDetails(String id) {
+		return genericdao.getBillCustomerDetails(id);
+	}
+	
+	
+	public List<Object[]> getBillRetailerDetails(String id) {
+		return genericdao.getBillRetailerDetails(id);
+	}
+	
 }

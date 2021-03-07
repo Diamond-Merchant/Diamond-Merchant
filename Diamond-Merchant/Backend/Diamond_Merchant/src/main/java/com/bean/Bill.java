@@ -17,6 +17,7 @@ public class Bill {
 	private int rid;
 	private int pid;
 	private int sid;
+	private int oid;
 	private String ename;
 	private String cname;
 	private String pname;
@@ -85,6 +86,16 @@ public class Bill {
 	}
 
 	
+	public int getOid() {
+		return oid;
+	}
+
+
+	public void setOid(int oid) {
+		this.oid = oid;
+	}
+
+
 	public String getEname() {
 		return ename;
 	}
@@ -146,9 +157,11 @@ public class Bill {
 	@Override
 	public String toString() {
 		return "Bill [bid=" + bid + ", eid=" + eid + ", cid=" + cid + ", rid=" + rid + ", pid=" + pid + ", sid=" + sid
-				+ ", ename=" + ename + ", cname=" + cname + ", pname=" + pname + ", qty=" + qty + ", price=" + price
-				+ ", dop=" + dop + "]";
+				+ ", oid=" + oid + ", ename=" + ename + ", cname=" + cname + ", pname=" + pname + ", qty=" + qty
+				+ ", price=" + price + ", dop=" + dop + "]";
 	}
+
+
 	
 	
 	

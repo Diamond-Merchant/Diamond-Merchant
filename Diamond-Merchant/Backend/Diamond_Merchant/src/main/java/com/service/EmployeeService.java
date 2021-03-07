@@ -47,18 +47,19 @@ public class EmployeeService {
 			}
 		}
 	}
-	 
-	 public String deleteEmployeeSpringData(int eid) {
+	
+	
+	public String deleteEmployeeSpringData(int eid) {
 		 if(employeeRepository.existsById(eid)) {
 			 employeeRepository.deleteById(eid);
 			 return "Employee Record Deleted SuccessFully";
 		 } else {
 			 return "Employee Record Not Present";
 		 }
-	 }
+	}
 	 
 	 
-	 public String updateEmployeeSpringData(Employee e) {
+	public String updateEmployeeSpringData(Employee e) {
 		 Optional<Employee> obj = employeeRepository.findById(e.getEid());
 		 if(obj.isPresent()) {
 			 Employee employee = obj.get();
@@ -69,6 +70,11 @@ public class EmployeeService {
 			 return "Employee Record Not Updated";
 		 }
 	}
+	 
+	 
+	public List<Object[]> employeeStoreDetails(String id) {
+			return genericdao.getEmployeeStores(id);
+	} 
 	 
 
 }

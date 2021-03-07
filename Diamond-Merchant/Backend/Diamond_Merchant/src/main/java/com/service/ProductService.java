@@ -112,5 +112,15 @@ public class ProductService {
 			return null;
 		}
 	}
+	
+	
+	public List<Object[]> productOrdersDetails(String id) {
+		return gd.getProductsOrders(id);
+	}
+	
+	
+	public List<Object[]> productStoreDetails(String id) {
+		return gd.getProductStores(id);
+	}
 	 
 }
