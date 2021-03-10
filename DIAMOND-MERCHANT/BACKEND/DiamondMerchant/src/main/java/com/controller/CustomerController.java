@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import javax.validation.Valid;
 import com.bean.Customer;
-import com.bean.Orders;
+import com.bean.Status;
+import com.repository.CustomerRepository;
 import com.service.CustomerService;
 
 @RestController
@@ -43,14 +44,14 @@ public class CustomerController {
 	
 	
 	@PostMapping(value = "storeCustomerData",consumes = MediaType.APPLICATION_JSON_VALUE)
-	public String storeCustomerSpringData(@RequestBody Customer pp) {
-		return customerservice.storeCustomerSpringData(pp);
+	public String storeCustomerSpringData(@RequestBody Customer customer) {
+		return customerservice.storeCustomerSpringData(customer);
 	}
 	
 	
 	@PutMapping(value = "updateCustomerData",consumes = MediaType.APPLICATION_JSON_VALUE)
-	public String updateCustomerSpringData(@RequestBody Customer cs) {
-			return customerservice.updateCustomerSpringData(cs);
+	public String updateCustomerSpringData(@RequestBody Customer customer) {
+			return customerservice.updateCustomerSpringData(customer);
 	}
 	
 	
@@ -58,4 +59,13 @@ public class CustomerController {
 	public String deleteProductSpringData(@PathVariable("customerId") int customerId) {
 			return customerservice.deleteCustomerSpringData(customerId);
 	}
+	
+	@PostMapping(value = "login",consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String checkloginData(@RequestBody Customer customer) {
+		return customerservice.loginCustomer(customer);
+	}
+
+	
+	
+	
 }

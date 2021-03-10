@@ -11,10 +11,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EntityScan(basePackages = "com.bean")	//Scan Entity Classes with
 @EnableJpaRepositories(basePackages="com") // By Default JPA Repository Enable in Same Package or Current Package.
 @EnableSwagger2
-public class SpringBootWithBillCurdOperationApplication {
+public class DiamondMerchantApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootWithBillCurdOperationApplication.class, args);
+		SpringApplication.run(DiamondMerchantApplication.class, args);
 		System.out.println("Spring Boot Server Started.....hi");
 	}
 

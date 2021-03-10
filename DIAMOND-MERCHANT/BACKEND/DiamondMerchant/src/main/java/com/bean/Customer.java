@@ -3,24 +3,32 @@ package com.bean;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotBlank;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+import org.hibernate.annotations.Type;
+
+import java.util.Objects;
 
 @Entity
 @Table(name="customer")
 public class Customer {
 	
 	@Id
-	private int customerid;
+	private long customerid;
 	private String name;
 	private String cemail;
 	private String gender;
 	private int phonenumber;
 	private String password;
-	
-	public int getCustomerid() {
+
+	public long getCustomerid() {
 		return customerid;
 	}
 	
-	public void setCustomerid(int customerid) {
+	public void setCustomerid(long customerid) {
 		this.customerid = customerid;
 	}
 	
@@ -63,12 +71,30 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 
 	@Override
 	public String toString() {
-		return "Customer [customerid=" + customerid + ", name=" + name + ", gender=" + gender + ", phonenumber="
-				+ phonenumber + "]";
+		return "Customer [customerid=" + customerid + ", name=" + name + ", cemail=" + cemail + ", gender=" + gender
+				+ ", phonenumber=" + phonenumber + ", password=" + password + "]";
 	}
+
+	@Override
+	    public int hashCode() {
+		
+	        return Objects.hash(customerid, cemail, password
+	                            );
+	    }
+	
+	
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Customer)) return false;
+        Customer cs = (Customer) o;
+        return Objects.equals(cemail, cs.cemail) &&
+                Objects.equals(password, cs.password);
+    }
 
 
 }

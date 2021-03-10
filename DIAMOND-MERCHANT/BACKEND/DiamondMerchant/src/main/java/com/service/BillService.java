@@ -27,6 +27,7 @@ public class BillService {
 	
 	public List<Bill> getAllBillAscByPrice(){
 		return  genericdao.getAllBillsAscByPrice();
+		
 	}
 
 	public List<Bill>getAllBillsDscByPrice(){

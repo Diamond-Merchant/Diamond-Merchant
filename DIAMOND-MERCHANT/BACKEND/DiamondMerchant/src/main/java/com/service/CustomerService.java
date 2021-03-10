@@ -2,12 +2,16 @@ package com.service;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
-import com.bean.Bill;
 import com.bean.Customer;
+import com.bean.Status;
 import com.dao.GenericDao;
 import com.repository.*;
 
@@ -32,8 +36,9 @@ public class CustomerService {
 		return  genericdao.getCustomerNameDsc();
 	}
 	
-	
-	
+    
+    
+    
 	public String storeCustomerSpringData(Customer cs) {
 		Optional<Customer> op = customerRepo.findById(cs.getCustomerid());
 		if(op.isPresent()) {
@@ -49,7 +54,7 @@ public class CustomerService {
 	}
 	
 	
-	public String deleteCustomerSpringData(int cid) {
+	public String deleteCustomerSpringData(long cid) {
 		if(customerRepo.existsById(cid)) {
 			customerRepo.deleteById(cid);
 				return "Record deleted successfully";
@@ -70,7 +75,25 @@ public class CustomerService {
         return "Record Not Updated";
     }
 }
+	//login
+	public String loginCustomer(Customer customer) {
+		List<Customer> listOfCust = customerRepo.findAll();
+		Customer custstore=null;
+		int flag=0;
+		for(Customer cust:listOfCust) {
+			if((cust.getCemail().equals(customer.getCemail()))&&(cust.getPassword().equals(customer.getPassword()))) {
+				custstore=cust;
+				
+				return "Success";
+			}
+			else
+				return "fail";
+		}
+	return "0";
+	}
+	  
 	
+
 	
 	
 }

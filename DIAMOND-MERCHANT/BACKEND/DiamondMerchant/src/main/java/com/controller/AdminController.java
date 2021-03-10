@@ -23,29 +23,29 @@ import com.service.AdminService;
 public class AdminController {
 	
 	@Autowired
-	AdminService as;
+	AdminService adminservice;
 	
 	@GetMapping(value = "getAdminData", produces = MediaType.APPLICATION_JSON_VALUE)
     public List < Admin > getAllAdminDetailsFromSpringData() {
-        return as.getAllAdminFromSpringData();
+        return adminservice.getAllAdminFromSpringData();
     }
 	
 	
 	@PostMapping(value = "storeAdminData", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String storeAdminSpringData(@RequestBody Admin a) {
-		return as.storeAdminSpringData(a);
+		return adminservice.storeAdminSpringData(a);
 	}
 	
 	
 	@DeleteMapping(value="deleteAdminData/{Aid}",produces = MediaType.TEXT_PLAIN_VALUE)
 	public String deleteAdminSpringData(@PathVariable("Aid") int aid) {
-		return as.deleteAdminSpringData(aid);
+		return adminservice.deleteAdminSpringData(aid);
 	} 
 	
 	
 	@PutMapping(value="updateAdminData", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
 	public String updateAdminSpringData(@RequestBody Admin a) {
-		return as.updateAdminSpringData(a);
+		return adminservice.updateAdminSpringData(a);
 	}
 	
 }
