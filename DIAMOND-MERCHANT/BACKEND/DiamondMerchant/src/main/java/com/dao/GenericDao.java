@@ -191,6 +191,13 @@ public class GenericDao {
 					return listOfCustomer;
 			}
 			
+//			//LOGIN OF USER
+//			public List<Customer> getUnamePass() {
+//				EntityManager manager = emf.createEntityManager();
+//				Query qry = manager.createQuery(" select c.cemail, c.password from Customer c");
+//				List<Customer> listOfCustomer = qry.getResultList();
+//				return listOfCustomer;
+//		}
 			//Employee By Names Ascending and Descending
 			public List<Employee> getEmployeeNameAsc() {
 			     	EntityManager manager = emf.createEntityManager();
