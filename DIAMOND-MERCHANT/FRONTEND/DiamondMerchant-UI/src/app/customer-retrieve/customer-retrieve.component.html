@@ -1,0 +1,32 @@
+<div>
+  <h2>All Details are</h2>
+
+  <input
+    type="button"
+    value="Load Customer Data"
+    (click)="loadData()"
+    class="btn btn-success"
+  />
+  <div *ngIf="flag">
+    <div *ngIf="flag">
+      <table border="1">
+        <tr>
+          <th>CustomerId</th>
+          <th>Name</th>
+          <th>Customer Email</th>
+          <th>Gender</th>
+          <th>Phone Number</th>
+          <th>Password</th>
+        </tr>
+        <tr *ngFor="let customer of customerInfo">
+          <td>{{ customer.customerid }}</td>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.cemail }}</td>
+          <td>{{ customer.gender }}</td>
+          <td>{{ customer.phonenumber }}</td>
+          <td>{{ customer.password }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
