@@ -1,0 +1,154 @@
+<!-- <div>
+    
+
+    <h2>All Retailer Details are </h2>
+    
+    <input type="button" value="Load Retailer Data" (click)="loadData()" class="btn btn-success"/>
+    <div *ngIf="flag">
+   
+        <table border="1">
+        <tr>
+            <th>Retailer Id :</th>
+            <th>Retailer Name :</th>
+            <th>Retailer EmailId :</th>
+            <th>Password :</th>
+            <th>Retailer's PhoneNumber :</th>
+            <th>Retailer's Product Name :</th>
+            <th>Reatailer's Product Status :</th>
+            <th>Order Id :</th>
+            <th>Store Id :</th>
+            <th>Product Id :</th>
+           
+        </tr>
+        <tr *ngFor="let store of retailerInfo">
+                <td>{{store.rid}}</td>
+                <td>{{store.rname}}</td>
+                <td>{{store.remail}}</td>
+                <td>{{store.rpassword}}</td>
+                <td>{{store.rphone}}</td>
+                <td>{{store.rpname}}</td>
+                <td>{{store.rostatus}}</td>
+                <td>{{store.oid}}</td>
+                <td>{{store.storeid}}</td>
+                <td>{{store.pid}}</td>
+                
+        </tr>
+    </table>
+    
+</div>
+</div> -->
+
+<style>
+    table {
+  border-collapse: collapse;
+  width: auto;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+table.table-striped.table-hover tbody tr:hover {
+		background: #f5f5f5;
+	}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color:yellowgreen;
+  color: white;
+}
+  table.table tr th, table.table tr td {
+        border-color: #070707;
+		padding: 12px 15px;
+		vertical-align: middle;
+    }
+	table.table tr th:first-child {
+		width: 60px;
+	}
+	table.table tr th:last-child {
+		width: 100px;
+	}
+    table.table-striped tbody tr:nth-of-type(odd) {
+    	background-color: #fcfcfc;
+	}
+	table.table-striped.table-hover tbody tr:hover {
+		background: #f5f5f5;
+	}
+    table.table th i {
+        font-size: 13px;
+        margin: 0 5px;
+        cursor: pointer;
+    }	
+    table.table td:last-child i {
+		opacity: 0.9;
+		font-size: 22px;
+        margin: 0 5px;
+    }
+	table.table td a {
+		font-weight: bold;
+		color: #566787;
+		display: inline-block;
+		text-decoration: none;
+		outline: none !important;
+	}
+	table.table td a:hover {
+		color: #2196F3;
+	}
+	table.table td a.edit {
+        color: #FFC107;
+    }
+    table.table td a.delete {
+        color: #F44336;
+    }
+    table.table td i {
+        font-size: 19px;
+    }
+	table.table .avatar {
+		border-radius: 50%;
+		vertical-align: middle;
+		margin-right: 10px;
+	}
+
+
+</style>
+<app-manage-retailers></app-manage-retailers>
+<div>
+    <br><br>
+    <hr>
+    
+    <input type="button" value="Load Retailer Data" (click)="loadData()" class="btn btn-success"/>
+    <div *ngIf="flag">
+   
+        <table border="1" class="table table-striped table-hover">
+            <tr>
+                <th>Retailer Id</th>
+                <th>Retailer Name</th>
+                <th>Retailer EmailId</th>
+                <th>Password</th>
+                <th>Retailer's PhoneNumber</th>
+                <th>Retailer's Product Name</th>
+                <th>Reatailer's Product Status</th>
+                <th>Order Id</th>
+                <th>Store Id</th>
+                <th>Product Id</th>
+               
+            </tr>
+            <tr *ngFor="let store of retailerInfo">
+                    <td>{{store.rid}}</td>
+                    <td>{{store.rname}}</td>
+                    <td>{{store.remail}}</td>
+                    <td>{{store.rpassword}}</td>
+                    <td>{{store.rphone}}</td>
+                    <td>{{store.rpname}}</td>
+                    <td>{{store.rostatus}}</td>
+                    <td>{{store.oid}}</td>
+                    <td>{{store.storeid}}</td>
+                    <td>{{store.pid}}</td>
+                    
+            </tr>
+        </table>
+</div>
+</div>
+
+
