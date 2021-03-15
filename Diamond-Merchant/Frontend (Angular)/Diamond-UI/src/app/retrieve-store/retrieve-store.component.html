@@ -1,0 +1,144 @@
+<!-- <div>
+    
+
+    <h2>All Store Details are </h2>
+    
+    <input type="button" value="Load Store Data" (click)="loadData()" class="btn btn-success"/>
+    <div *ngIf="flag">
+   
+        <table border="1">
+        <tr>
+            <th>StoreId :</th>
+            <th>Contact :</th>
+            <th>Address :</th>
+            <th>StoreName :</th>
+            <th>Email : </th>
+            <th>ProductName :</th>
+            <th>ProductPrice :</th>
+            
+        </tr>
+        <tr *ngFor="let store of storeInfo">
+                <td>{{store.storeid}}</td>
+                <td>{{store.contact}}</td>
+                <td>{{store.address}}</td>
+                <td>{{store.storename}}</td>
+                <td>{{store.email}}</td>
+                <td>{{store.pname}}</td>
+                <td>{{store.productprice}}</td>
+
+        </tr>
+    </table>
+    
+</div>
+</div> -->
+
+
+<style>
+    table {
+  border-collapse: collapse;
+  width: auto;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+table.table-striped.table-hover tbody tr:hover {
+		background: #f5f5f5;
+	}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color:yellowgreen;
+  color: white;
+}
+  table.table tr th, table.table tr td {
+        border-color: #070707;
+		padding: 12px 15px;
+		vertical-align: middle;
+    }
+	table.table tr th:first-child {
+		width: 60px;
+	}
+	table.table tr th:last-child {
+		width: 100px;
+	}
+    table.table-striped tbody tr:nth-of-type(odd) {
+    	background-color: #fcfcfc;
+	}
+	table.table-striped.table-hover tbody tr:hover {
+		background: #f5f5f5;
+	}
+    table.table th i {
+        font-size: 13px;
+        margin: 0 5px;
+        cursor: pointer;
+    }	
+    table.table td:last-child i {
+		opacity: 0.9;
+		font-size: 22px;
+        margin: 0 5px;
+    }
+	table.table td a {
+		font-weight: bold;
+		color: #566787;
+		display: inline-block;
+		text-decoration: none;
+		outline: none !important;
+	}
+	table.table td a:hover {
+		color: #2196F3;
+	}
+	table.table td a.edit {
+        color: #FFC107;
+    }
+    table.table td a.delete {
+        color: #F44336;
+    }
+    table.table td i {
+        font-size: 19px;
+    }
+	table.table .avatar {
+		border-radius: 50%;
+		vertical-align: middle;
+		margin-right: 10px;
+	}
+
+
+</style>
+<app-manage-store></app-manage-store>
+<div>
+ 
+    <input type="button" value="Load Store Data" (click)="loadData()" class="btn btn-success"/>
+    <div *ngIf="flag">
+   
+        <table border="1" class="table table-striped table-hover">
+        <tr>
+            <th>Store Id</th>
+            <th>Product Id</th>
+            <th>Orders Id</th>
+            <th>Employee Id</th>
+            <th>Store Name</th>
+            <th>Contact</th>
+            <th>Address</th>
+            <th>Email</th>
+           
+            
+        </tr>
+        <tr *ngFor="let store of storeInfo">
+                <td>{{store.storeid}}</td>
+                <td>{{store.pid}}</td>
+                <td>{{store.oid}}</td>
+                <td>{{store.eid}}</td>
+                <td>{{store.storename}}</td>
+                <td>{{store.contact}}</td>
+                <td>{{store.address}}</td>
+                <td>{{store.email}}</td>
+               
+
+        </tr>
+    </table>
+</div>
+</div>
+

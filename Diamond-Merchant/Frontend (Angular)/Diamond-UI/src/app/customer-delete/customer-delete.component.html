@@ -1,0 +1,11 @@
+<div>
+  <h2>Delete Customer</h2>
+  <input type="text" #customeridRef />
+  <input
+    type="button"
+    value="Delete Customer"
+    (click)="deleteCustomer(customeridRef.value)"
+  />
+  <br />
+  {{ msg }}
+</div>
