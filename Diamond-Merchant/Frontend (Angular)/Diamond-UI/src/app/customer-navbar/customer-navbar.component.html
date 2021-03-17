@@ -1,33 +1,37 @@
-
+<style>
+  .tabs li.active-tab {
+    color: blue;
+    text-decoration: underline;
+  }
+</style>
 <nav id="menu">
-    <div class="container">
-      <div class="trigger"></div>
-      <ul>
-        <li><a routerLink="/ProductPage">New collection</a></li>
-        <li><a routerLink="/allNecklace">Necklaces</a></li>
-        <li><a routerLink="/allRings">rings</a></li>
-        <li><a routerLink="/allBracelet">Bracelets</a></li>
-    
-        <div class="dropdown">
-          <li><a routerLink="/Sorts">Sort By</a></li>
-          <div class="dropdown-content">
-          <a routerLink="/ProductMfgAsc" > Manufacturing Stores Ascending</a>
+  <div class="container" class="tabs">
+    <ul>
+      <li [ngClass]="{ 'active-tab': tab == 1 }">
+        <a (click)="tab = 1" routerLink="/ProductPage">New collection</a>
+      </li>
+      <li [ngClass]="{ 'active-tab': tab == 2 }">
+        <span (click)="tab = 2" class="link" routerLink="/allNecklace"
+          >Necklaces</span
+        >
+      </li>
+
+      <li><a class="link" routerLink="/allRings">rings</a></li>
+      <li><a class="link" routerLink="/allBracelet">Bracelets</a></li>
+
+      <div class="dropdown">
+        <li><a routerLink="/Sorts">Sort By</a></li>
+        <div class="dropdown-content">
+          <a routerLink="/ProductMfgAsc"> Manufacturing Stores Ascending</a>
           <a routerLink="/ProductMfgDesc"> Manufacturing Stores Descending</a>
-          <a routerLink="/allproductspricebyasc" > Price Low to high</a>
+          <a routerLink="/allproductspricebyasc"> Price Low to high</a>
           <a routerLink="/allproductspricebydesc"> Price High to low</a>
           <a routerLink="/allproductsnameasc">Product name Ascending</a>
           <a routerLink="/allproductsnamedesc">Product name Decending</a>
-          
-                <!-- <input type = "submit" value = "Search" class = "btn btn-default"> -->
 
-          
-      
-          </div>
+          <!-- <input type = "submit" value = "Search" class = "btn btn-default"> -->
         </div>
-
-      
-      
-
-      </ul>
-    </div>
-  </nav>
+      </div>
+    </ul>
+  </div>
+</nav>
