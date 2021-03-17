@@ -9,7 +9,7 @@ body {
   padding-bottom: 8px;
 }
 .brand-wrapper .logo {
-  height: 25px;
+  height: 45px;
 }
 
 .login-section-wrapper {
@@ -38,8 +38,8 @@ body {
 .login-wrapper {
   width: 300px;
   max-width: 100%;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 @media (max-width: 575px) {
   .login-wrapper {
@@ -121,4 +121,13 @@ body {
   object-fit: cover;
   -o-object-position: left;
   object-position: left;
+}
+#logo {
+  width: 197px;
+  height: 52px;
+  display: block;
+  float: left;
+  cursor: pointer;
+  text-indent: -9999em;
+  background: url(/assets/images/logo.png) no-repeat;
 }

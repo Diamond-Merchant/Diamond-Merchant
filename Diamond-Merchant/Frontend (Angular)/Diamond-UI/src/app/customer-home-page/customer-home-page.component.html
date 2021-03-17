@@ -8,9 +8,6 @@
       <li><a routerLink="/allNecklace">Necklaces</a></li>
       <li><a routerLink="/allRings">rings</a></li>
       <li><a routerLink="/allBracelet">Bracelets</a></li>
-     
-   
-      
     </ul>
   </div>
 </nav>
@@ -74,19 +71,19 @@
       </section>
     </div>
     <section class="quick-links">
-      <article style="background-image: url(assets/images/2.jfif)">
-        <a href="#" class="table">
+      <article style="background-image: url(assets/images/2.webp)">
+        <a routerLink="/allBracelet" class="table">
           <div class="cell">
             <div class="text">
-              <h4>Earrings for her</h4>
+              <h4>braclets for her</h4>
               <hr />
-              <h3>An Ear-ful of SPARKlES</h3>
+              <h3>For her everyday's Indulgence</h3>
             </div>
           </div>
         </a>
       </article>
-      <article class="red" style="background-image: url(assets/images/3.jfif)">
-        <a href="#" class="table">
+      <article class="red" style="background-image: url(assets/images/3.jpg)">
+        <a routerLink="/allNecklace" class="table">
           <div class="cell">
             <div class="text">
               <h4>Diamond Pendants for her</h4>
@@ -99,7 +96,7 @@
         </a>
       </article>
       <article style="background-image: url(assets/images/4.jfif)">
-        <a href="#" class="table">
+        <a routerLink="/allRings" class="table">
           <div class="cell">
             <div class="text">
               <h4>Rings for her</h4>
@@ -111,62 +108,6 @@
       </article>
     </section>
   </div>
-  <!-- / container -->
 </div>
-<!-- / body -->
 
-<footer id="footer">
-  <div class="container">
-    <div class="cols">
-      <div class="col">
-        <h3></h3>
-        <ul>
-          <li><a href="#">Fusce eget dolor adipiscing </a></li>
-          <li><a href="#">Posuere nisl eu venenatis gravida</a></li>
-          <li><a href="#">Morbi dictum ligula mattis</a></li>
-          <li><a href="#">Etiam diam vel dolor luctus dapibus</a></li>
-          <li><a href="#">Vestibulum ultrices magna </a></li>
-        </ul>
-      </div>
-      <div class="col media">
-        <h3>Social media</h3>
-        <ul class="social">
-          <li>
-            <a href="#"><span class="ico ico-fb"></span>Facebook</a>
-          </li>
-          <li>
-            <a href="#"><span class="ico ico-tw"></span>Twitter</a>
-          </li>
-          <li>
-            <a href="#"><span class="ico ico-gp"></span>Google+</a>
-          </li>
-          <li>
-            <a href="#"><span class="ico ico-pi"></span>Pinterest</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col contact">
-        <h3>Contact us</h3>
-        <p>Diana’s Jewelry INC.<br />54233 Avenue Street<br />New York</p>
-        <p>
-          <span class="ico ico-em"></span
-          ><a href="#">contact@dianasjewelry.com</a>
-        </p>
-        <p><span class="ico ico-ph"></span>(590) 423 446 924</p>
-      </div>
-      <div class="col newsletter">
-        <h3>Join our newsletter</h3>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium
-          doloremque laudantium.
-        </p>
-        <form action="#">
-          <input type="text" placeholder="Your email address..." />
-          <button type="submit"></button>
-        </form>
-      </div>
-    </div>
-    <p class="copy">Copyright 2013 Jewelry. All rights reserved.</p>
-  </div>
-  <!-- / container -->
-</footer>
+<app-footer></app-footer>

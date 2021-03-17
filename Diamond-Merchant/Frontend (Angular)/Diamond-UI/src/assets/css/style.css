@@ -305,16 +305,16 @@ a:hover {
 	text-align: center;
 }
 
-#slider .bx-pager div {
+#slider {
 	padding: 0 2px;
 	display: inline-block;
 }
 
-#slider .bx-pager a.active {
+#slider {
 	background: #fff;
 }
 
-#slider .bx-pager a {
+#slider  {
 	display: inline-block;
 	width: 13px;
 	text-indent: -999em;
@@ -323,7 +323,7 @@ a:hover {
 	border-radius: 70px;
 }
 
-#slider li {
+#slider  {
 	color: #fff;
 	height: 686px;
 	background: no-repeat 50% 0;
