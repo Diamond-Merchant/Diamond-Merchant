@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer-navbar.component.css'],
 })
 export class CustomerNavbarComponent implements OnInit {
-  tab: number = 4;
   constructor() {}
 
   ngOnInit(): void {}
