@@ -35,13 +35,11 @@ export class CustomerService {
       { responseType: 'text' }
     );
   }
-  loginCheck(loginRef: any): Observable<string> {
-    return this.httpClient.post(
+
+  checkLogin(customer: any): Observable<Customer> {
+    return this.httpClient.post<Customer>(
       'http://localhost:8090/customer/login',
-      loginRef,
-      {
-        responseType: 'text',
-      }
+      customer
     );
   }
 }
