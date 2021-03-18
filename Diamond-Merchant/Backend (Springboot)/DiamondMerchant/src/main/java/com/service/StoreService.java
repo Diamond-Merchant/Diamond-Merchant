@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Store;
-import com.dao.GenericDao;
 import com.repository.StoreRepository;
 
 
@@ -18,8 +17,6 @@ public class StoreService
 	@Autowired
 	StoreRepository storeRepository;
 	
-	@Autowired
-	GenericDao gd;
 	
 	//Display All Records
 	public List<Store> getAllStoreFormSpringData()
@@ -29,12 +26,12 @@ public class StoreService
 	
 	
 	public List<Store> getAllStoresDescBySName() {
-		return gd.getAllStoresDescBySName();
+		return storeRepository.getAllStoresDescBySName();
 	}
 	
 	
 	public List<Store> getAllStoresAscBySName() {
-		return gd.getAllStoresAscBySName();
+		return storeRepository.getAllStoresAscBySName();
 	}
 
 

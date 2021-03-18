@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Retailer;
-import com.dao.GenericDao;
 import com.repository.RetailerRepository;
 
 @Service
@@ -16,9 +15,6 @@ public class RetailerService {
 	@Autowired
 	RetailerRepository retailerRepository;
 	
-	@Autowired
-	GenericDao genericdao;
-	
 	
 	public List<Retailer> getAllRetailerFromSpringData() {
 		 return retailerRepository.findAll();
@@ -26,12 +22,12 @@ public class RetailerService {
 	
 	
 	public List<Retailer> getRetailerNameByAsc() {
-		return genericdao.getRetailerNameByAsc();
+		return retailerRepository.getRetailerNameByAsc();
 	}
 	
 	
 	public List<Retailer> getRetailerNameByDesc() {
-		return genericdao.getRetailerNameByDesc();
+		return retailerRepository.getRetailerNameByDesc();
 	}
 	
 	
@@ -70,11 +66,6 @@ public class RetailerService {
 		 } else {
 			 return "Retailer Record Not Updated";
 		 }
-	}
-	
-	
-	public List<Object[]> retailerOrdersDetails(String id) {
-		return genericdao.getRetailerOrders(id);
 	}
 	 
 }

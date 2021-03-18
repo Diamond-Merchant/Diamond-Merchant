@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Employee;
-import com.dao.GenericDao;
 import com.repository.EmployeeRepository;
 
 @Service
@@ -15,9 +14,7 @@ public class EmployeeService {
 	
 	@Autowired
 	EmployeeRepository employeeRepository;
-	
-	@Autowired
-	GenericDao genericdao;
+
 	
 	public List<Employee> getAllEmployeeFromSpringData() {
 		 return employeeRepository.findAll();
@@ -25,12 +22,12 @@ public class EmployeeService {
 	
 	
 	public List<Employee> getEmployeeNameByAsc(){
-		return  genericdao.getEmployeeNameByAsc();
+		return  employeeRepository.getEmployeeNameByAsc();
 	}
 
 	
 	public List<Employee>getEmployeeNameByDesc(){
-		return  genericdao.getEmployeeNameByDesc();
+		return  employeeRepository.getEmployeeNameByDesc();
 	}
 	
 	
@@ -70,11 +67,6 @@ public class EmployeeService {
 			 return "Employee Record Not Updated";
 		 }
 	}
-	 
-	 
-	public List<Object[]> employeeStoreDetails(String id) {
-			return genericdao.getEmployeeStores(id);
-	} 
 	 
 
 }
