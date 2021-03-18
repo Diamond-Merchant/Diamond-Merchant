@@ -68,7 +68,7 @@ public class CustomerService {
 	}
 
 	//login
-	/* public String loginCustomer(Customer customer) {
+	public String loginCustomer(Customer customer) {
 		List<Customer> listOfCust = customerRepo.findAll();
 		
 		int flag=0;
@@ -82,22 +82,6 @@ public class CustomerService {
 				return "fail";
 		}
 	return "0";
-	} */
-	
-	
-	//login
-	public Customer loginCustomer(Customer c) {
-		List<Customer> listofC = customerRepo.findAll();
-		Customer cust1=null;
-		int flag=0;
-		for(Customer cust:listofC)
-		{
-			//if(cust.getCust_id()==c.getCust_id()) {
-			if((cust.getCemail().equals(c.getCemail()))||(cust.getPassword().equals(c.getPassword()))) {
-				cust1=cust;
-			}
-		}
-		return cust1;
 	}
 		
 }
