@@ -68,20 +68,18 @@ public class CustomerService {
 	}
 
 	//login
-	public String loginCustomer(Customer customer) {
-		List<Customer> listOfCust = customerRepo.findAll();
-		
+	public Customer loginCustomer(Customer c) {
+		List<Customer> listofC=customerRepo.findAll();
+		Customer cust1=null;
 		int flag=0;
-		for(Customer cust:listOfCust) {
-			if((cust.getCemail().equals(customer.getCemail()))&&(cust.getPassword().equals(customer.getPassword()))) {
-				
-				
-				return "Success";
+		for(Customer cust:listofC)
+		{
+			//if(cust.getCust_id()==c.getCust_id()) {
+			if((cust.getCemail().equals(c.getCemail())) && (cust.getPassword().equals(c.getPassword()))) {
+				cust1=cust;
 			}
-			else
-				return "fail";
 		}
-	return "0";
+		return cust1;
 	}
 		
 }
