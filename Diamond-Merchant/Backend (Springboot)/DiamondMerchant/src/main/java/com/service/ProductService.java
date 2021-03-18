@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Product;
-import com.dao.GenericDao;
 import com.repository.ProductRepository;
 
 
@@ -17,9 +16,6 @@ public class ProductService {
 	@Autowired
 	ProductRepository pr;
 	
-	@Autowired
-	GenericDao gd;
-	
 	
 	public List<Product> getAllProductFromSpringData() {
 		 return pr.findAll();
@@ -27,47 +23,47 @@ public class ProductService {
 	
 	
 	public List<Product> getAllProductDescByPrice() {
-		return gd.getAllProductDescByPrice();
+		return pr.getAllProductDescByPrice();
 	}
 	
 	
 	public List<Product> getAllProductAscByPrice() {
-		return gd.getAllProductAscByPrice();
+		return pr.getAllProductAscByPrice();
 	}
 	
 	
 	public List<Product> getAllProductDescByPName() {
-		return gd.getAllProductDescByPName();
+		return pr.getAllProductDescByPName();
 	}
 	
 	
-	public List<Product> getAllProductAscByPNmae() {
-		return gd.getAllProductAscByPName();
+	public List<Product> getAllProductAscByPName() {
+		return pr.getAllProductAscByPName();
 	}
 	
 	
 	public List<Product> getAllProductDescByPMFG() {
-		return gd.getAllProductDescByPMFG();
+		return pr.getAllProductDescByPMFG();
 	}
 	
 	
 	public List<Product> getAllProductAscByPMFG() {
-		return gd.getAllProductAscByPMFG();
+		return pr.getAllProductAscByPMFG();
 	}
 	
 	
 	public List<Product> getAllProductCategoryByRing() {
-		return gd.getAllProductCategoryByRing();
+		return pr.getAllProductCategoryByRing();
 	}
 	
 	
 	public List<Product> getAllProductCategoryByBracelet() {
-		return gd.getAllProductCategoryByBracelet();
+		return pr.getAllProductCategoryByBracelet();
 	}
 	
 	
 	public List<Product> getAllProductCategoryByNecklace() {
-		return gd.getAllProductCategoryByNecklace();
+		return pr.getAllProductCategoryByNecklace();
 	}
 	
 	
@@ -126,16 +122,6 @@ public class ProductService {
 		} else {
 			return null;
 		}
-	}
-	
-	
-	public List<Object[]> productOrdersDetails(String id) {
-		return gd.getProductsOrders(id);
-	}
-	
-	
-	public List<Object[]> productStoreDetails(String id) {
-		return gd.getProductStores(id);
 	}
 	 
 }

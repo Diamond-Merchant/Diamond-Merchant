@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Orders;
-import com.dao.GenericDao;
 import com.repository.OrdersRepository;
 
 @Service
@@ -17,9 +16,6 @@ public class OrdersService {
 	@Autowired
 	OrdersRepository ordersRepository;
 	
-	@Autowired
-	GenericDao gd;
-	
 	
 	public List<Orders> getAllOrdersFormSpringData() {
 		return ordersRepository.findAll();
@@ -27,32 +23,32 @@ public class OrdersService {
 
 	
 	public List<Orders> getAllOrdersDescByPrice(){
-		return gd.getAllOrdersDescByPrice();
+		return ordersRepository.getAllOrdersDescByPrice();
 	}
 	
 	
 	public List<Orders> getAllOrdersAscByPrice(){
-		return gd.getAllOrdersAscByPrice();
+		return ordersRepository.getAllOrdersAscByPrice();
 	}
 	
 	
 	public List<Orders> getAllOrdersDescByPName(){
-		return gd.getAllOrdersDescByPName();
+		return ordersRepository.getAllOrdersDescByPName();
 	}
 	
 	
 	public List<Orders> getAllOrdersAscByPName(){
-		return gd.getAllOrdersAscByPName();
+		return ordersRepository.getAllOrdersAscByPName();
 	}
 	
 	
 	public List<Orders> getAllOrdersDescByOStatus(){
-		return gd.getAllOrdersDescByOStatus();
+		return ordersRepository.getAllOrdersDescByOStatus();
 	}
 	
 	
 	public List<Orders> getAllOrdersAscByOStatus(){
-		return gd.getAllOrdersAscByOStatus();
+		return ordersRepository.getAllOrdersAscByOStatus();
 	}
 	
 
@@ -113,13 +109,5 @@ public class OrdersService {
 	}
 	
 	
-	public List<Object[]> getOrderFromCustomerDetails(String id) {
-		return gd.getOrdersFromCustomer(id);
-	}
-	
-	
-	public List<Object[]> getOrderFromRetailerDetails(String id) {
-		return gd.getOrdersFromRetailer(id);
-	}
 	
 }

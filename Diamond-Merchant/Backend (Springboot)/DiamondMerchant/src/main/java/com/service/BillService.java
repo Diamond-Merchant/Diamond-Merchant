@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Bill;
-import com.dao.GenericDao;
 import com.repository.BillRepository;
 
 @Service
@@ -16,8 +15,6 @@ public class BillService {
 	@Autowired
 	BillRepository billRepository;
 	
-	@Autowired
-	GenericDao  genericdao;
 	
 	public List<Bill> getAllBillFromSpringData() {
 		 return billRepository.findAll();
@@ -25,12 +22,12 @@ public class BillService {
 	
 	
 	public List<Bill> getAllBillPriceByAsc(){
-		return  genericdao.getAllBillPriceByAsc();
+		return  billRepository.getAllBillPriceByAsc();
 	}
 	
 
 	public List<Bill>getAllBillPriceByDesc(){
-		return  genericdao.getAllBillPriceByDesc();
+		return  billRepository.getAllBillPriceByDesc();
 	}
 
 	
@@ -70,15 +67,6 @@ public class BillService {
 			 return "Bill Record Not Updated";
 		 }
 	}
-	
-	
-	public List<Object[]> getBillCustomerDetails(String id) {
-		return genericdao.getBillCustomerDetails(id);
-	}
-	
-	
-	public List<Object[]> getBillRetailerDetails(String id) {
-		return genericdao.getBillRetailerDetails(id);
-	}
+
 	
 }

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Customer;
-import com.dao.GenericDao;
 import com.repository.*;
 
 @Service
@@ -16,21 +15,18 @@ public class CustomerService {
 	@Autowired
 	CustomerRepository customerRepo;
 	
-	@Autowired
-	GenericDao genericdao;
-	
 	public List<Customer> getAllCustomerFromSpringData() {
 		return customerRepo.findAll();
 	}
 	
 	
 	public List<Customer> getCustomerNameByAsc(){
-		return  genericdao.getCustomerNameByAsc();
+		return  customerRepo.getCustomerNameByAsc();
 	}
 
 	
 	public List<Customer>getCustomerNameByDesc(){
-		return  genericdao.getCustomerNameByDesc();
+		return  customerRepo.getCustomerNameByDesc();
 	}
 	
 	
@@ -70,14 +66,9 @@ public class CustomerService {
         	return "Record Not Updated";
         }
 	}
-	
-	
-	public List<Object[]> customerOrdersDetails(String id) {
-		return genericdao.getCustomerOrders(id);
-	}
 
 	//login
-	public String loginCustomer(Customer customer) {
+	/* public String loginCustomer(Customer customer) {
 		List<Customer> listOfCust = customerRepo.findAll();
 		
 		int flag=0;
@@ -91,6 +82,22 @@ public class CustomerService {
 				return "fail";
 		}
 	return "0";
+	} */
+	
+	
+	//login
+	public Customer loginCustomer(Customer c) {
+		List<Customer> listofC = customerRepo.findAll();
+		Customer cust1=null;
+		int flag=0;
+		for(Customer cust:listofC)
+		{
+			//if(cust.getCust_id()==c.getCust_id()) {
+			if((cust.getCemail().equals(c.getCemail()))||(cust.getPassword().equals(c.getPassword()))) {
+				cust1=cust;
+			}
+		}
+		return cust1;
 	}
 		
 }

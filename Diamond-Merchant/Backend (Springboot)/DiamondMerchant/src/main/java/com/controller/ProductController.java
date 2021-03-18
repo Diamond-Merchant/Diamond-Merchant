@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -77,7 +76,7 @@ public class ProductController {
 	@GetMapping(value="productAscByPName", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Product> getProductsAscByPName() {
 		
-		return ps.getAllProductAscByPNmae();
+		return ps.getAllProductAscByPName();
 	}
 	
 	
@@ -124,7 +123,7 @@ public class ProductController {
 	}
 	
 	
-	@GetMapping(value = "productOrderData/{pid}", produces = MediaType.APPLICATION_JSON_VALUE)
+	/* @GetMapping(value = "productOrderData/{pid}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Object[]>> getProductOrdersDetails(@PathVariable("pid") String id){
 					List<Object[]> details = ps.productOrdersDetails(id);
 					return ResponseEntity.status(200).body(details);
@@ -135,7 +134,7 @@ public class ProductController {
 	public ResponseEntity<List<Object[]>> getProductStoreDetails(@PathVariable("pid") String id){
 					List<Object[]> details = ps.productStoreDetails(id);
 					return ResponseEntity.status(200).body(details);
-	}
+	} */
 	
 	
 }

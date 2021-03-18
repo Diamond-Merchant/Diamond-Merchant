@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -99,7 +98,7 @@ public class OrdersController {
 	}
 	
 	
-	@GetMapping(value = "getOrderFromCustomerData/{oid}", produces = MediaType.APPLICATION_JSON_VALUE)
+	/* @GetMapping(value = "getOrderFromCustomerData/{oid}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Object[]>> getOrderFromCustomerDetails(@PathVariable("oid") String id){
 					List<Object[]> details = os.getOrderFromCustomerDetails(id);
 					return ResponseEntity.status(200).body(details);
@@ -110,7 +109,7 @@ public class OrdersController {
 	public ResponseEntity<List<Object[]>> getOrderFromRetailerDetails(@PathVariable("oid") String id){
 					List<Object[]> details = os.getOrderFromRetailerDetails(id);
 					return ResponseEntity.status(200).body(details);
-	}
+	} */
 
 }
 
