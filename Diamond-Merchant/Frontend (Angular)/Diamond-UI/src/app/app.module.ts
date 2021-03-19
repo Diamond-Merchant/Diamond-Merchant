@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
-import { ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { StoreStoreComponent } from './store-store/store-store.component';
 import { DeleteStoreComponent } from './delete-store/delete-store.component';
@@ -15,7 +15,7 @@ import { UpdateOrdersComponent } from './update-orders/update-orders.component';
 import { RetrieveOrdersComponent } from './retrieve-orders/retrieve-orders.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { FormControl} from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { StoreRetailerComponent } from './store-retailer/store-retailer.component';
 import { DeleteRetailerComponent } from './delete-retailer/delete-retailer.component';
 import { UpdateRetailerComponent } from './update-retailer/update-retailer.component';
@@ -49,19 +49,20 @@ import { CustomerHomePageComponent } from './customer-home-page/customer-home-pa
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductPageComponent } from './product-page/product-page.component';
-import {ProductMfgAscComponent} from './product-mfg-asc/product-mfg-asc.component';
+import { ProductMfgAscComponent } from './product-mfg-asc/product-mfg-asc.component';
 import { MyGuards } from './app.guard';
 import { ProductMfgDescComponent } from './product-mfg-desc/product-mfg-desc.component';
 import { ProductNameAscComponent } from './product-name-asc/product-name-asc.component';
-import { ProductNameDescComponent} from './product-name-desc/product-name-desc.component';
+import { ProductNameDescComponent } from './product-name-desc/product-name-desc.component';
 import { ProductPriceAscComponent } from './product-price-asc/product-price-asc.component';
-import { ProductPriceDescComponent} from './product-price-desc/product-price-desc.component';
-import { RetrieveProductCategoryBraceletComponent} from './retrieve-product-category-bracelet/retrieve-product-category-bracelet.component';
-import { RetrieveProductCategoryNecklaceComponent} from './retrieve-product-category-necklace/retrieve-product-category-necklace.component';
-import { RetrieveProductCategoryRingComponent} from './retrieve-product-category-ring/retrieve-product-category-ring.component';
+import { ProductPriceDescComponent } from './product-price-desc/product-price-desc.component';
+import { RetrieveProductCategoryBraceletComponent } from './retrieve-product-category-bracelet/retrieve-product-category-bracelet.component';
+import { RetrieveProductCategoryNecklaceComponent } from './retrieve-product-category-necklace/retrieve-product-category-necklace.component';
+import { RetrieveProductCategoryRingComponent } from './retrieve-product-category-ring/retrieve-product-category-ring.component';
 import { CustomerNavbarComponent } from './customer-navbar/customer-navbar.component';
 import { RetailerPageComponent } from './retailer-page/retailer-page.component';
 import { FilterPipe } from './filter.pipe';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -118,18 +119,16 @@ import { FilterPipe } from './filter.pipe';
     RetrieveProductCategoryRingComponent,
     CustomerNavbarComponent,
     RetailerPageComponent,
-    FilterPipe
-    
-    
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [MyGuards],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
