@@ -12,7 +12,7 @@ public class Customer {
 	private int customerid;
 	private String name;
 	private String gender;
-	private int phonenumber;
+	private String phonenumber;
 	private String cemail;
 	private String password;
 	
@@ -47,16 +47,16 @@ public class Customer {
 	}
 	
 	
-	public int getPhonenumber() {
+	public String getPhonenumber() {
 		return phonenumber;
 	}
-	
-	
-	public void setPhonenumber(int phonenumber) {
+
+
+	public void setPhonenumber(String phonenumber) {
 		this.phonenumber = phonenumber;
 	}
-	
-	
+
+
 	public String getCemail() {
 		return cemail;
 	}
@@ -73,13 +73,16 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
+
 	@Override
 	public String toString() {
 		return "Customer [customerid=" + customerid + ", name=" + name + ", gender=" + gender + ", phonenumber="
 				+ phonenumber + ", cemail=" + cemail + ", password=" + password + "]";
 	}
+	
+	
+	
 	
 
 }

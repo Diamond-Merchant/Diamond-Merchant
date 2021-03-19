@@ -56,6 +56,12 @@ public class CustomerController {
 	}
 	
 	
+	@PutMapping(value = "updatePassword",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.TEXT_PLAIN_VALUE)
+	public String updatePassword(@RequestBody Customer cc) {
+		return customerservice.updatePassword(cc);
+	}
+	
+	
 	@DeleteMapping(value = "deleteCustomerData/{customerId}")
 	public String deleteProductSpringData(@PathVariable("customerId") int customerId) {
 			return customerservice.deleteCustomerSpringData(customerId);

@@ -66,6 +66,25 @@ public class CustomerService {
         	return "Record Not Updated";
         }
 	}
+	
+	
+	public String updatePassword(Customer cc) {
+
+	     Optional<Customer> obj=customerRepo.findById(cc.getCustomerid());
+		   if(obj.isPresent()) {
+			Customer c=obj.get();
+			if(c!=null) {
+			c.setPassword(cc.getPassword());
+	        customerRepo.saveAndFlush(c);
+	        return "Password Changed Successfully";
+			}else {
+				return "Error";
+			}
+		}else {
+			return "Invalid Customer Id";
+		}
+	}
+	
 
 	//login
 	public Customer loginCustomer(Customer c) {
