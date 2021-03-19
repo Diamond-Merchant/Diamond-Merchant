@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Customer } from '../customer.model';
+import { CustomerService } from '../customer.service';
 import { SignupService } from '../signup.service';
 
 @Component({
@@ -8,22 +11,24 @@ import { SignupService } from '../signup.service';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
-  signupInfo = new FormGroup({
+
+  /* signupInfo = new FormGroup({
     customerid: new FormControl(),
     name: new FormControl(),
     cemail: new FormControl(),
     gender: new FormControl(),
     phonenumber: new FormControl(),
     password: new FormControl(),
-  });
+  }); */
+
   msg: string = '';
-  constructor(public signupSer: SignupService) {}
+
+  constructor(public registerService:CustomerService, public router:Router) {}
 
   ngOnInit(): void {}
-  signupDetails() {
-    let signupRef = this.signupInfo.value;
-    this.signupSer
-      .signupDetails(signupRef)
-      .subscribe((result) => (this.msg = result));
+
+  signupDetails(customer:Customer) {
+    this.registerService.storeCustomerDetails(customer).subscribe(data => this.msg = data);
   }
+
 }
