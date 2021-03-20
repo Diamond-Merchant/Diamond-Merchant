@@ -1,0 +1,20 @@
+.bg-image{
+    background-image: url("src/assets/images/jw7.jpg"); 
+   
+   margin-top:-990px;
+   margin-left: 70px;
+   height:150%;
+}
+.container{
+   margin-top: -900px;
+   margin-left: 100px;
+}
+
+td{
+   text-align: center;
+   font-size:120%;
+}
+th{
+   text-align: center;
+   font-size:120%;
+}

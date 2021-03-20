@@ -1,65 +1,98 @@
-
+ <!-- <nav class="navbar navbar-expand ">
+	<button  (click)="toggleSidebar()" >
+		☰
+	</button>
+	<div ng-sidebar-content>
+		
     
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<!------ Include the above in your HEAD tag ---------->
-	
+    </div>
+	 <div class="collapse navbar-collapse" id="navbarsExample02">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
+			<li class="nav-item"> <a class="nav-link" href="#">Link</a> </li>
+		</ul>
+		<form class="form-inline my-2 my-md-0"> </form>
+	</div> 
+	<ng-sidebar-container>
+		<ng-sidebar [opened]="opened">
+		 
+		 
+		 
+		 <p>Welcome Admin</p>
+			 
+			<ul class="menu">
+			 
+			 <li><a routerLink="/RetrieveProduct" (click)="toggleSidebar()">Manage Product Details</a></li>
+			 <li><a routerLink="/RetrieveBill"(click)="toggleSidebar()" >Manage Bill Details</a></li>
+			 <li><a routerLink="/RetrieveStore" (click)="toggleSidebar()">Manage Store Details</a></li>
+			 <li><a routerLink="/RetrieveOrders" (click)="toggleSidebar()">Manage Order Details</a></li>
+			 <li><a routerLink="/RetrieveRetailer" (click)="toggleSidebar()">Manage Retailer's Details</a></li>
+			 <li><a routerLink="/RetrieveEmployee" (click)="toggleSidebar()">Manage Employee's Details</a></li>
+			 
+			</ul>
+			<button (click)="toggleSidebar()">Close &times;</button>
+	 
+		</ng-sidebar>
+		
+	 </ng-sidebar-container>
+</nav> 
+
+
+
+  -->
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading"></div>
+      <div class="list-group list-group-flush">
+		<ul class="menu"  style="color:blanchedalmond;">
+			 
+			<li><a routerLink="/RetrieveProduct" style="color:blanchedalmond;" >Manage Product Details</a></li>
+			<li><a routerLink="/RetrieveBill" style="color:blanchedalmond;" >Manage Bill Details</a></li>
+			<li><a routerLink="/RetrieveStore" style="color:blanchedalmond;" >Manage Store Details</a></li>
+			<li><a routerLink="/RetrieveOrders"style="color:blanchedalmond;" >Manage Order Details</a></li>
+			<li><a routerLink="/RetrieveRetailer" style="color:blanchedalmond;" >Manage Retailer's Details</a></li>
+			<li><a routerLink="/RetrieveEmployee" style="color:blanchedalmond;" >Manage Employee's Details</a></li>
 			
-			
-			<nav class="navbar navbar-expand navbar-dark bg-primary"> 
-				<div class="collapse navbar-collapse" id="navbarsExample02">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
-						<li class="nav-item"> <a class="nav-link" href="#"></a> </li>
-                        <li class="nav-item active"> <a class="nav-link" href="#" value ="logout" (click)="logout()" float="right">Logout <span class="sr-only">(current)</span></a> </li>
-                        <!-- <li><input class="logout" type ="button" value ="logout" (click)="logout()"  /> -->
-					</ul>
-					<form class="form-inline my-2 my-md-0"> </form>
-				</div>
-			</nav>
-
-			<div id="wrapper" class="toggled">
-				<!-- Sidebar -->
-               
-				<div id="sidebar-wrapper">
-
-					<ul class="sidebar-nav">
-						
-                        <br>
-						<li> <a routerLink="/ManageBill">Manage Bill</a> </li>
-						<li> <a routerLink="/ManageStore">Manage Store</a> </li>
-						<li> <a routerLink="/ManageProduct">Manage Products</a> </li>
-						<li> <a routerLink="/ManageOrder">Manage Orders</a> </li>
-						<li> <a routerLink="/ManageEmployee">Manage Employees</a> </li>
-						<li> <a routerLink="/ManageRetailers">Manage Retailers</a> </li>
-                        
-					</ul>
-				</div> 
-			</div> 
-			
-			<script src="js/jquery.min.js"></script>
-			<script src="js/bootstrap.bundle.min.js"></script>
-			<script>
-			  $(function(){
-				$("#menu-toggle").click(function(e) {
-					e.preventDefault();
-					$("#wrapper").toggleClass("toggled");
-				});
-	
-				$(window).resize(function(e) {
-				  if($(window).width()<=768){
-					$("#wrapper").removeClass("toggled");
-				  }else{
-					$("#wrapper").addClass("toggled");
-				  }
-				});
-			  });
-			   
-			</script>
-	   
-	 <style>
+		   </ul>
+		   
+        
+      </div>
+    </div>
 
 
-
-	 </style>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-primary" id="menu-toggle">☰</button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#" style="color:blanchedalmond;" >Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+     
+    </div>
+    <!-- /#page-content-wrapper -->
+  </div>
+  <!-- /#wrapper -->

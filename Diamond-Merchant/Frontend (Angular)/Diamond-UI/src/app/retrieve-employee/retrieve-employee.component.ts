@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 import {Employee} from '../employee.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-retrieve-employee',
@@ -11,17 +12,29 @@ export class RetrieveEmployeeComponent implements OnInit {
 
   employeeInfo:Array<Employee>=[];
   flag:boolean = false;
+  route: any;
  
   
-  constructor(public employeeSer:EmployeeService) { }
+  constructor(public employeeSer:EmployeeService,public router:Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+ 
+    this.employeeSer.loadEmployeeDetails().subscribe(data=>{this.employeeInfo=data;
+    });
     
-  }
-  loadData(){
-    this.flag=true;
-    this.employeeSer.loadEmployeeDetails().subscribe(data=>this.employeeInfo=data);
+    }
+    btnClick () {
+      this.router.navigateByUrl('/StoreEmployee');
+   }
+  
+    btnUpdate(){
+      this.router.navigateByUrl('/UpdateEmployee');
     }
   
-}
+    btnDelete(){
+      this.router.navigateByUrl('/DeleteEmployee');
+    }
+    
+   
+  }
 

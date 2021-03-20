@@ -1,8 +1,7 @@
 body {
   font-family: "Karla", sans-serif;
   background-color: #fff;
-  height: 100%;
-  overflow: hidden;
+  min-height: 100vh;
 }
 
 .brand-wrapper {
@@ -10,35 +9,37 @@ body {
   padding-bottom: 8px;
 }
 .brand-wrapper .logo {
-  height: 45px;
+  height: 25px;
 }
 
 .login-section-wrapper {
+  display: -webkit-box;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   flex-direction: column;
   padding: 68px 100px;
   background-color: #fff;
 }
-/* @media (max-width: 100px) {
+@media (max-width: 991px) {
   .login-section-wrapper {
     padding-left: 50px;
     padding-right: 50px;
   }
-} */
-/* @media (max-width: 575px) {
+}
+@media (max-width: 575px) {
   .login-section-wrapper {
     padding-top: 20px;
     padding-bottom: 20px;
     min-height: 100vh;
   }
-} */
+}
 
 .login-wrapper {
   width: 300px;
   max-width: 100%;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 @media (max-width: 575px) {
   .login-wrapper {
@@ -115,18 +116,11 @@ body {
 
 .login-img {
   width: 100%;
-  height: 100%;
+  height: 129vh;
   -o-object-fit: cover;
   object-fit: cover;
   -o-object-position: left;
   object-position: left;
 }
-#logo {
-  width: 197px;
-  height: 52px;
-  display: block;
-  float: left;
-  cursor: pointer;
-  text-indent: -9999em;
-  background: url(/assets/images/logo.png) no-repeat;
-}
+
+/*# sourceMappingURL=login.css.map */

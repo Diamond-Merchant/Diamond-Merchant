@@ -1,108 +1,26 @@
-<!-- <div>
-    <h2>Update Product Price Using Bill-Id </h2>
-    <form 
-    #billRef="ngForm"
-     (ngSubmit)="UpdateBillInfo(billRef.value)">
-    <label>Bill-Id :</label>
-    <input type="number" name="bid" ngModel/><br/>
-    
-    <label>Product Price :</label>
-    <input type="text" name="price" ngModel><br/>
-    <input type="submit" value="update price"/>
-    <input type="reset" value="reset"/>
-    </form>
-    {{msg}}
-    
-</div> -->
-
-
-<style>
-    body{
-      display: inline;
-    }
-   
-    .send-button{
-  background: #54C7C3;
-  width:100%;
-  font-weight: 600;
-  color:#fff;
-  padding: 8px 25px;
-  }
-  input[type=number]::-webkit-inner-spin-button, 
-  input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none; 
-    margin: 0; 
-  }
-  .g-button{
-  color: #fff !important;
-  border: 1px solid #EA4335;
-  background: #ea4335 !important;
-  width:100%;
-  font-weight: 600;
-  color:#fff;
-  padding: 8px 25px;
-  }
-  .my-input{
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  cursor: text;
-  padding: 8px 10px;
-  transition: border .1s linear;
-  }
-  
-  
-  .login-or {
-  position: relative;
-  color: #aaa;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  }
-  .span-or {
-  display: block;
-  position: absolute;
-  left: 50%;
-  top: -2px;
-  margin-left: -25px;
-  background-color: #fff;
-  width: 50px;
-  text-align: center;
-  }
-  .hr-or {
-  height: 1px;
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
-  }
-  @media screen and (max-width:480px){
-  h1{
-  font-size: 26px;
-  }
-  h2{
-  font-size: 20px;
-  }
-  }
-  </style>
-  <app-manage-bill></app-manage-bill>
+<!-- <app-dashboard></app-dashboard>
+<div class="bg-image">
   <div class="container">
     
     <div class="row">
        <div class="col-md-4 mx-auto">
           <div class="myform form ">
-            <br/>
-            
-            <br/>
+            <h2 style="text-align: center;">Update Bill Details</h2>
+            <hr>
              <form #billRef="ngForm"
              (ngSubmit)="UpdateBillInfo(billRef.value)">
                 <div class="form-group">
+                  <label>Bill ID :</label>
                    <input type="number" name="bid" class="form-control my-input" placeholder="Bill Id"ngModel />
                 </div>
                 
                 <div class="form-group">
+                  <label>Product Price :</label>
                   <input type="number" name="productprice" class="form-control my-input" placeholder="Product Price" ngModel />
                  </div>
               
                 <div class="text-center ">
-                  <input type="submit" value="Update Price Info" />
+                  <input type="submit" value="Update Price Info" />&nbsp;
                     <input type="reset" value="reset" />
                   </div>
                 
@@ -110,6 +28,41 @@
              {{msg}}
           </div>
        </div>
-    </div>
-  </div>
-  
+      </div>   
+   -->
+   <app-dashboard></app-dashboard>
+<div class="bg-image">
+   <div class="container">    
+    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+        <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <div class="panel-title">Update Bill Details</div>
+                   </div>     
+
+                <div style="padding-top:30px" class="panel-body" >
+
+                    <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                        
+                    
+                    <form #billRef="ngForm"
+             (ngSubmit)="UpdateBillInfo(billRef.value)">
+                <div class="form-group">
+                  <label>Bill ID :</label>
+                   <input type="number" name="bid" class="form-control my-input" placeholder="Bill Id"ngModel />
+                </div>
+                
+                <div class="form-group">
+                  <label>Product Price :</label>
+                  <input type="number" name="productprice" class="form-control my-input" placeholder="Product Price" ngModel />
+                 </div>
+              
+                <div class="text-center ">
+                  <input type="submit" value="Update Price Info" />&nbsp;
+                    <input type="reset" value="reset" />
+                  </div>
+                
+             </form>
+             {{msg}}
+          </div>
+       </div>
+       </div>

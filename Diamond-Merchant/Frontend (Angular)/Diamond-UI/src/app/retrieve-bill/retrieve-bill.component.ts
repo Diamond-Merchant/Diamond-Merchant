@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BillService } from '../bill.service';
 import {Bill} from '../bill.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-retrieve-bill',
@@ -11,17 +12,29 @@ export class RetrieveBillComponent implements OnInit {
 
   billInfo:Array<Bill>=[];
   flag:boolean = false;
+  route: any;
  
   
-  constructor(public billSer:BillService) { }
+  constructor(public billSer:BillService, public router:Router) { }
 
-  ngOnInit(): void {
-    
-  }
-  loadData(){
-    this.flag=true;
-    this.billSer.loadBillDetails().subscribe(data=>this.billInfo=data);
-    }
   
-}
+  
+  ngOnInit() {
 
+   this.billSer.loadBillDetails().subscribe(data=>{this.billInfo=data;
+   });
+   
+   }
+   btnClick () {
+    this.router.navigateByUrl('/StoreBill');
+ }
+
+  btnUpdate(){
+    this.router.navigateByUrl('/UpdateBill');
+  }
+
+  btnDelete(){
+    this.router.navigateByUrl('/DeleteBill');
+  }
+ }
+ 

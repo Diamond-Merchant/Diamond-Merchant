@@ -1,51 +1,50 @@
-
-
-
-
-   <app-manage-bill></app-manage-bill>
- <div>
-   <div class="col-md-6 mx-auto text-center">
-      
-   </div>
-   <div class="row" >
-      <div class="col-md-4 mx-auto">
+<!-- <div class="bg-image">
+<div class="row" >
+      <div class="col-md-4 mx-auto"  >
          <div class="myform form ">
-           <br/>
-           <br/>
+          <h2 style="text-align: center;"> Store Bill Details</h2>
+         
            <hr>
            <br/>
             <form [formGroup]="billInfo" (ngSubmit)="storeBillDetails()">
                <div class="form-group">
+                 <label>Enter Bill ID :</label>
                   <input type="number" formControlName="bid"  class="form-control my-input" id="bid" placeholder="Bill Id" ngModal>
                </div>
                <div class="form-group">
+                 <label>Enter Employee Name :</label>
                   <input type="text" formControlName="ename"  class="form-control my-input" id="ename" placeholder="Employee Name" ngModal>
                </div>
 
                <div class="form-group">
+                 <label>Customer Name :</label>
                 <input type="text" formControlName="cname"  class="form-control my-input" id="cname" placeholder="Customer Name" ngModal>
               </div>
 
               <div class="form-group">
+                <label>Product Name :</label>
                 <input type="text" formControlName="pname"  class="form-control my-input" id="pname" placeholder="Product Name" ngModal>
               </div>
 
               <div class="form-group">
+                <label>Quantity of Product's :</label>
                 <input type="number" formControlName="qty"  class="form-control my-input" id="qty" placeholder="Quantity of Products" ngModal>
               </div>
 
               <div class="form-group">
+                <label>Total Price :</label>
                 <input type="number" formControlName="price"  class="form-control my-input" id="price" placeholder="Total Price(Bill)" ngModal>
               </div>
                
                
               
              <div class="form-group">
+               <label>Date of Purchase :</label>
                <input type="date" formControlName="dop" id="dop"  class="form-control my-input" placeholder="Date of Product for Billing" ngModal>
              </div>
                
              <div class="text-center ">
-                 <input type="submit" value="store Bill info" />
+                 <input type="submit" value="Store Bill info" /> &nbsp;
                 <input type="reset" value="reset" /> 
 
                 
@@ -55,28 +54,72 @@
             {{msg}}
          </div>
       </div>
-   </div>
- </div>
- 
- <!-- <div>
-    <h2>Store Bill Details</h2>
-    <form [formGroup]="billInfo" (ngSubmit)="storeBillDetails()">
-      <label>Bill id :</label>
-      <input type="number" formControlName="bid" /><br />
-      <label>Employee Name :</label>
-      <input type="text" formControlName="ename" /><br />
-      <label>Customer Name :</label>
-      <input type="text" formControlName="cname" /><br />
-      <label>Product Name :</label>
-      <input type="date" formControlName="pname" /><br />
-      <label>Quantity of Products :</label>
-      <input type="number" formControlName="qty" /><br />
-      <label>Total Price(Bill) :</label>
-      <input type="number" formControlName="price" /><br />
-      <label>Date of Product for Billing :</label>
-      <input type="date" formControlName="dop" /><br />
-      <input type="submit" value="store Bill info" />
-      <input type="reset" value="reset" />
-    </form>
-    {{ msg }}
-  </div> -->
+    </div> -->
+<!-- 
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<app-dashboard></app-dashboard>
+<div class="bg-image">
+    <div class="container">    
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Store Bill Details</div>
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                            
+                        <form [formGroup]="billInfo" (ngSubmit)="storeBillDetails()">
+                          <div class="form-group">
+                            <label>Enter Bill ID :</label>
+                             <input type="number" formControlName="bid"  class="form-control my-input" id="bid" placeholder="Bill Id" ngModal>
+                          </div>
+                          <div class="form-group">
+                            <label>Enter Employee Name :</label>
+                             <input type="text" formControlName="ename"  class="form-control my-input" id="ename" placeholder="Employee Name" ngModal>
+                          </div>
+           
+                          <div class="form-group">
+                            <label>Customer Name :</label>
+                           <input type="text" formControlName="cname"  class="form-control my-input" id="cname" placeholder="Customer Name" ngModal>
+                         </div>
+           
+                         <div class="form-group">
+                           <label>Product Name :</label>
+                           <input type="text" formControlName="pname"  class="form-control my-input" id="pname" placeholder="Product Name" ngModal>
+                         </div>
+           
+                         <div class="form-group">
+                           <label>Quantity of Product's :</label>
+                           <input type="number" formControlName="qty"  class="form-control my-input" id="qty" placeholder="Quantity of Products" ngModal>
+                         </div>
+           
+                         <div class="form-group">
+                           <label>Total Price :</label>
+                           <input type="number" formControlName="price"  class="form-control my-input" id="price" placeholder="Total Price(Bill)" ngModal>
+                         </div>
+                          
+                          
+                         
+                        <div class="form-group">
+                          <label>Date of Purchase :</label>
+                          <input type="date" formControlName="dop" id="dop"  class="form-control my-input" placeholder="Date of Product for Billing" ngModal>
+                        </div>
+                          
+                        <div class="text-center ">
+                          <button type="button" class="btn btn-success">Store Bill Info</button>&nbsp;
+                          <button type="button" class="btn btn-success">Reset </button>
+                           
+                         </div>
+                          
+                       </form>
+                       {{msg}}                        
+                     
+               
+                
+         </div> 
+    </div>
+  </div>

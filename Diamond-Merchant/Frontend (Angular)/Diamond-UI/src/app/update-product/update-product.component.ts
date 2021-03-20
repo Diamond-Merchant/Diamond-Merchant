@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
+import { ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-update-product',
@@ -7,9 +8,9 @@ import { ProductService } from '../product.service';
   styleUrls: ['./update-product.component.css']
 })
 export class UpdateProductComponent implements OnInit {
-  
+  public siteUrl=window.location.href;
   msg:string = '';
-  constructor(public productSer:ProductService) { }
+  constructor(public productSer:ProductService, private route: ActivatedRoute ) { }
 
   ngOnInit(): void {}
     UpdateProductInfo(productInfo:any){
@@ -17,6 +18,8 @@ export class UpdateProductComponent implements OnInit {
       .updateProductInfo(productInfo)
       .subscribe((data)=>(this.msg=data));
     }
+    
+    
   }
 
 
