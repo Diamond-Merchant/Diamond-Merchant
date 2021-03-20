@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import {Product} from '../product.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,17 +14,29 @@ import {Product} from '../product.model';
 
     productInfo:Array<Product>=[];
     flag:boolean = false;
+    route: any;
+
+    toggleSidebar(){ }
    
     
-    constructor(public productSer:ProductService) { }
+    constructor(public productSer:ProductService, public router:Router) { }
   
-    ngOnInit(): void {
-      
-    }
-    loadData(){
-      this.flag=true;
-      this.productSer.loadProductDetails().subscribe(data=>this.productInfo=data);
-      }
+   ngOnInit() {
+ 
+    this.productSer.loadProductDetails().subscribe(data=>{this.productInfo=data;
+    });
     
-  }
+    }
+    btnClick () {
+      this.router.navigateByUrl('/StoreProduct');
+   }
+
+    btnUpdate(){
+      this.router.navigateByUrl('/UpdateProduct');
+    }
+
+    btnDelete(){
+      this.router.navigateByUrl('/DeleteProduct');
+    }
   
+  }

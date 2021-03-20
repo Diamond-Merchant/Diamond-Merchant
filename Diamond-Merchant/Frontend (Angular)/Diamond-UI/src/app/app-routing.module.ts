@@ -26,12 +26,6 @@ import { DeleteEmployeeComponent } from './delete-employee/delete-employee.compo
 import { RetrieveEmployeeComponent } from './retrieve-employee/retrieve-employee.component';
 import { StoreEmployeeComponent } from './store-employee/store-employee.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
-import { ManageBillComponent } from './manage-bill/manage-bill.component';
-import { ManageRetailersComponent } from './manage-retailers/manage-retailers.component';
-import { ManageStoreComponent } from './manage-store/manage-store.component';
-import { ManageProductsComponent } from './manage-products/manage-products.component';
-import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
-import { ManageEmployeesComponent } from './manage-employees/manage-employees.component';
 import{ProductPageComponent} from './product-page/product-page.component';
 import { LoginComponent } from '../app/login/login.component';
 import { CustomerRetrieveComponent } from '../app/customer-retrieve/customer-retrieve.component';
@@ -53,7 +47,7 @@ const routes: Routes = [
   {path:"\UpdateProduct",component:UpdateProductComponent},
   {path:"\DeleteProduct",component:DeleteProductComponent},
   {path:"\RetrieveProduct",component:RetrieveProductComponent},
-  {path:"\Dashoboard",component:DashboardComponent},
+  {path:"\Dashboard",component:DashboardComponent},
   {path:"\RetrieveBill",component:RetrieveBillComponent},
   {path:"\StoreBill",component:StoreBillComponent},
   {path:"\DeleteBill",component:DeleteBillComponent},
@@ -77,13 +71,6 @@ const routes: Routes = [
   {path:"\UpdateRetailer",component:UpdateRetailerComponent},
   {path:"\StoreRetailer",component:StoreRetailerComponent},
   {path:"\DeleteRetailer",component:DeleteRetailerComponent},
-  {path:"\ManageBill", component:ManageBillComponent},
-  {path:"\ManageRetailers",component:ManageRetailersComponent},
-  {path:"\ManageStore",component:ManageStoreComponent},
-  {path: 'AdminDashboard', component: DashboardComponent,canActivate:[MyGuards]},
-  {path:'\ManageProduct', component:ManageProductsComponent},
-  {path:'\ManageOrder',component:ManageOrdersComponent},
-  {path:'\ManageEmployee',component:ManageEmployeesComponent},
   {path:'\ProductPage',component:ProductPageComponent},
   { path: '\home', component: CustomerHomePageComponent },
   { path: '\login', component: LoginComponent },

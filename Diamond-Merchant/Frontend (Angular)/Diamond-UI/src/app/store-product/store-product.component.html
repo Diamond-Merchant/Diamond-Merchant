@@ -1,116 +1,127 @@
-<style>
-   .send-button{
-background: #54C7C3;
-width:100%;
-font-weight: 600;
-color:#fff;
-padding: 8px 25px;
-}
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-.g-button{
-color: #fff !important;
-border: 1px solid #EA4335;
-background: #ea4335 !important;
-width:100%;
-font-weight: 600;
-color:#fff;
-padding: 8px 25px;
-}
-.my-input{
-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-cursor: text;
-padding: 8px 10px;
-transition: border .1s linear;
-}
-.header-title{
-margin: 5rem 0;
-}
-h1{
-font-size: 31px;
-line-height: 40px;
-font-weight: 600;
-color:#4c5357;
-}
-h2{
-color: #5e8396;
-font-size: 21px;
-line-height: 32px;
-font-weight: 400;
-}
-.login-or {
-position: relative;
-color: #aaa;
-margin-top: 10px;
-margin-bottom: 10px;
-padding-top: 10px;
-padding-bottom: 10px;
-}
-.span-or {
-display: block;
-position: absolute;
-left: 50%;
-top: -2px;
-margin-left: -25px;
-background-color: #fff;
-width: 50px;
-text-align: center;
-}
-.hr-or {
-height: 1px;
-margin-top: 0px !important;
-margin-bottom: 0px !important;
-}
-@media screen and (max-width:480px){
-h1{
-font-size: 26px;
-}
-h2{
-font-size: 20px;
-}
-}
-</style>
-<app-manage-products></app-manage-products>
-<div>
-  <div class="col-md-6 mx-auto text-center">
-     
-  </div>
-  <div class="row" >
+<!-- 
+<div class="row" >
      <div class="col-md-4 mx-auto">
         <div class="myform form ">
-          <br/>
-          <br/>
+          
+          <h2> Add Store Info</h2>
           <hr>
-          <br/>
            <form [formGroup]="productInfo" (ngSubmit)="storeProductDetails()">
+              
               <div class="form-group">
-                 <input type="text" formControlName="pid"  class="form-control my-input" id="pid" placeholder="Product Id" ngModal>
+                 <label>Product ID :</label>
+                 <input type="number" formControlName="pid"  class="form-control my-input" id="pid" placeholder="Product Id" ngModal>
               </div>
+
               <div class="form-group">
+                 <label>Store ID :</label>
+                 <input type="number" formControlName="sid"  class="form-control my-input" id="sid" placeholder="Store Id" ngModal>
+              </div>
+              
+              <div class="form-group">
+                 <label>Product Name :</label>
                  <input type="text" formControlName="pname"  class="form-control my-input" id="pname" placeholder="Product Name" ngModal>
               </div>
+
               <div class="form-group">
+                 <label>Category :</label>
+                 <input type="text" formControlName="category"  class="form-control my-input" id="category" placeholder="Category" ngModal>
+               </div>
+              
+              <div class="form-group">
+                 <label>Shelf-Location :</label>
                  <input type="text" formControlName="shelflocation" id="shelflocation"  class="form-control my-input" placeholder="Shelf-Location" ngModal>
               </div>
-              <div class="form-group">
-                <input type="number"  formControlName="costprice" id="costprice"  class="form-control my-input" placeholder="Cost-Price" ngModal>
-             </div>
-             <div class="form-group">
-              <input type="number"  formControlName="mrp" id="mrp"  class="form-control my-input" placeholder="MRP" ngModal>
-            </div>
-            <div class="form-group">
-              <input type="text" formControlName="manufacturer" id="manufacturer"  class="form-control my-input" placeholder="Manufracturer" ngModal>
-            </div>
-              <div class="text-center ">
-                <input type="submit" value="Store Product info" />
-                  <input type="reset" value="reset" /></div>
+               
+               <div class="form-group">
+                  <label>Cost-Price :</label>
+                  <input type="number"  formControlName="costprice" id="costprice"  class="form-control my-input" placeholder="Cost-Price" ngModal>
+               </div>
+              
+               <div class="form-group">
+                  <label>MRP :</label>
+                  <input type="number"  formControlName="mrp" id="mrp"  class="form-control my-input" placeholder="MRP" ngModal>
+               </div>
+               
+               <div class="form-group">
+                  <label>Manufacturer :</label>
+                  <input type="text" formControlName="manufacturer" id="manufacturer"  class="form-control my-input" placeholder="Manufracturer" ngModal>
+               </div>
+               
+               <div class="text-center ">
+                  <input type="submit" value="Store Product info"/>&nbsp;
+                  <input type="reset" value="reset" />
+               </div>
               
            </form>
            {{msg}}
         </div>
      </div>
-  </div>
-</div>
+  -->
+  <app-dashboard></app-dashboard>
+<div class="bg-image">
+  <div class="container">    
+   <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+       <div class="panel panel-info" >
+               <div class="panel-heading">
+                   <div class="panel-title">Store Product Details
+                   </div>
+                </div>     
+
+               <div style="padding-top:30px" class="panel-body" >
+
+                   <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                       
+                   <form [formGroup]="productInfo" (ngSubmit)="storeProductDetails()">
+              
+                     <div class="form-group">
+                        <label>Product ID :</label>
+                        <input type="number" formControlName="pid"  class="form-control my-input" id="pid" placeholder="Product Id" ngModal>
+                     </div>
+       
+                     <div class="form-group">
+                        <label>Store ID :</label>
+                        <input type="number" formControlName="sid"  class="form-control my-input" id="sid" placeholder="Store Id" ngModal>
+                     </div>
+                     
+                     <div class="form-group">
+                        <label>Product Name :</label>
+                        <input type="text" formControlName="pname"  class="form-control my-input" id="pname" placeholder="Product Name" ngModal>
+                     </div>
+       
+                     <div class="form-group">
+                        <label>Category :</label>
+                        <input type="text" formControlName="category"  class="form-control my-input" id="category" placeholder="Category" ngModal>
+                      </div>
+                     
+                     <div class="form-group">
+                        <label>Shelf-Location :</label>
+                        <input type="text" formControlName="shelflocation" id="shelflocation"  class="form-control my-input" placeholder="Shelf-Location" ngModal>
+                     </div>
+                      
+                      <div class="form-group">
+                         <label>Cost-Price :</label>
+                         <input type="number"  formControlName="costprice" id="costprice"  class="form-control my-input" placeholder="Cost-Price" ngModal>
+                      </div>
+                     
+                      <div class="form-group">
+                         <label>MRP :</label>
+                         <input type="number"  formControlName="mrp" id="mrp"  class="form-control my-input" placeholder="MRP" ngModal>
+                      </div>
+                      
+                      <div class="form-group">
+                         <label>Manufacturer :</label>
+                         <input type="text" formControlName="manufacturer" id="manufacturer"  class="form-control my-input" placeholder="Manufracturer" ngModal>
+                      </div>
+                      
+                      <div class="text-center ">
+                         
+                         <button type="button" class="btn btn-success">Store Product Info</button>&nbsp;
+                         <button type="button" class="btn btn-success">Reset </button>
+                         
+                      </div>
+                     
+                  </form>
+                  {{msg}}
+               </div>
+            </div>  
+         </div>

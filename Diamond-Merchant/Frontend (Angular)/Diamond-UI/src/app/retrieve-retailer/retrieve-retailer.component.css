@@ -1,0 +1,22 @@
+.bg-image{
+    background-image: url("src/assets/images/jw7.jpg"); 
+   
+   margin-top:-990px;
+   margin-left: 70px;
+   height:130vh;
+}
+.container{
+   margin-top: -680px;
+   margin-left: 100px;
+   
+
+}
+
+td{
+   text-align: center;
+   font-size:110%;
+}
+th{
+   text-align: center;
+   font-size:110%;
+}

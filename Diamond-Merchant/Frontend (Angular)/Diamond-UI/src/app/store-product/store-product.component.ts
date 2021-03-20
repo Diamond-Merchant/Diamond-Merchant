@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-store-product',
@@ -20,7 +21,7 @@ import { FormGroup, FormControl } from '@angular/forms';
       });
     
       msg:string='';
-      constructor(public productSer: ProductService) { }
+      constructor(public productSer: ProductService, public router: Router) { }
     
       
       ngOnInit(): void {}
@@ -29,6 +30,10 @@ import { FormGroup, FormControl } from '@angular/forms';
         this.productSer
           .storeProductDetails(productRef)
           .subscribe((result) => (this.msg = result));
+          if (this.msg=="Product Record Updated Successfully"){
+            this.router.navigate(['/RetrieveProduct']);
+          }
       }
-      }
+     
+     }
     

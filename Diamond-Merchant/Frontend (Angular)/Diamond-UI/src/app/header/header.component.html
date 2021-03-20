@@ -1,23 +1,16 @@
 <header id="header">
   <div class="container">
-    <a routerLink="/home" id="logo" (click)="exit()" title="Hiralal & Sons"
-      >Hiralal & Sons</a
-    >
+    <a routerLink="/home" id="logo" title="Hiralal & Sons">Hiralal & Sons</a>
     <div class="right-links">
       <ul>
-        <li *ngIf="store.loginStatus === 1">
+        <li>
           <a routerLink="#"><span class="ico-products"></span>Your Cart</a>
         </li>
-        <li *ngIf="store.loginStatus === 0">
+        <li>
           <a routerLink="/signup"><span class="ico-account"></span>Signup</a>
         </li>
-        <li *ngIf="store.loginStatus === 1">
-          <a (click)="logout()"> <span class="ico-signout"></span>Logout</a>
-        </li>
-        <li *ngIf="store.loginStatus === 0">
-          <a routerLink="/login" (click)="login()">
-            <span class="ico-signout"></span>Login</a
-          >
+        <li>
+          <a href="/login"><span class="ico-signout"></span>Login</a>
         </li>
       </ul>
     </div>
