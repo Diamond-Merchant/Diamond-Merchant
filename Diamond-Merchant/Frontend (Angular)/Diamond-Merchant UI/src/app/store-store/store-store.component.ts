@@ -9,12 +9,15 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class StoreStoreComponent implements OnInit {
   storeInfo = new FormGroup({
     storeid: new FormControl(),
+    pid: new FormControl(),
+    oid: new FormControl(),
+    eid: new FormControl(),
     contact: new FormControl(),
 	  address:new FormControl(),
   	storename: new FormControl(),
 	  email: new FormControl(),
-	  pname: new FormControl(),
-	  productprice:new FormControl(),
+	  //pname: new FormControl(),
+	  //productprice:new FormControl(),
   });
 
   msg:string='';

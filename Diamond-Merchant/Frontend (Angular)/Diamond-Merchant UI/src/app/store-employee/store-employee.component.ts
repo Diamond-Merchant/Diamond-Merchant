@@ -12,12 +12,11 @@ export class StoreEmployeeComponent implements OnInit {
     eid: new FormControl(),
     sid: new FormControl(),
     ename: new FormControl(),
-    eemail: new FormControl(),
-    contact: new FormControl(),
+    email: new FormControl(),
+    ephonenumber: new FormControl(),
     gender: new FormControl(),
     birthdate: new FormControl(),
     joiningdate: new FormControl(),
-    dop: new FormControl(),
     designation: new FormControl(),
   });
 

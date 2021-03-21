@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="H:\Zensar\Zensar Java FS Training\Final Changes Diamond Merchant Project\Diamond-Merchant\Backend (Springboot)\DiamondMerchant"/>
 			<item value="H:\Zensar\Zensar Java FS Training\Final Diamond Merchant Project\Diamond-Merchant\Backend (Springboot)\DiamondMerchant"/>
 		</list>
 		<list key="projectNameTemplate">

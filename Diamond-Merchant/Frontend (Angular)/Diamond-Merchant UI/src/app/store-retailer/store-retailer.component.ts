@@ -19,7 +19,7 @@ export class StoreRetailerComponent implements OnInit {
     rpname: new FormControl(),
     rostatus: new FormControl(),
     oid: new FormControl(),
-    storeid: new FormControl(),
+    sid: new FormControl(),
     pid: new FormControl(),
   });
 

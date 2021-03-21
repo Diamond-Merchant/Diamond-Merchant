@@ -10,6 +10,9 @@ public class Retailer {
 	
 	@Id
 	private int rid;
+	private int pid;
+	private int sid;
+	private int oid;
 	private String rname;
 	private String remail;
 	private String rpassword;
@@ -77,10 +80,41 @@ public class Retailer {
 	}
 
 
+	public int getPid() {
+		return pid;
+	}
+
+
+	public void setPid(int pid) {
+		this.pid = pid;
+	}
+
+
+	public int getSid() {
+		return sid;
+	}
+
+
+	public void setSid(int sid) {
+		this.sid = sid;
+	}
+
+
+	public int getOid() {
+		return oid;
+	}
+
+
+	public void setOid(int oid) {
+		this.oid = oid;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Retailer [rid=" + rid + ", rname=" + rname + ", remail=" + remail + ", rpassword=" + rpassword
-				+ ", rphone=" + rphone + ", raddress=" + raddress + "]";
+		return "Retailer [rid=" + rid + ", pid=" + pid + ", sid=" + sid + ", oid=" + oid + ", rname=" + rname
+				+ ", remail=" + remail + ", rpassword=" + rpassword + ", rphone=" + rphone + ", raddress=" + raddress
+				+ "]";
 	}
 
 

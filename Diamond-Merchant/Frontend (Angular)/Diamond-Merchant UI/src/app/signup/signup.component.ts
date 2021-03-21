@@ -29,6 +29,9 @@ export class SignupComponent implements OnInit {
 
   signupDetails(customer:Customer) {
     this.registerService.storeCustomerDetails(customer).subscribe(data => this.msg = data);
+    setTimeout(() => {
+      this.router.navigate(["login"])
+    }, 1000);
   }
 
 }
