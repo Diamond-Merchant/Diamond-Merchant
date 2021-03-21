@@ -29,7 +29,7 @@ CREATE TABLE bill (
 );
 
 
-insert into bill values(101,602,401,503,1001,303,202,'Anu','Yash','HalfCarat',1,7000000,'2021-03-10');
+insert into bill values(101,602,401,503,1001,303,202,'Anu','Vidya','HalfCarat',1,7000000,'2021-03-10');
 
 insert into bill values(102,601,402,502,1003,302,203,'Suresh','Ram','BlackLabel',1,3000000,'2021-01-29');
 
@@ -232,67 +232,31 @@ ON DELETE CASCADE;
 
 
 
- 		CUSTOMER TABLE
- ------------------------------
+ 		CUSTOMER TABLE FOR SIGN-UP
+ -------------------------------------
 
 
-drop table customer;
-
+drop table customer; //changedto auto increament
 
 create table customer (
-	customerid int NOT NULL PRIMARY KEY,
-	pid int NOT NULL,
-	sid int NOT NULL,
-	oid int NOT NULL,
-	name varchar(10) NOT NULL,
-	gender varchar(10) NOT NULL,
-	phonenumber int NOT NULL,
-	address varchar(20) NOT NULL,
-	cemail varchar(20) NOT NULL,
-	password varchar(20) NOT NULL
-);
+customerid int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+name  varchar(20) NOT NULL,
+cemail varchar(20),
+gender varchar(10),
+phonenumber varchar(20),
+password varchar(20)) AUTO_INCREMENT = 400;
 
 
 
-insert into customer values(401,1001,303,202,'Yash','Male','985632456','Bangalore','yash@gmail.com','yash@123');
+insert into customer values(401,'Vidya','vidya@gmail.com','Female','985632456','vidya@123');
 
-insert into customer values(402,1003,301,203,'Ram','Male','896753472','Hubli','ram@gmail.com','ram@123');
+insert into customer values(402,'Ram','ram@gmail.com','Male','896753472','ram@123');
 
-insert into customer values(403,1003,302,201,'Darshan','Male','889469562','Pune','darshan@gmail.com','darshan@123');
+insert into customer values(403,'Darshan','darshan@gmail.com','Male','889469562','darshan@123');
 
-insert into customer values(404,1004,302,204,'Shivani','Female','896532786','Hyderabad','shivani@gmail.com','shivani@123');
-
-
-
-ALTER TABLE customer
-	DROP FOREIGN KEY FK_CP_PID;
+insert into customer values(404,'Shivani','shivani@gmail.com','Female','896532786','shivani@123');
 
 
-ALTER TABLE customer
-ADD CONSTRAINT FK_CP_PID
-FOREIGN KEY (pid) REFERENCES product(pid)
-ON DELETE CASCADE;
-
-
-ALTER TABLE customer
-	DROP FOREIGN KEY FK_CS_SID;
-
-ALTER TABLE customer
-ADD CONSTRAINT FK_CS_SID
-FOREIGN KEY (sid) REFERENCES store(storeid)
-ON DELETE CASCADE;
-
-
-ALTER TABLE customer
-	DROP FOREIGN KEY FK_CO_OID;
-
-
-ALTER TABLE customer
-ADD CONSTRAINT FK_CO_OID
-FOREIGN KEY (oid) REFERENCES orders(oid)
-ON DELETE CASCADE;
-
- 	
  		
 
  		PRODUCT TABLE
@@ -383,36 +347,6 @@ insert into retailer values(501,1002,301,202,'Siri','siri@gmail.com','siri@123',
 insert into retailer values(502,1003,302,203,'Rahul','rahul@gmail.com','rahul@123',895423109,'Bombay');
 
 insert into retailer values(503,1001,303,201,'Pratham','pratham@gmail.com','pratham@123',779065231,'Surat');
-
-
-
-ALTER TABLE retailer
-	DROP FOREIGN KEY FK_RS_PID;
-
-
-ALTER TABLE retailer
-ADD CONSTRAINT FK_RS_PID
-FOREIGN KEY (pid) REFERENCES product(pid)
-ON DELETE CASCADE;
-
-
-ALTER TABLE retailer
-	DROP FOREIGN KEY FK_RS_SID;
-
-
-ALTER TABLE retailer
-ADD CONSTRAINT FK_RS_SID
-FOREIGN KEY (sid) REFERENCES store(storeid)
-ON DELETE CASCADE;
-
-
-ALTER TABLE retailer
-	DROP FOREIGN KEY FK_RS_OID;
-
-ALTER TABLE retailer
-ADD CONSTRAINT FK_RS_OID
-FOREIGN KEY (oid) REFERENCES orders(oid)
-ON DELETE CASCADE;
  
 
 
@@ -467,3 +401,5 @@ apassword VARCHAR (15) NOT NULL
 );
 
 insert into admin values(2000,'admin','admin');
+
+
