@@ -1,0 +1,54 @@
+<app-dashboard></app-dashboard>
+
+<div class="bg-image">
+  <div class="container">
+    <h2 style="color: black">Manage Employee</h2>
+
+    <div>
+      <button type="button" class="btn btn-success" (click)="btnClick()">
+        Add New Employees
+      </button>
+      <hr />
+      <table
+        border="1"
+        class="table table-striped"
+        style="border: 0px solid rgba(15, 15, 15, 0.1)"
+      >
+        <tr style="background-color: rgba(151, 223, 64, 0.9)">
+          <th>Employee Id</th>
+          <th>Store Id</th>
+          <th>Employee Name</th>
+          <th>Gender</th>
+          <th>Contact</th>
+          <th>Birth-date</th>
+          <th>Joining Date</th>
+          <th>Designation</th>
+          <th>Email-Id</th>
+          <th>Actions</th>
+        </tr>
+        <tr
+          *ngFor="let store of employeeInfo"
+          style="background-color: rgba(226, 221, 221, 0.9)"
+        >
+          <td>{{ store.eid }}</td>
+          <td>{{ store.sid }}</td>
+          <td>{{ store.ename }}</td>
+          <td>{{ store.gender }}</td>
+          <td>{{ store.ephonenumber }}</td>
+          <td>{{ store.birthdate }}</td>
+          <td>{{ store.joiningdate }}</td>
+          <td>{{ store.designation }}</td>
+          <td>{{ store.email }}</td>
+          <td>
+            <button type="button" (click)="btnUpdate()" class="btn btn-warning">
+              Update</button
+            >&nbsp;
+            <button type="button" (click)="btnDelete()" class="btn btn-danger">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<nav id="menu">
+  <div class="container">
+    <ul>
+      <li style="color: #737375">
+        <a routerLink="/ProductPage" routerLinkActive="active"
+          >New collection
+        </a>
+      </li>
+      <li>
+        <a id="color" routerLinkActive="active" routerLink="/allNecklace"
+          >Necklaces</a
+        >
+      </li>
+
+      <li><a routerLinkActive="active" routerLink="/allRings">rings</a></li>
+      <li>
+        <a routerLinkActive="active" routerLink="/allBracelet">Bracelets</a>
+      </li>
+
+      <div class="dropdown">
+        <li><a routerLink="/Sorts">Sort By</a></li>
+        <div class="dropdown-content">
+          <li>
+            <a routerLinkActive="active" routerLink="/ProductMfgAsc">
+              Manufacturing Stores Ascending</a
+            >
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="/ProductMfgDesc">
+              Manufacturing Stores Descending</a
+            >
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="/allproductspricebyasc">
+              Price Low to high</a
+            >
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="/allproductspricebydesc">
+              Price High to low</a
+            >
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="/allproductsnameasc"
+              >Product name Ascending</a
+            >
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="/allproductsnamedesc"
+              >Product name Descending</a
+            >
+          </li>
+
+          <!-- <input type = "submit" value = "Search" class = "btn btn-default"> -->
+        </div>
+      </div>
+    </ul>
+  </div>
+</nav>
