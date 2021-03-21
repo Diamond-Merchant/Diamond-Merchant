@@ -1,0 +1,17 @@
+.bg-image {
+  background-image: url("src/assets/images/j5.jpg");
+}
+.container {
+  margin-left: 100px;
+}
+
+td {
+  text-align: center;
+  font-size: 120%;
+  padding: 10px;
+}
+th {
+  text-align: center;
+  font-size: 120%;
+  padding: 10px;
+}

@@ -1,0 +1,55 @@
+<app-dashboard></app-dashboard>
+
+<div class="bg-image">
+  <div class="container">
+    <h2 style="color: black">Manage Orders</h2>
+
+    <div>
+      <button type="button" class="btn btn-success" (click)="btnClick()">
+        Add New Orders
+      </button>
+      <hr />
+
+      <table
+        border="1"
+        class="table table-striped"
+        style="border: 0px solid rgba(15, 15, 15, 0.1)"
+      >
+        <tr style="background-color: rgba(151, 223, 64, 0.9)">
+          <th>Order Id</th>
+          <th>Customer Id</th>
+          <th>Retailer Id</th>
+          <th>Product Id</th>
+          <th>Product Name</th>
+          <th>Order Quantity</th>
+          <th>Price</th>
+          <th>Ordered Date</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+        <tr
+          *ngFor="let store of ordersInfo"
+          style="background-color: rgba(226, 221, 221, 0.9)"
+        >
+          <td>{{ store.oid }}</td>
+          <td>{{ store.cid }}</td>
+          <td>{{ store.rid }}</td>
+          <td>{{ store.pid }}</td>
+          <td>{{ store.pname }}</td>
+          <td>{{ store.oqty }}</td>
+          <td>{{ store.oprice }}</td>
+          <td>{{ store.odate }}</td>
+          <td>{{ store.ostatus }}</td>
+          <td>
+            <button type="button" (click)="btnUpdate()" class="btn btn-warning">
+              Update</button
+            >&nbsp;
+            <button type="button" (click)="btnDelete()" class="btn btn-danger">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

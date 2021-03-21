@@ -1,0 +1,152 @@
+<app-dashboard></app-dashboard>
+<div class="bg-image">
+  <div class="container">
+    <div
+      id="loginbox"
+      style="margin-top: 50px"
+      class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"
+    >
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">Add Store Details</div>
+        </div>
+
+        <div style="padding-top: 30px" class="panel-body">
+          <div
+            style="display: none"
+            id="login-alert"
+            class="alert alert-danger col-sm-12"
+          ></div>
+
+          <form [formGroup]="storeInfo" (ngSubmit)="storeStoreDetails()">
+            <div class="form-group">
+              <label>Store ID :</label>
+              <input
+                type="number"
+                formControlName="storeid"
+                class="form-control my-input"
+                id="storeid"
+                placeholder="Store Id"
+                ngModal
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Product ID :</label>
+              <input
+                type="number"
+                formControlName="pid"
+                class="form-control my-input"
+                id="pid"
+                placeholder="Product Id"
+                ngModal
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Orders ID :</label>
+              <input
+                type="number"
+                formControlName="oid"
+                class="form-control my-input"
+                id="oid"
+                placeholder="Orders Id"
+                ngModal
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Employee ID :</label>
+              <input
+                type="number"
+                formControlName="eid"
+                class="form-control my-input"
+                id="eid"
+                placeholder="Employee Id"
+                ngModal
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Store Contact :</label>
+              <input
+                type="phonenumber"
+                formControlName="contact"
+                class="form-control my-input"
+                id="contact"
+                placeholder="Contact"
+                ngModal
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Store Address :</label>
+              <input
+                type="text"
+                formControlName="address"
+                id="address"
+                class="form-control my-input"
+                placeholder="Address"
+                ngModal
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Store Name :</label>
+              <input
+                type="text"
+                formControlName="storename"
+                id="storename"
+                class="form-control my-input"
+                placeholder="Store Name"
+                ngModal
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Store Email-ID :</label>
+              <input
+                type="email"
+                formControlName="email"
+                id="email"
+                class="form-control my-input"
+                placeholder="Email"
+                ngModal
+              />
+            </div>
+
+            <!-- <div class="form-group">
+              <label>Product Name :</label>
+              <input
+                type="text"
+                formControlName="pname"
+                id="pname"
+                class="form-control my-input"
+                placeholder="Product Name"
+                ngModal
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Product Price :</label>
+              <input
+                type="number"
+                formControlName="productprice"
+                id="productprice"
+                class="form-control my-input"
+                placeholder="Product Price"
+                ngModal
+              />
+            </div> -->
+            <div class="text-center">
+              <input type="submit" value="Store Store info" />&nbsp;
+              <input type="reset" value="reset" />
+            </div>
+          </form>
+          <br />
+          <h3 style="text-align: center">{{ msg }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
