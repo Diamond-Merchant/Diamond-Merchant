@@ -1,0 +1,15 @@
+<div>
+  <h2>Update Customer PhoneNumber</h2>
+  <form
+    #customerRef="ngForm"
+    (ngSubmit)="updateCustomerInfo(customerRef.value)"
+  >
+    <label>CustomerID</label>
+    <input type="number" name="customerid" ngModel /><br />
+    <label>PhoneNumber</label>
+    <input type="number" name="phonenumber" ngModel /><br />
+    <input type="submit" value="Update Phonenumber" />
+    <input type="reset" value="reset" />
+  </form>
+  {{ msg }}
+</div>

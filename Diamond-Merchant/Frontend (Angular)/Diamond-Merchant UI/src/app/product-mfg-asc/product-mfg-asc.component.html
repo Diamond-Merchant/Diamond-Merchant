@@ -1,0 +1,62 @@
+<app-header></app-header>
+<app-customer-navbar></app-customer-navbar>
+
+<link
+  href="https://fonts.googleapis.com/css?family=Raleway"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  rel="stylesheet prefetch"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+/>
+
+<div class="container">
+  <div class="row">
+    <div
+      *ngFor="let product of productInfo"
+      class="col-xs-12 col-sm-6 col-md-4"
+    >
+      <article class="card-wrapper">
+        <div class="image-holder">
+          <a href="#" class="image-holder__link"></a>
+          <img
+            class="image-liquid image-holder--original"
+            src="/assets/images/allimages/{{ product.pname }}.jpg"
+          />
+        </div>
+        <div class="product-description">
+          <h1 class="product-description__title">
+            <a>
+              {{ product.pname }}
+            </a>
+          </h1>
+          <div class="row">
+            <div
+              class="col-xs-12 col-sm-8 product-description__category secondary-text"
+            >
+              {{ product.category }}
+            </div>
+            <div class="col-xs-12 col-sm-4 product-description__price">
+              {{ product.mrp | currency: "INR" }}
+            </div>
+          </div>
+          <hr />
+          <div class="sizes-wrapper">
+            <b>Available at Following Stores</b>
+            <br />
+            <span class="secondary-text text-uppercase">
+              <ul class="list-inline">
+                <li>{{ product.shelflocation }}</li>
+              </ul>
+            </span>
+          </div>
+          <p style="color: green">Buy 2 get 20% discount on each</p>
+          <p>Proud product by {{ product.manufacturer }}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

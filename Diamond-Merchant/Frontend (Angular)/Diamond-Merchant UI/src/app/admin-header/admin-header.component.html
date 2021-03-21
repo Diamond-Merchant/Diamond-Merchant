@@ -1,0 +1,22 @@
+<header id="header">
+  <div class="container">
+    <a
+      routerLink="/RetriveProduct"
+      id="logo"
+      (click)="exit()"
+      title="Hiralal & Sons"
+      >Hiralal & Sons</a
+    >
+    <div class="right-links">
+      <ul>
+        <li>
+          <a><span class="ico-account"></span>Admin</a>
+        </li>
+        <li *ngIf="store.loginStatus === 1">
+          <a (click)="logout()"> <span class="ico-signout"></span>Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- / container -->
+</header>
